@@ -17,7 +17,7 @@
 
 server '54.200.109.118',
  user: 'ubuntu',
-  roles: %w{web app},
+  roles: %w{web app db},
   ssh_options: {
     keys: %w(/Users/catusel/.ssh/ec2-ada.pem),
     forward_agent: false,
