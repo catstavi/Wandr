@@ -3,14 +3,17 @@ $(document).ready(function(){
   var long = $('.long');
 
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(findPosition(lat, long))
+    navigator.geolocation.getCurrentPosition(findPosition)
   }
   else {
     lat.append("Geolocation is not supported by your browser.")
   }
-}
+});
 
-function findPosition(position, lat, long) {
-  long.innerHTML(position.coords.longitude);
-  lat.innerHTML(position.coords.latitude);
-}
+function findPosition(position) {
+  var lat = $('.lat');
+  var long = $('.long');
+
+  long.append(position.coords.longitude);
+  lat.append(position.coords.latitude);
+};
