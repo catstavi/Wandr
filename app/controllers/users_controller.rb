@@ -12,4 +12,17 @@ class UsersController < ApplicationController
 
   end
 
+  def yelp_request
+    coordinates = { latitude: params[:latitude], longitude: params[:longitude] }
+    filter = {
+      category_filter: 'arts'
+    }
+    x  = Yelp.client.search_by_coordinates(coordinates, filter)
+
+    respond_to do |format|
+      format.json { render json: x, status: :ok }
+    end
+
+  end
+
 end

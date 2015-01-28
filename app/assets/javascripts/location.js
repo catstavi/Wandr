@@ -8,12 +8,32 @@ $(document).ready(function(){
   else {
     lat.append("Geolocation is not supported by your browser.")
   }
+
+
 });
 
 function findPosition(position) {
-  var lat = $('.lat');
-  var long = $('.long');
+  // var lat = $('.lat');
+  // var long = $('.long');
+  //
+  // long.append(position.coords.longitude);
+  // lat.append(position.coords.latitude);
 
-  long.append(position.coords.longitude);
-  lat.append(position.coords.latitude);
+  var url = "/yelpit"
+  $.ajax({
+    type: 'POST',
+    url: url,
+    data: {
+      'latitude': position.coords.latitude,
+      'longitude': position.coords.longitude,
+    },
+    success: function (data) {
+      if (data == null) {
+        $('body').css("background", "red");
+        }
+      else {
+        $('body').css("background", "blue");
+      }
+    }
+  });
 };
