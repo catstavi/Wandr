@@ -32,6 +32,8 @@ function findPosition(position) {
         $('body').css("background", "red");
         }
       else {
+        $('h1').append(data.stringify)
+        console.log(data)
         $('body').css("background", "blue");
       }
     }

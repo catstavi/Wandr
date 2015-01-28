@@ -15,7 +15,9 @@ class UsersController < ApplicationController
   def yelp_request
     coordinates = { latitude: params[:latitude], longitude: params[:longitude] }
     filter = {
-      category_filter: 'arts'
+      category_filter: 'arts',
+      radius_filter: 4000,
+      sort: 1
     }
     x  = Yelp.client.search_by_coordinates(coordinates, filter)
 
