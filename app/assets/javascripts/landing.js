@@ -1,19 +1,19 @@
 $(document).ready(function(){
-  var lat = $('.lat');
-  var long = $('.long');
+  $('.click').click(function(){
+    var msg = $('.msg')
 
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(findPosition)
-  }
-  else {
-    lat.append("Geolocation is not supported by your browser.")
-  }
-
-
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(findPosition)
+    }
+    else {
+      msg.append("Geolocation is not supported by your browser.")
+    }
+  });
 });
 
 function findPosition(position) {
-  var url = "/yelpit"
+  $('body').css("background", "orange");
+  var url = '/sessions'
   $.ajax({
     type: 'POST',
     url: url,
@@ -22,13 +22,14 @@ function findPosition(position) {
       'longitude': position.coords.longitude,
     },
     success: function (data) {
-      if (data == null) {
-        $('body').css("background", "red");
-        }
-      else {
-        console.log(data)
-        $('body').css("background", "blue");
-      }
+      $('body').css("background", "blue");
+      // if (data == null) {
+      //   $('body').css("background", "red");
+      //   }
+      // else {
+      //   console.log(data)
+      //   $('body').css("background", "blue");
+      // }
     }
   });
 };
