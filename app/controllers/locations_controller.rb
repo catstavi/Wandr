@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
   def browse
-    raise session[:user_lat]
+    raise
     # scroll through photos loaded by db/api, javascript interactive
   end
 
