@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  root 'users#show'
-  get '/yelpit', to: 'users#index'
-  post '/yelpit', to: 'users#yelp_request'
+  root 'home#landing'
+  get '/browse',        to: 'location#browse',      as: 'browse'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

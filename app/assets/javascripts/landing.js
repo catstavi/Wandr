@@ -13,12 +13,6 @@ $(document).ready(function(){
 });
 
 function findPosition(position) {
-  // var lat = $('.lat');
-  // var long = $('.long');
-  //
-  // long.append(position.coords.longitude);
-  // lat.append(position.coords.latitude);
-
   var url = "/yelpit"
   $.ajax({
     type: 'POST',
