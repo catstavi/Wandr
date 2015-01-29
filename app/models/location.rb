@@ -1,4 +1,5 @@
 class Location < ActiveRecord::Base
+  has_many :windows
   validates :long, :lat, :name, presence: true
 
   def self.record_from_yelp(data)
