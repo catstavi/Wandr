@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
   def browse
-    raise
+    @data = YelpRequester.request(session[:user_lat], session[:user_long])
     # scroll through photos loaded by db/api, javascript interactive
   end
 
