@@ -173,6 +173,7 @@ DEPENDENCIES
   geokit
   jbuilder (~> 2.0)
   jquery-rails
+  json
   pg
   rails (= 4.1.8)
   sass-rails (~> 4.0.3)

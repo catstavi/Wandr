@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'json'
 gem 'yelp'
 gem 'dotenv-rails'
 gem 'geocoder'
