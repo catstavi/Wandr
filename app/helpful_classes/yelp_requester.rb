@@ -2,16 +2,17 @@ class YelpRequester
 
 
   def self.request(lat, long)
-    coordinates = { latitude: lat, longitude: long }
-    filter = {
-      category_filter: 'arts',
-      sort: 1
-    }
-    Yelp.client.search_by_coordinates(coordinates, filter)
+    if lat ==nil || long == nil
+      raise "Error: Lat and/or Long provided are nil"
+    else
+      coordinates = { latitude: lat, longitude: long }
+      filter = {
+        category_filter: 'arts',
+        sort: 1
+      }
+      Yelp.client.search_by_coordinates(coordinates, filter)
+    end
 
-    # respond_to do |format|
-    #   format.json { render json: x, status: :ok }
-    # end
   end
 
 end
