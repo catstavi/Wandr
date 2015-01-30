@@ -13,7 +13,6 @@ class YelpRequester
       }
       Yelp.client.search_by_coordinates(coordinates, filter)
     end
-
   end
 
 end
