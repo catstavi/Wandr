@@ -5,6 +5,7 @@ gem 'yelp'
 gem 'dotenv-rails'
 gem 'geocoder'
 gem 'geokit'
+gem 'google_places'
 
 gem 'rspec-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
