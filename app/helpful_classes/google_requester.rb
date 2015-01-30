@@ -6,13 +6,15 @@ class GoogleRequester
       raise "Error: No search data provided for Google"
     else
       #make a google search using location.name
-      loc_arry = @@client.spots(session[:user_lat], session[:user_long], :name => location.name)
-      if loc_arry.is_empty
+      loc_arry = @@client.spots(location.lat, location.long, :name => location.name)
+      if loc_arry.empty?
         location.active = false
       else
-      # save google place ID
+        # save google place ID
         location.update(place_id: loc_arry[0].place_id)
-      #if lat & long are not close, switch active to false
+        #save hours in association with location
+        # get_hours(location)
+      end
     end
   end
 
