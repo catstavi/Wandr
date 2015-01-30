@@ -11,9 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20150129234806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "locations", force: true do |t|
+    t.string   "name"
+    t.float    "long"
+    t.float    "lat"
+    t.string   "desc"
+    t.boolean  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "windows", force: true do |t|
+    t.integer  "location_id"
+    t.string   "day"
+    t.time     "open"
+    t.time     "close"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

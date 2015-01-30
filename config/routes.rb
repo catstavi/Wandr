@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root 'users#show'
+  root 'home#landing'
+  get '/browse',        to: 'locations#browse',      as: 'browse'
+  post '/sessions',     to: 'sessions#set_location', as: 'set_location'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

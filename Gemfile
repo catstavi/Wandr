@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'json'
+gem 'yelp'
+gem 'dotenv-rails'
 gem 'geocoder'
 gem 'geokit'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
