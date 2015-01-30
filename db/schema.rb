@@ -27,13 +27,6 @@ ActiveRecord::Schema.define(version: 20150130192754) do
     t.string   "place_id"
   end
 
-  create_table "users", force: true do |t|
-    t.float    "latitude"
-    t.float    "longitude"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "windows", force: true do |t|
     t.integer  "location_id"
     t.datetime "created_at"

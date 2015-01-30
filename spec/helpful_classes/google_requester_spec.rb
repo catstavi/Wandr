@@ -16,6 +16,20 @@ describe GoogleRequester do
         expect(Location.first.place_id).to be_a String
         expect(Location.first.place_id.empty?).to be false
       end
+
+      it "makes some window rows" do
+        Location.create(name: "The 5th Avenue Theatre", long: -122.333854660392, lat: 47.608847245574, desc: "Do you like musical theater? Do you like excellent...", active: true )
+        GoogleRequester.request(Location.first)
+        expect(Location.first.windows.count).to be > 0
+      end
+    end
+
+    context "you pass a name to search for" do
+      it "is a recently updated location with a place id" do
+        Location.create(name: "The 5th Avenue Theatre", long: -122.333854660392, lat: 47.608847245574, desc: "Do you like musical theater? Do you like excellent...", active: true )
+        GoogleRequester.request(Location.first)
+        expect(Location.first.windows.count).to be > 0
+      end
     end
   end
 
