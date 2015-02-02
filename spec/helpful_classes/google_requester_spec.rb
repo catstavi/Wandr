@@ -26,6 +26,14 @@ describe GoogleRequester do
         expect(Location.first.windows.count).to be > 0
       end
     end
+
+    context "the google api doesn't have hours" do
+      it "doesn't create any window rows" do
+        Location.create(name: "The Fremont Troll", long: -122.347323, lat: 47.651034)
+        GoogleRequester.request(Location.first)
+        expect(Location.first.windows.count).to be 0
+      end
+    end
   end
 
 end

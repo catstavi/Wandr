@@ -1,12 +1,19 @@
 class GoogleRequester
 
   def self.check_for_updates(location)
-    if location.updated_at < Time.now - 2.weeks then request(location) end
+    if location.updated_at < Time.now - 2.weeks
+      if location.place_id == nil
+        request(location)
+      else
+        get_hours(location)
+      end
+    end
   end
 
   def self.request(location)
     @@client = GooglePlaces::Client.new(ENV["GOOGLE_PLACE_KEY"])
     loc_arry = @@client.spots(location.lat, location.long, :name => location.name)
+    # add second search if first returns nothing using spots_by_query and city name
     if loc_arry.empty?
       location.active = false
     else
