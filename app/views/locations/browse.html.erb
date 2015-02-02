@@ -1,5 +1,15 @@
 HELLO YOUR LINK WORKED
-<%= @bus %>
+<span style ="color:pink"><%= @bus %></span>
 <% @data.businesses.each do |b| %>
-  <%= b.name %>
+  <span style ="color:blue"><%= b.name %></span>
+
 <%end%>
+
+<% @bus.each do |t| %>
+  <span style ="color:red"><%= InstagramRequester.find_location(t) %></span><br>
+<%end%>
+<!-- <% @bus.each do |b| %>
+  <%= image_tag(InstagramRequester.find_location(b)) %>
+<%end%> -->
+
+<!-- .images.standard_resolution.url -->

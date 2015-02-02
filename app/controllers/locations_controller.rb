@@ -3,6 +3,9 @@ class LocationsController < ApplicationController
     @data = YelpRequester.request(session[:user_lat], session[:user_long])
     Location.record_from_yelp(@data)
     @bus = Location.all
+
+      # 
+      # @photos = InstagramRequester.find_location()
     # scroll through photos loaded by db/api, javascript interactive
   end
 
