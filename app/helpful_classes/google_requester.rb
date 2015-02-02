@@ -13,7 +13,8 @@ class GoogleRequester
   def self.request(location)
     @@client = GooglePlaces::Client.new(ENV["GOOGLE_PLACE_KEY"])
     loc_arry = @@client.spots(location.lat, location.long, :name => location.name)
-    # add second search if first returns nothing using spots_by_query and city name
+      # add second search if first returns nothing using spots_by_query and city name
+    if loc_arry.empty? then loc_arry = @@client.spots_by_query("#{location.name} in #{location.city}") end
     if loc_arry.empty?
       location.active = false
     else

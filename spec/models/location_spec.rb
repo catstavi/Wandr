@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Location do
-  let(:burst) {BurstStruct::Burst.new({:businesses => [{name: "bob", location: {coordinate: {latitude: 2, longitude: 5}}, snippet_text: "this is bobs bobs", is_closed: false}]})}
+  let(:burst) {BurstStruct::Burst.new({:businesses => [{name: "bob", location: {coordinate: {latitude: 2, longitude: 5}, city: "Seattle"}, snippet_text: "this is bobs bobs", is_closed: false}]})}
 
   context 'we give it a BurstStruct with lat, long, name, snippet' do
     it 'creates as many locations as are in the businesses array of the burst' do
