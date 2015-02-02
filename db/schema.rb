@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150129234806) do
+ActiveRecord::Schema.define(version: 20150202192317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20150129234806) do
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "place_id"
+    t.string   "city"
   end
 
   create_table "users", force: true do |t|
@@ -35,11 +37,12 @@ ActiveRecord::Schema.define(version: 20150129234806) do
 
   create_table "windows", force: true do |t|
     t.integer  "location_id"
-    t.string   "day"
-    t.time     "open"
-    t.time     "close"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "open_day"
+    t.integer  "close_day"
+    t.integer  "open_time"
+    t.integer  "close_time"
   end
 
 end

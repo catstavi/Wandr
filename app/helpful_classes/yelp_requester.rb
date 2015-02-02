@@ -1,5 +1,6 @@
 class YelpRequester
-
+# possible categories for search
+# aquariums basketballcourts beaches bowling boating climbing gokarts gun_ranges hiking horebackriding hot_air_balloons lakes lasertag mini_golf paintball parks playgrounds skatingrinks
 
   def self.request(lat, long)
     if lat ==nil || long == nil
@@ -12,7 +13,6 @@ class YelpRequester
       }
       Yelp.client.search_by_coordinates(coordinates, filter)
     end
-
   end
 
 end
