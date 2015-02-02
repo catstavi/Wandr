@@ -1,7 +1,7 @@
 class GoogleRequester
 
   def self.check_for_updates(location)
-    if location.updated_at < Time.now - 2.weeks then request(location)
+    if location.updated_at < Time.now - 2.weeks then request(location) end
   end
 
   def self.request(location)
