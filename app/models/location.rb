@@ -17,7 +17,8 @@ class Location < ActiveRecord::Base
       else
         new_locale = Location.create(name: bus.name, long: bus.location.coordinate.longitude,
                                      lat: bus.location.coordinate.latitude,
-                                     active: !bus.is_closed, desc: bus.snippet_text)
+                                     active: !bus.is_closed, desc: bus.snippet_text,
+                                     city: bus.location.city)
         GoogleRequester.request(new_locale)
       end
     end
