@@ -1,25 +1,36 @@
 class InstagramRequester
-#refactor names
-  def self.photos(location)
-    # results = Instagram.location_search(location.lat, location.long, "500")
+
+  def self.photos_by_user_location(lat, long)
+    location_array = Location.by_location(lat, long)
+    photo_hash = {}
+    location_array.each {|loc| photo_hash.merge!(photos_by_location(loc)) }
+    photo_hash
+  end
+
+  def self.photos_by_location(location)
     find_locations(location)
     location_codes = location.insta_codes.collect {|insta_code| insta_code.code}
-    photos = location_ids.collect { |id| get_photos(id) }
-    photos.flatten
+    photos = location_codes.collect { |code| photos_by_instacode(code) }
+    hash = {}
+    photos.flatten.each do |url|
+      hash[url] = location.id
+    end
+    hash
   end
 
   def self.find_locations(location)
-    Instagram.location_search(location.lat, location.long, "500").each do |result|
-      if result.name.include?(location.name)
-        InstaCode.find_or_create_by(code: result.id, location_id: location.id)
+    if location.insta_codes.empty?
+      Instagram.location_search(location.lat, location.long, "500").each do |result|
+        if result.name.include?(location.name)
+          InstaCode.create(code: result.id, location_id: location.id)
+        end
       end
     end
-
   end
 
-  def self.get_photos(location_id)
-    Instagram.location_recent_media(location_id).collect do |photo|
-      photo.images.standard_resolution.url
+  def self.photos_by_instacode(instacode)
+    Instagram.location_recent_media(instacode).collect do |mash|
+      mash.images.standard_resolution.url
     end
   end
 end

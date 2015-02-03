@@ -1,6 +1,7 @@
 HELLO YOUR LINK WORKED
 <span style ="color:pink"></span>
-<% @locations.each do |loc| %>
-  <span style ="color:blue"><%= loc.name %></span>
 
+<% @photo_hash.keys.shuffle.each do |url| %>
+  <h4><%= Location.find(@photo_hash[url]).name %></h4>
+  <%= image_tag(url) %>
 <% end %>

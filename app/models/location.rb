@@ -24,6 +24,8 @@ class Location < ActiveRecord::Base
   end
 
   def self.by_location(lat, long)
+    #maybe have a way to only return a certain #, sorted by closest?
+    #plus only the ones that are open?
     within(2, origin: [lat, long])
   end
 
