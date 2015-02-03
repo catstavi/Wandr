@@ -3,13 +3,9 @@ HELLO YOUR LINK WORKED
 <% @data.businesses.each do |b| %>
   <span style ="color:blue"><%= b.name %></span>
 
-<%end%>
+<% end %>
 
-<% @bus.each do |t| %>
-  <span style ="color:red"><%= InstagramRequester.find_location(t) %></span><br>
-<%end%>
-<!-- <% @bus.each do |b| %>
-  <%= image_tag(InstagramRequester.find_location(b)) %>
-<%end%> -->
 
-<!-- .images.standard_resolution.url -->
+<% @photo_urls.each do |url| %>
+  <%= image_tag(url) %>
+<% end %>
