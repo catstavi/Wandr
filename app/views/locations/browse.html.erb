@@ -1,7 +1,10 @@
 HELLO YOUR LINK WORKED
 <span style ="color:pink"></span>
 
+<div id = "all">
 <% @photo_hash.keys.shuffle.each do |url| %>
-  <h4><%= Location.find(@photo_hash[url]).name %></h4>
-  <%= image_tag(url) %>
+
+  <div id =<%= url %> class = <%=@photo_hash[url]%> ></div>
+
 <% end %>
+</div>
