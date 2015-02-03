@@ -35,6 +35,8 @@ class InstagramRequester
   end
 end
 =begin
+
+EXAMPLE OF WHAT location_recent_media returns
 [#<Hashie::Mash
   attribution=nil
   caption=#<Hashie::Mash
