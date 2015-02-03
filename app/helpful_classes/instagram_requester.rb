@@ -15,15 +15,24 @@ class InstagramRequester
     photos.flatten.each do |url|
       hash[url] = location.id
     end
+    if hash.empty?
+      location.switch_off
+    end
     hash
   end
 
   def self.find_locations(location)
-    if location.insta_codes.empty?
+    if location.insta_codes.empty? || location.updated_at < Time.now - 2.weeks
+      insta_size = InstaCode.count
       Instagram.location_search(location.lat, location.long, "500").each do |result|
         if result.name.include?(location.name)
           InstaCode.create(code: result.id, location_id: location.id)
         end
+      end
+      #if after checking all the codes, you don't find any matching instagram
+      # locations, turn location off
+      if insta_size == InstaCode.count
+        location.switch_off
       end
     end
   end
@@ -33,6 +42,7 @@ class InstagramRequester
       mash.images.standard_resolution.url
     end
   end
+
 end
 =begin
 

@@ -25,10 +25,15 @@ class Location < ActiveRecord::Base
     end
   end
 
+  def switch_off
+    update(active: false, updated_at: Time.now)
+  end
+
   def self.by_location(lat, long)
     #maybe have a way to only return a certain #, sorted by closest?
     #plus only the ones that are open?
-    within(2, origin: [lat, long]).where(active: true)
+    #where is either active, or hasn't been updated for two weeks
+    within(2, origin: [lat, long]).where("updated_at < ? OR active = t", Time.now-2.weeks).first(10) 
   end
 
 end
