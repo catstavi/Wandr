@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150202192317) do
+=======
+ActiveRecord::Schema.define(version: 20150203175612) do
+>>>>>>> cate-instagram
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "insta_codes", force: true do |t|
+    t.string   "code"
+    t.integer  "location_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "locations", force: true do |t|
     t.string   "name"

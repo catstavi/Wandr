@@ -1,5 +1,10 @@
 HELLO YOUR LINK WORKED
-<%= @bus %>
-<% @data.businesses.each do |b| %>
-  <%= b.name %>
-<%end%>
+<span style ="color:pink"></span>
+
+<div id = "all">
+<% @photo_hash.keys.shuffle.each do |url| %>
+
+  <div id =<%= url %> class = <%=@photo_hash[url]%> ></div>
+
+<% end %>
+</div>

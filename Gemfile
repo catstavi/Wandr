@@ -5,6 +5,7 @@ gem 'yelp'
 gem 'dotenv-rails'
 gem 'geocoder'
 gem 'geokit'
+gem 'geokit-rails'
 gem 'google_places'
 
 gem 'rspec-rails'
