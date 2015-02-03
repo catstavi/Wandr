@@ -2,17 +2,16 @@ class InstagramRequester
 #refactor names
   def self.photos(location)
     # results = Instagram.location_search(location.lat, location.long, "500")
-    location_ids = find_locations(location).compact
-    photos = location_ids.collect do |id|
-      get_photos(id)
-    end
+    find_locations(location)
+    location_codes = location.insta_codes.collect {|insta_code| insta_code.code}
+    photos = location_ids.collect { |id| get_photos(id) }
     photos.flatten
   end
 
   def self.find_locations(location)
-    Instagram.location_search(location.lat, location.long, "500").collect do |result|
+    Instagram.location_search(location.lat, location.long, "500").each do |result|
       if result.name.include?(location.name)
-        result.id
+        InstaCode.find_or_create_by(code: result.id, location_id: location.id)
       end
     end
 

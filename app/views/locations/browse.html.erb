@@ -1,11 +1,6 @@
 HELLO YOUR LINK WORKED
-<span style ="color:pink"><%= @bus %></span>
-<% @data.businesses.each do |b| %>
-  <span style ="color:blue"><%= b.name %></span>
+<span style ="color:pink"></span>
+<% @locations.each do |loc| %>
+  <span style ="color:blue"><%= loc.name %></span>
 
-<% end %>
-
-
-<% @photo_urls.each do |url| %>
-  <%= image_tag(url) %>
 <% end %>
