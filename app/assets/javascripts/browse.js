@@ -1,18 +1,20 @@
 $(document).ready(function(){
   addSwipeEvents($('#all').children());
-  var active_div = $('#all').children().eq(1);
-  addPhoto(active_div);
+  var first_div = $('#all').children().eq(0);
+  addPhoto(first_div);
+  addClassVisited(first_div)
 });
 
 function addSwipeEvents(objects) {
   for (i = 0; i<$('#all').children().length; i++ ) {
-    $('#all').children().eq(i+1).on("swipeleft", function() {
+    $('#all').children().eq(i).on("swipeleft", function() {
       console.log("You just swiped left!")
       console.log("i is: " + i)
       $(this).children().remove();
+      addClassVisited($(this).next());
       addPhoto( $(this).next() );
     });
-    $('#all').children().eq(i+1).on("swiperight", function() {
+    $('#all').children().eq(i).on("swiperight", function() {
       console.log("You just swiped right!")
       $(this).children().remove();
       addPhoto( $(this).prev() );
@@ -26,6 +28,14 @@ function addPhoto(active_div) {
   photo.setAttribute("src", active_div.attr('id'));
   active_div.append(photo);
 }
+
+function addClassVisited(div) {
+  console.log(div)
+  console.log(div.attr("class"))
+  if (div.attr("class").indexOf("visited") == -1) {
+    div.addClass("visited");
+  };
+};
 // function switchPhoto(active_div, n) {
 //   addPhoto(active_div);
 //   console.log("added a photo to div: " + n)
