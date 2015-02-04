@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $('.button').click(function(){
+  $('.click').click(function(){
     var msg = $('.msg')
 
     if (navigator.geolocation) {
