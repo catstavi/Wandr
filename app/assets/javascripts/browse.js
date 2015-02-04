@@ -36,6 +36,13 @@ function addClassVisited(div) {
     div.addClass("visited");
   };
 };
+
+function ajaxToDatabase() {
+  $.ajax({
+    type: 'POST',
+    url: "/load_locations",
+  })
+}
 // function switchPhoto(active_div, n) {
 //   addPhoto(active_div);
 //   console.log("added a photo to div: " + n)

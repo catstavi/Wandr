@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root 'home#landing'
-  get '/browse',        to: 'locations#browse',      as: 'browse'
-  post '/sessions',     to: 'sessions#set_location', as: 'set_location'
+  get '/browse',          to: 'locations#browse',      as: 'browse'
+  post '/sessions',       to: 'sessions#set_location', as: 'set_location'
+  post '/load_locations', to: 'locations#check_for_new_locations'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
