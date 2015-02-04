@@ -1,16 +1,18 @@
 $(document).ready(function(){
-  var n = 1
-  var active_div = $('#all').children().eq(n);
-  switchPhoto(active_div, n);
+  var active_div = $('#all').children().eq(1);
+  switchPhoto(active_div, 1);
 });
 
 function switchPhoto(active_div, n) {
-  n +=1
   var photo = document.createElement("img");
   photo.setAttribute("src", active_div.attr('id'));
   active_div.append(photo);
-  active_div.click(function() {
+  active_div.on("swipeleft", function() {
     active_div.children().remove()
-    switchPhoto($('#all').children().eq(n), n)
-  })
+    switchPhoto($('#all').children().eq(n+1), n+1)
+  });
+  active_div.on("swiperight", function() {
+    active_div.children().remove()
+    switchPhoto($('#all').children().eq(n-1), n-1)
+  });
 };
