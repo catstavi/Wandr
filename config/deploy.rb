@@ -4,6 +4,7 @@ lock '3.3.5'
 set :application, 'adventure-tbd'
 set :repo_url, 'git@github.com:catstavi/Adventure-TBD.git'
 set :use_sudo, false
+set :linked_files, %w{ .env}
 
 set :deploy_to, '/var/www/adventure-tbd'
 
@@ -38,7 +39,6 @@ set :deploy_to, '/var/www/adventure-tbd'
 # set :keep_releases, 5
 
 namespace :deploy do
-
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:

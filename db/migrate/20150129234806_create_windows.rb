@@ -1,4 +1,4 @@
-wclass CreateWindows < ActiveRecord::Migration
+class CreateWindows < ActiveRecord::Migration
   def change
     create_table :windows do |t|
       t.integer :location_id
