@@ -43,26 +43,36 @@ function ajaxToDatabase() {
       //add divs to view
       console.log("SUCCESS!!!!!!!!");
       DeleteUnvisited();
-      AppendNew(data);
+      // AppendNew(data);
       console.log(Object.keys(data));
     }
   })
 }
 
-function DeleteUnvisited() {
-  for (i = 0; i<$('#all').children().length; i++ ) {
+function firstUnvisitedIndex() {
+  for (i = 0; i < $('#all').children().length; i++ ) {
     var div = $("#all").children().eq(i)
     if (div.attr("class").indexOf("visited") == -1) {
-      div.remove();
+      console.log("i found the first unvisited div at index: "+ i);
+      return i
     };
+  };
+
+}
+
+function DeleteUnvisited() {
+  var index = firstUnvisitedIndex()
+  while ( $('#all').children().length > index ) {
+    $('#all').children().eq(index).remove();
+    console.log("Length after removal is: " + $('#all').children().length )
   };
 };
 
 function AppendNew(data) {
   for (i = 0; i<Object.keys(data).length; i++ ) {
     var url = Object.keys(data)[i].toString()
-
-    if ($("#"+ url).length == 0) {
+    var visited = allVisitedUrls();
+    if ( visited.indexOf( Object.keys(data)[i] ) == -1 ) {
         var div = document.createElement("div")
         div.setAttribute("id", url)
         div.addClass(data[url])
