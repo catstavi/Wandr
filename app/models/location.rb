@@ -13,14 +13,16 @@ class Location < ActiveRecord::Base
   def self.record_from_yelp(data)
     data.businesses.each do |bus|
       location = Location.find_by(name: bus.name)
-      if !location.nil?
-        GoogleRequester.check_for_updates(location)
-      else
+
+      if location.nil?
         new_locale = Location.create(name: bus.name, long: bus.location.coordinate.longitude,
                                      lat: bus.location.coordinate.latitude,
                                      active: !bus.is_closed, desc: bus.snippet_text,
                                      city: bus.location.city)
         GoogleRequester.request(new_locale)
+
+      else
+        GoogleRequester.check_for_updates(location)
       end
     end
   end
@@ -33,7 +35,7 @@ class Location < ActiveRecord::Base
     #maybe have a way to only return a certain #, sorted by closest?
     #plus only the ones that are open?
     #where is either active, or hasn't been updated for two weeks
-    within(2, origin: [lat, long]).where("updated_at < ? OR active = ?", Time.now-2.weeks, true).first(10) 
+    within(2, origin: [lat, long]).where("updated_at < ? OR active = ?", Time.now-2.weeks, true).first(10)
   end
 
 end
