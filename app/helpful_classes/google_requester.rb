@@ -1,12 +1,13 @@
 class GoogleRequester
 
-# TODO: need something that will chenge the updated_at time even if no new data
+# TODO: need something that will change the updated_at time even if no new data
   def self.check_for_updates(location)
-    if location.updated_at < Time.now - 2.weeks
+    if location.hours_updated_at < Time.now - 2.weeks
       if location.place_id == nil
         request(location)
       else
         get_hours(location)
+        location.update(hours_updated_at: Time.now)
       end
     end
   end
