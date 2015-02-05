@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  ajaxToDatabase();
   addSwipeEvents($('#all').children());
   var first_div = $('#all').children().eq(0);
   addPhoto(first_div);
@@ -9,7 +10,6 @@ function addSwipeEvents(objects) {
   for (i = 0; i<$('#all').children().length; i++ ) {
     $('#all').children().eq(i).on("swipeleft", function() {
       console.log("You just swiped left!")
-      console.log("i is: " + i)
       $(this).children().remove();
       addClassVisited($(this).next());
       addPhoto( $(this).next() );
@@ -30,8 +30,6 @@ function addPhoto(active_div) {
 }
 
 function addClassVisited(div) {
-  console.log(div)
-  console.log(div.attr("class"))
   if (div.attr("class").indexOf("visited") == -1) {
     div.addClass("visited");
   };
@@ -41,8 +39,63 @@ function ajaxToDatabase() {
   $.ajax({
     type: 'POST',
     url: "/load_locations",
+    success: function(data) {
+      //add divs to view
+      console.log("SUCCESS!!!!!!!!");
+      DeleteUnvisited();
+      AppendNew(data);
+      console.log(Object.keys(data));
+    }
   })
 }
+
+function DeleteUnvisited() {
+  for (i = 0; i<$('#all').children().length; i++ ) {
+    var div = $("#all").children().eq(i)
+    if (div.attr("class").indexOf("visited") == -1) {
+      div.remove();
+    };
+  };
+};
+
+function AppendNew(data) {
+  for (i = 0; i<Object.keys(data).length; i++ ) {
+    var url = Object.keys(data)[i].toString()
+
+    if ($("#"+ url).length == 0) {
+        var div = document.createElement("div")
+        div.setAttribute("id", url)
+        div.addClass(data[url])
+        div.addClass("cupcake")
+        $("#all").append(div)
+      }
+    }
+}
+
+function allVisitedUrls() {
+  var visited = []
+  for (i = 0; i<$('#all').children().length; i++ ) {
+    if (div.attr("class").indexOf("visited") != -1) {
+      visited.push(div.attr("id"))
+    };
+  }
+  return visited
+}
+//
+//
+// function findUnvisitedDiv() {
+//   for (i = 0; i<$('#all').children.length; i++ ) {
+//     var div = $("#all").children.eq(i)
+//     if (div.attr("class").indexOf("visited") != -1) {
+//       return div;
+//     };
+//   };
+// };
+//
+// function deleteAllUnv() {
+//   var divs = $("#all").children
+//
+// }
 // function switchPhoto(active_div, n) {
 //   addPhoto(active_div);
 //   console.log("added a photo to div: " + n)

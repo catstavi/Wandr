@@ -22,6 +22,17 @@ class LocationsController < ApplicationController
   end
 
   def check_for_new_locations
+    ###it queries yelp
+    @data = YelpRequester.request(session[:user_lat], session[:user_long])
+   ##it adds yelp results to db
+    Location.record_from_yelp(@data)
+   ##it gets photos from database locations again(get_db_photos)
+
+    photos = get_db_photos
+
+    respond_to do |format|
+      format.json {render json: photos}
+    end
 
   end
 end
