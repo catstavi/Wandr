@@ -2,6 +2,12 @@ class InstagramRequester
 
   # TODO: limit how often we check for new instagram pictures for a given location
 
+  def check_for_updates(location)
+    if location.updated_at < 
+    if location.updated_at < Time.now - 2.weeks
+
+  end
+
   def self.save_photos_by_user_location(lat, long)
     location_array = Location.by_location(lat, long)
     location_array.each {|loc| photos_by_location(loc) }

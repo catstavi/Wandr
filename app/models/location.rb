@@ -3,7 +3,7 @@ class Location < ActiveRecord::Base
   has_many :windows
   has_many :insta_codes
   has_many :photos
-  
+
   validates :long, :lat, :name, :city, presence: true
   validates :long, :lat, :name, presence: true
 
@@ -32,7 +32,10 @@ class Location < ActiveRecord::Base
                                      city: bus.location.city)
         GoogleRequester.request(new_locale)
       else
+        # GoogleRequester will only query if location data is more than 2 weeks old
         GoogleRequester.check_for_updates(location)
+        # InstagramRequester will only query if location data is more than 1 day old
+        InstagramRequester.check_for_updates(location)
       end
     end
   end

@@ -1,5 +1,6 @@
 class GoogleRequester
 
+# TODO: need something that will chenge the updated_at time even if no new data
   def self.check_for_updates(location)
     if location.updated_at < Time.now - 2.weeks
       if location.place_id == nil
