@@ -1,9 +1,12 @@
 class Location < ActiveRecord::Base
 
   has_many :windows
-  validates :long, :lat, :name, :city, presence: true
   has_many :insta_codes
+  has_many :photos
+  
+  validates :long, :lat, :name, :city, presence: true
   validates :long, :lat, :name, presence: true
+
   acts_as_mappable :default_units => :miles,
                    :default_formula => :sphere,
                    :distance_field_name => :distance,
