@@ -41,11 +41,20 @@ class Location < ActiveRecord::Base
   end
 
 
-  def self.by_location(lat, long)
+
+  def self.open_by_location(lat, long)
     #maybe have a way to only return a certain #, sorted by closest?
     #plus only the ones that are open?
     #where is either active, or hasn't been updated for two weeks
-    within(2, origin: [lat, long]).where("updated_at < ? OR active = ?", Time.now-2.weeks, true).first(10)
+    # within(2, origin: [lat, long]).where("updated_at < ? OR active = ?", Time.now-2.weeks, true).first(10)
+  end
+
+  def self.all_open_locations
+    time_now = Time.now.hour*100 + Time.now.min
+    Location.within(2, origin: [lat, long])
+    .where("locations.updated_at < ? OR active = ?", Time.now-2.weeks, true)
+    .joins(:windows)
+    .where("open_day = ? AND open_time <= ? OR close_day = ? AND close_time > ?", Time.now.day, time_now, Time.now.day, time_now)
   end
 
 end
