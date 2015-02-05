@@ -15,5 +15,14 @@
  */
 
 #all div {
-  margin: 30px;
+  width: 90%;
+  height: 90%;
+}
+
+.center-block {
+width:686px;
+/*padding:20px;*/
+padding: 2%;
+background-color:#eceadc;
+color:#ec8007
 }

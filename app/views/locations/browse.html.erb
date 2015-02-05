@@ -1,13 +1,21 @@
-HELLO YOUR LINK WORKED
-<span style ="color:pink">
-  LAT: <%= @lat %>
-  LONG: <%= @long %>
-</span>
+<div class = "container">
+  <span style ="color:pink">
+    LAT: <%= @lat %>
+    LONG: <%= @long %>
+  </span>
+  <div class = "row">
+    <div class = "col-md-1">
+      <span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+    </div>
+    <div id = "all" class = "center-block">
+      <% @photo_hash.keys.shuffle.each do |url| %>
 
-<div id = "all">
-  <% @photo_hash.keys.shuffle.each do |url| %>
+        <div id =<%= url %> class = <%=@photo_hash[url]%> ></div>
 
-    <div id =<%= url %> class = <%=@photo_hash[url]%> ></div>
-
-  <% end %>
+      <% end %>
+    </div>
+    <div class = "col-md-1">
+      <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+    </div>
+  </div>
 </div>
