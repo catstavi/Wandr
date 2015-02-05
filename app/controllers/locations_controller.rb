@@ -29,9 +29,14 @@ class LocationsController < ApplicationController
    ##it gets photos from database locations again(get_db_photos)
 
     photos = get_db_photos
+    photo_hash_array = []
+
+    photos.keys.each do |key|
+      array << { key => photos[key] }
+    end
 
     respond_to do |format|
-      format.json {render json: photos}
+      format.json {render json: photo_hash_array }
     end
 
   end

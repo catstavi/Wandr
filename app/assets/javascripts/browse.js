@@ -46,16 +46,17 @@ function addClassVisited(div) {
 };
 
 function ajaxToDatabase() {
-  console.log("meow")
+  // console.log("meow")
   $.ajax({
     type: 'POST',
     url: "/load_locations",
     success: function(data) {
       //add divs to view
       console.log("SUCCESS!!!!!!!!");
-      DeleteUnvisited();
-      AppendNew(data);
-      addSwipeEvents($('#all').children(".new"))
+      console.log(data)
+      // DeleteUnvisited();
+      // AppendNew(data);
+      // addSwipeEvents($('#all').children(".new"))
       // console.log(Object.keys(data));
     }
   })
@@ -65,7 +66,7 @@ function firstUnvisitedIndex() {
   for (i = 0; i < $('#all').children().length; i++ ) {
     var div = $("#all").children().eq(i)
     if (div.attr("class").indexOf("visited") == -1) {
-      console.log("i found the first unvisited div at index: "+ i);
+      // console.log("i found the first unvisited div at index: "+ i);
       return i
     };
   };
@@ -76,7 +77,7 @@ function DeleteUnvisited() {
   var index = firstUnvisitedIndex()
   while ( $('#all').children().length > index ) {
     $('#all').children().eq(index).remove();
-    console.log("Length after removal is: " + $('#all').children().length )
+    // console.log("Length after removal is: " + $('#all').children().length )
   };
 };
 
