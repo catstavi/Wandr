@@ -6,8 +6,6 @@ HELLO YOUR LINK WORKED
 
 <div id = "all">
   <% @photo_hash.keys.shuffle.each do |url| %>
-
-    <div id =<%= url %> class = <%=@photo_hash[url]%> ></div>
-
+      <div class = "row"><div id =<%= url %> class = <%=@photo_hash[url]%> ></div></div>
   <% end %>
 </div>
