@@ -32,10 +32,11 @@ class Location < ActiveRecord::Base
                                      active: !bus.is_closed, desc: bus.snippet_text,
                                      city: bus.location.city)
         GoogleRequester.request(new_locale)
+        InstagramRequester.save_photos_by_location(location)
       else
-        # GoogleRequester will only query if location data is more than 2 weeks old
+        # GoogleRequester will only query if hours location data is more than 2 weeks old
         GoogleRequester.check_for_updates(location)
-        # InstagramRequester will only query if location data is more than 1 day old
+        # InstagramRequester will only query if photo location data is more than 1 day old
         InstagramRequester.check_for_updates(location)
       end
     end

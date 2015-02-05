@@ -1,6 +1,5 @@
 class InstagramRequester
 
-
   def self.check_for_updates(location)
     if location.photos_updated_at < Time.now - 1.day
       photos_by_location(location)
@@ -9,12 +8,7 @@ class InstagramRequester
     end
   end
 
-  def self.save_photos_by_user_location(lat, long)
-    location_array = Location.by_location(lat, long)
-    location_array.each { |loc| photos_by_location(loc) }
-  end
-
-  def self.photos_by_location(location)
+  def self.save_photos_by_location(location)
     find_insta_codes(location)
     location_codes = location.insta_codes.collect {|insta_code| insta_code.code}
     photos = location_codes.collect { |code| photos_by_instacode(code) }
