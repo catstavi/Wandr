@@ -10,26 +10,30 @@ class Location < ActiveRecord::Base
                    :lat_column_name => :lat,
                    :lng_column_name => :long
 
-  def self.record_from_yelp(data)
+  def switch_off
+    update(active: false, updated_at: Time.now)
+  end
+
+  # calls yelp for nearby locations
+  #iterates over the results to either find them (and check for updates)
+  # or create them, and get info from google places API
+
+  def self.record_new(lat, long)
+    data = YelpRequester.request(session[:user_lat], session[:user_long])
     data.businesses.each do |bus|
       location = Location.find_by(name: bus.name)
-
       if location.nil?
         new_locale = Location.create(name: bus.name, long: bus.location.coordinate.longitude,
                                      lat: bus.location.coordinate.latitude,
                                      active: !bus.is_closed, desc: bus.snippet_text,
                                      city: bus.location.city)
         GoogleRequester.request(new_locale)
-
       else
         GoogleRequester.check_for_updates(location)
       end
     end
   end
 
-  def switch_off
-    update(active: false, updated_at: Time.now)
-  end
 
   def self.by_location(lat, long)
     #maybe have a way to only return a certain #, sorted by closest?
