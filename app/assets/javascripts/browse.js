@@ -43,7 +43,7 @@ function ajaxToDatabase() {
       //add divs to view
       console.log("SUCCESS!!!!!!!!");
       DeleteUnvisited();
-      // AppendNew(data);
+      AppendNew(data);
       console.log(Object.keys(data));
     }
   })
@@ -70,23 +70,25 @@ function DeleteUnvisited() {
 
 function AppendNew(data) {
   for (i = 0; i<Object.keys(data).length; i++ ) {
-    var url = Object.keys(data)[i].toString()
+    var url = Object.keys(data)[i].toString();
     var visited = allVisitedUrls();
-    if ( visited.indexOf( Object.keys(data)[i] ) == -1 ) {
-        var div = document.createElement("div")
-        div.setAttribute("id", url)
-        div.addClass(data[url])
-        div.addClass("cupcake")
-        $("#all").append(div)
-      }
+    if ( visited.indexOf( url ) == -1 ) {
+        var div = document.createElement("div");
+        div.setAttribute("id", url);
+        $("#all").append(div);
+        div = $("#all").children().last();
+        div.addClass(data[url].toString());
+        div.addClass("cupcake");
+      };
     }
 }
 
 function allVisitedUrls() {
   var visited = []
   for (i = 0; i<$('#all').children().length; i++ ) {
+    var div = $('#all').children().eq(i);
     if (div.attr("class").indexOf("visited") != -1) {
-      visited.push(div.attr("id"))
+      visited.push(div.attr("id"));
     };
   }
   return visited
