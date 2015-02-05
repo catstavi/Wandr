@@ -1,25 +1,35 @@
 $(document).ready(function(){
-  ajaxToDatabase();
-  addSwipeEvents($('#all').children());
-  var first_div = $('#all').children().eq(0);
-  addPhoto(first_div);
-  addClassVisited(first_div)
+  if (window.location.pathname == "/browse") {
+    ajaxToDatabase();
+    addSwipeEvents($('#all').children());
+    var first_div = $('#all').children().eq(0);
+    addPhoto(first_div);
+    addClassVisited(first_div)
+  }
 });
 
-function addSwipeEvents(objects) {
-  for (i = 0; i<$('#all').children().length; i++ ) {
-    $('#all').children().eq(i).on("swipeleft", function() {
-      console.log("You just swiped left!")
-      $(this).children().remove();
-      addClassVisited($(this).next());
-      addPhoto( $(this).next() );
-    });
-    $('#all').children().eq(i).on("swiperight", function() {
-      console.log("You just swiped right!")
-      $(this).children().remove();
-      addPhoto( $(this).prev() );
-    });
+function addSwipeEvents( objects ) {
+  for (i = 0; i< objects.length; i++ ) {
+    addSwipesToElem( objects.eq(i) )
   }
+}
+
+function addSwipesToElem(elem) {
+  elem.on("swipeleft", swipeLeftHandler )
+  elem.on("swiperight", swipeRightHandler )
+}
+
+function swipeLeftHandler() {
+  console.log("You just swiped left!")
+  $(this).children().remove();
+  addClassVisited($(this).next());
+  addPhoto( $(this).next() );
+}
+
+function swipeRightHandler() {
+  console.log("You just swiped right!")
+  $(this).children().remove();
+  addPhoto( $(this).prev() );
 }
 
 function addPhoto(active_div) {
@@ -36,6 +46,7 @@ function addClassVisited(div) {
 };
 
 function ajaxToDatabase() {
+  console.log("meow")
   $.ajax({
     type: 'POST',
     url: "/load_locations",
@@ -44,7 +55,8 @@ function ajaxToDatabase() {
       console.log("SUCCESS!!!!!!!!");
       DeleteUnvisited();
       AppendNew(data);
-      console.log(Object.keys(data));
+      addSwipeEvents($('#all').children(".new"))
+      // console.log(Object.keys(data));
     }
   })
 }
@@ -78,7 +90,7 @@ function AppendNew(data) {
         $("#all").append(div);
         div = $("#all").children().last();
         div.addClass(data[url].toString());
-        div.addClass("cupcake");
+        div.addClass("new");
       };
     }
 }
