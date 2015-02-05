@@ -41,7 +41,10 @@ class Location < ActiveRecord::Base
 
   def self.all_open_locations
     time_now = Time.now.hour*100 + Time.now.min
-    Location.within(2, origin: [lat, long]).where("updated_at < ? OR active = ?", Time.now-2.weeks, true).joins(:windows).where("open_day = ? AND open_time <= ? OR close_day = ? AND close_time > ?", Time.now.day, time_now, Time.now.day, time_now)
+    Location.within(2, origin: [lat, long])
+    .where("locations.updated_at < ? OR active = ?", Time.now-2.weeks, true)
+    .joins(:windows)
+    .where("open_day = ? AND open_time <= ? OR close_day = ? AND close_time > ?", Time.now.day, time_now, Time.now.day, time_now)
   end
 
 end
