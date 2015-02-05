@@ -54,10 +54,10 @@ function ajaxToDatabase() {
       //add divs to view
       console.log("SUCCESS!!!!!!!!");
       console.log(data)
-      // DeleteUnvisited();
-      // AppendNew(data);
-      // addSwipeEvents($('#all').children(".new"))
-      // console.log(Object.keys(data));
+      DeleteUnvisited();
+      AppendNew(data);
+      addSwipeEvents($('#all').children(".new"))
+      console.log(Object.keys(data));
     }
   })
 }
@@ -82,15 +82,16 @@ function DeleteUnvisited() {
 };
 
 function AppendNew(data) {
-  for (i = 0; i<Object.keys(data).length; i++ ) {
-    var url = Object.keys(data)[i].toString();
+  for (i = 0; i<data.length; i++ ) {
+    var url = Object.keys(data[i]).toString();
+    var location_id = data[i][url]
     var visited = allVisitedUrls();
     if ( visited.indexOf( url ) == -1 ) {
         var div = document.createElement("div");
         div.setAttribute("id", url);
         $("#all").append(div);
         div = $("#all").children().last();
-        div.addClass(data[url].toString());
+        div.addClass(location_id.toString());
         div.addClass("new");
       };
     }

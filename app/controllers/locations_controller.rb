@@ -30,11 +30,13 @@ class LocationsController < ApplicationController
 
     photos = get_db_photos
     photo_hash_array = []
+    # new_hash = {}
 
     photos.keys.each do |key|
-      array << { key => photos[key] }
+      photo_hash_array << { key => photos[key] }
     end
-
+    photo_hash_array.shuffle!
+    # new_hash = { "photos" => photo_hash_array.shuffle}
     respond_to do |format|
       format.json {render json: photo_hash_array }
     end
