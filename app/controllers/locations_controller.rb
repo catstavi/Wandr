@@ -26,7 +26,7 @@ class LocationsController < ApplicationController
     @data = Location.record_new(session[:user_lat], session[:user_long])
     #it gets photos from database locations again(get_db_photos)
     photos = get_db_photos
-    
+
     photo_hash_array = []
     photos.keys.each do |key|
       photo_hash_array << { key => photos[key] }
