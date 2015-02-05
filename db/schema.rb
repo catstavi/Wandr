@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150205224848) do
+ActiveRecord::Schema.define(version: 20150205231536) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 20150205224848) do
     t.string   "city"
     t.datetime "insta_codes_updated_at"
     t.datetime "photos_updated_at"
+    t.datetime "hours_updated_at"
+    t.boolean  "has_hours"
   end
 
   create_table "photos", force: true do |t|
