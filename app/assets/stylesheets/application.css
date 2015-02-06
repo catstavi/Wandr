@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap
  */
 
 #all div {
@@ -20,7 +21,8 @@
 }
 
 .center-block {
-width:686px;
+/*width:680px;*/
+width: 70%;
 /*padding:20px;*/
 padding: 2%;
 background-color:#eceadc;
