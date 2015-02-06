@@ -2,9 +2,7 @@ class InstagramRequester
 
   def self.check_for_updates(location)
     if location.photos_updated_at < Time.now - 1.day
-      photos_by_location(location)
-    elsif location.insta_codes_updated_at < Time.now - 2.weeks
-      find_insta_codes(location)
+      save_photos_by_location(location)
     end
   end
 
@@ -21,7 +19,7 @@ class InstagramRequester
   # queries instagram to find new location codes if the given location has none
   # or if it hasn't been updated for 2 weeks
   def self.find_insta_codes(location)
-    if location.insta_codes.empty? || location.updated_at < Time.now - 2.weeks
+    if location.insta_codes.empty? || location.insta_codes_updated_at < Time.now - 2.weeks
       insta_size = InstaCode.count
       Instagram.location_search(location.lat, location.long, "500").each do |result|
         if result.name.include?(location.name)

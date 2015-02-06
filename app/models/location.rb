@@ -44,7 +44,7 @@ class Location < ActiveRecord::Base
 
   scope :active, -> { where(active: true) }
   # scope :open_now -> { joins(:windows).where("open_day = ? AND open_time <= ? OR close_day = ? AND close_time > ?", Time.now.day, time_now, Time.now.day, time_now) }
-  scope :no_hours, -> { where('locations.id NOT IN (SELECT DISTINCT(location_id) FROM windows)') }
+  # scope :no_hours, -> { where('locations.id NOT IN (SELECT DISTINCT(location_id) FROM windows)') }
 
   def self.filtered(lat, long)
     Location.active.near(lat,long).open_now_or_no_hours
@@ -59,9 +59,9 @@ class Location < ActiveRecord::Base
     Location.joins(:windows).where("(locations.id NOT IN (SELECT DISTINCT(location_id) FROM windows)) OR (open_day = ? AND open_time <= ? OR close_day = ? AND close_time > ?)", Time.now.day, time_now, Time.now.day, time_now)
   end
 
-  def url_and_id_arry(lat, long)
+  def self.url_and_id_arry(lat, long)
     arry = filtered(lat, long).collect do |loc|
-      loc.photos.collect |photo|
+      loc.photos.collect do |photo|
         { photo.url => loc.id }
       end
     end
