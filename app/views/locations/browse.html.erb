@@ -7,6 +7,6 @@ HELLO YOUR LINK WORKED
 <div id = "all">
   <% @photo_hash.each do |inner_hash| %>
       <% url = inner_hash.keys.first %>
-      <div class = "row"><div id =<%= url %> class = <%= @photo_hash[url] %> ></div></div>
+      <div id =<%= url %> class = <%= inner_hash[url] %> ></div>
   <% end %>
 </div>

@@ -27,5 +27,7 @@ class LocationsController < ApplicationController
     #it gets photos from database locations again(get_db_photos)
     photos = get_db_photos
 
+    render json: photos
+
   end
 end

@@ -32,7 +32,7 @@ class GoogleRequester
     hours = @@client.spot(location.place_id).opening_hours
     unless hours == nil
       # clear out any old windows before building new ones
-      locations.window.destroy_all
+      location.windows.destroy_all
       hours["periods"].each do |day_hash|
         Window.create(location_id: location.id, open_day: day_hash["open"]["day"],
                       open_time: day_hash["open"]["time"], close_day: day_hash["close"]["day"],

@@ -23,16 +23,19 @@ class Location < ActiveRecord::Base
 
   # it finds some locations that we already have
   def self.record_new(lat, long)
-    data = YelpRequester.request(session[:user_lat], session[:user_long])
+    data = YelpRequester.request(lat, long)
     data.businesses.each do |bus|
       location = Location.find_by(name: bus.name)
       if location.nil?
         new_locale = Location.create(name: bus.name, long: bus.location.coordinate.longitude,
                                      lat: bus.location.coordinate.latitude,
                                      active: !bus.is_closed, desc: bus.snippet_text,
-                                     city: bus.location.city)
+                                     city: bus.location.city,
+                                     hours_updated_at: Time.now,
+                                     insta_codes_updated_at: Time.now,
+                                     photos_updated_at: Time.now )
         GoogleRequester.request(new_locale)
-        InstagramRequester.save_photos_by_location(location)
+        InstagramRequester.save_photos_by_location(new_locale)
       else
         # GoogleRequester will only query if hours location data is more than 2 weeks old
         GoogleRequester.check_for_updates(location)

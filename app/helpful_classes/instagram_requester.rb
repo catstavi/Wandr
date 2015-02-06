@@ -26,7 +26,7 @@ class InstagramRequester
           InstaCode.create(code: result.id, location_id: location.id)
         end
       end
-      location.update(insta_code_updated_at: Time.now)
+      location.update(insta_codes_updated_at: Time.now)
     end
   end
 
