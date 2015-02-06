@@ -1,39 +1,32 @@
 class InstagramRequester
 
-  def self.photos_by_user_location(lat, long)
-    location_array = Location.by_location(lat, long)
-    photo_hash = {}
-    location_array.each {|loc| photo_hash.merge!(photos_by_location(loc)) }
-    photo_hash
+  def self.check_for_updates(location)
+    if location.photos_updated_at < Time.now - 1.day
+      save_photos_by_location(location)
+    end
   end
 
-  def self.photos_by_location(location)
-    find_locations(location)
+  def self.save_photos_by_location(location)
+    find_insta_codes(location)
     location_codes = location.insta_codes.collect {|insta_code| insta_code.code}
     photos = location_codes.collect { |code| photos_by_instacode(code) }
-    hash = {}
     photos.flatten.each do |url|
-      hash[url] = location.id
+      Photo.create(url: url, location_id: location.id)
     end
-    if hash.empty?
-      location.switch_off
-    end
-    hash
+    location.update(photos_updated_at: Time.now)
   end
 
-  def self.find_locations(location)
-    if location.insta_codes.empty? || location.updated_at < Time.now - 2.weeks
+  # queries instagram to find new location codes if the given location has none
+  # or if it hasn't been updated for 2 weeks
+  def self.find_insta_codes(location)
+    if location.insta_codes.empty? || location.insta_codes_updated_at < Time.now - 2.weeks
       insta_size = InstaCode.count
       Instagram.location_search(location.lat, location.long, "500").each do |result|
         if result.name.include?(location.name)
           InstaCode.create(code: result.id, location_id: location.id)
         end
       end
-      #if after checking all the codes, you don't find any matching instagram
-      # locations, turn location off
-      if insta_size == InstaCode.count
-        location.switch_off
-      end
+      location.update(insta_codes_updated_at: Time.now)
     end
   end
 

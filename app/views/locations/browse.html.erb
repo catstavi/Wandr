@@ -8,10 +8,9 @@
       <span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
     </div>
     <div id = "all" class = "center-block">
-      <% @photo_hash.keys.shuffle.each do |url| %>
-
-        <div id =<%= url %> class = <%=@photo_hash[url]%> ></div>
-
+      <% @photo_hash.each do |inner_hash| %>
+          <% url = inner_hash.keys.first %>
+          <div id =<%= url %> class = <%= inner_hash[url] %> ></div>
       <% end %>
     </div>
     <div class = "col-md-1">
