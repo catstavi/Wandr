@@ -42,21 +42,21 @@ class Location < ActiveRecord::Base
     end
   end
 
+  scope :active, -> { where(active: true) }
+  # scope :open_now -> { joins(:windows).where("open_day = ? AND open_time <= ? OR close_day = ? AND close_time > ?", Time.now.day, time_now, Time.now.day, time_now) }
+  scope :no_hours, -> { where('locations.id NOT IN (SELECT DISTINCT(location_id) FROM windows)') }
 
-
-  def self.open_by_location(lat, long)
-    #maybe have a way to only return a certain #, sorted by closest?
-    #plus only the ones that are open?
-    #where is either active, or hasn't been updated for two weeks
-    # within(2, origin: [lat, long]).where("updated_at < ? OR active = ?", Time.now-2.weeks, true).first(10)
+  def self.filtered(lat, long)
+    Location.active.near(lat,long).open_now_or_no_hours
   end
 
-  def self.all_open_locations
-    time_now = Time.now.hour*100 + Time.now.min
+  def self.near(lat, long)
     Location.within(2, origin: [lat, long])
-    .where(active: true)
-    .joins(:windows)
-    .where("open_day = ? AND open_time <= ? OR close_day = ? AND close_time > ?", Time.now.day, time_now, Time.now.day, time_now)
+  end
+
+  def self.open_now_or_no_hours
+    time_now = Time.now.hour*100 + Time.now.min
+    Location.joins(:windows).where("(locations.id NOT IN (SELECT DISTINCT(location_id) FROM windows)) OR (open_day = ? AND open_time <= ? OR close_day = ? AND close_time > ?)", Time.now.day, time_now, Time.now.day, time_now)
   end
 
 end
