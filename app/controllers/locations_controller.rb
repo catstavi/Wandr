@@ -18,7 +18,7 @@ class LocationsController < ApplicationController
   end
 
   def get_db_photos
-    InstagramRequester.photos_by_user_location(session[:user_lat], session[:user_long])
+    Location.filtered( session[:user_lat], session[:user_long] )
   end
 
   def check_for_new_locations
