@@ -65,7 +65,7 @@ class Location < ActiveRecord::Base
         { photo.url => loc.id }
       end
     end
-    arry.flatten
+    arry.flatten.shuffle
   end
 
 end
