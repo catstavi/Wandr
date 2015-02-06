@@ -18,28 +18,16 @@ class LocationsController < ApplicationController
   end
 
   def get_db_photos
-    InstagramRequester.photos_by_user_location(session[:user_lat], session[:user_long])
+    Location.url_and_id_arry( session[:user_lat], session[:user_long] )
   end
 
   def check_for_new_locations
-    ###it queries yelp
-    @data = YelpRequester.request(session[:user_lat], session[:user_long])
-   ##it adds yelp results to db
-    Location.record_from_yelp(@data)
-   ##it gets photos from database locations again(get_db_photos)
-
+    #it checks for previously unsaved locations from yelp and updates already saved ones
+    @data = Location.record_new(session[:user_lat], session[:user_long])
+    #it gets photos from database locations again(get_db_photos)
     photos = get_db_photos
-    photo_hash_array = []
-    # new_hash = {}
 
-    photos.keys.each do |key|
-      photo_hash_array << { key => photos[key] }
-    end
-    photo_hash_array.shuffle!
-    # new_hash = { "photos" => photo_hash_array.shuffle}
-    respond_to do |format|
-      format.json {render json: photo_hash_array }
-    end
+    render json: photos
 
   end
 end
