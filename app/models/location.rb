@@ -58,8 +58,10 @@ class Location < ActiveRecord::Base
   end
 
   def self.open_now_or_no_hours
-    time_now = Time.now.hour*100 + Time.now.min
-    Location.joins(:windows).where("(locations.id NOT IN (SELECT DISTINCT(location_id) FROM windows)) OR (open_day = ? AND open_time <= ? OR close_day = ? AND close_time > ?)", Time.now.day, time_now, Time.now.day, time_now)
+    timezone = Timezone::Zone.new :latlon => [lat, long]
+    time_now = timezone.time Time.now
+    time_now_int =  time_now.hour*100 + time_now.min
+    Location.joins(:windows).where("(locations.id NOT IN (SELECT DISTINCT(location_id) FROM windows)) OR (open_day = ? AND open_time <= ? OR close_day = ? AND close_time > ?)", Time.now.day, time_now_int, Time.now.day, time_now_int)
   end
 
   def self.url_and_id_arry(lat, long)
