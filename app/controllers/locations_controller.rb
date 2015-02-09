@@ -10,7 +10,10 @@ class LocationsController < ApplicationController
   end
 
   def show
-    # this will be the location detail page with button to navigate here
+    # this return the data that ajax will need to fill out the show information for that div
+    @location = Location.find(params[:id].to_i)
+    data = { name: @location.name, desc: @location.desc }
+    render json: data
   end
 
   def index

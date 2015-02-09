@@ -11,7 +11,26 @@ $(document).ready(function(){
 function addSwipeEvents( objects ) {
   for (i = 0; i< objects.length; i++ ) {
     addSwipesToElem( objects.eq(i) )
+    addClickToElem( objects.eq(i) )
   }
+}
+
+function addClickToElem(elem) {
+  elem.click( function() {
+    $('#details').show();
+    var clicked = $(this)
+    $.ajax({
+      type: 'POST',
+      url: 'locations/show',
+      data: {
+        id: clicked.attr('class').replace(/\D/g,'')
+      },
+      success: function(data) {
+        console.log(data.name)
+        $('#details').html("<h3>" + data.name + "</h3> <p>" + data.desc + "</p>")
+      }
+    })
+  })
 }
 
 function addSwipesToElem(elem) {
@@ -24,12 +43,14 @@ function swipeLeftHandler() {
   $(this).children().remove();
   addClassVisited($(this).next());
   addPhoto( $(this).next() );
+  $('#details').hide();
 }
 
 function swipeRightHandler() {
   console.log("You just swiped right!")
   $(this).children().remove();
   addPhoto( $(this).prev() );
+  $('#details').hide();
 }
 
 function addPhoto(active_div) {
