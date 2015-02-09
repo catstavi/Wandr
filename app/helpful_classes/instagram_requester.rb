@@ -11,7 +11,7 @@ class InstagramRequester
     location_codes = location.insta_codes.collect {|insta_code| insta_code.code}
     photos = location_codes.collect { |code| photos_by_instacode(code) }
     photos.flatten.each do |url|
-      Photo.create(url: url, location_id: location.id)
+      location.photos << Photo.find_or_create_by(url: url)
     end
     location.update(photos_updated_at: Time.now)
   end
