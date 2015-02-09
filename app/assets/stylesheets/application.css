@@ -16,15 +16,83 @@
  */
 
 #all div {
-  width: 90%;
-  height: 90%;
+  /*width: 90%;
+  height: 90%;*/
 }
 
 .center-block {
-/*width:680px;*/
+ /*width:680px;
+padding:20px;
+
 width: 70%;
-/*padding:20px;*/
 padding: 2%;
 background-color:#eceadc;
+color:#ec8007*/
+}
+
+#all div img {
+  /*width: 70%;
+  height: 90%;*/
+  width: 550px;
+  height: 550px;
+}
+
+#all {
+  height: 600px;
+  width: 600px;
+  padding: 25px;
+  background-color: #D5DEDA;
+}
+.center-block {
+/*width:680px;*/
+/*width: 90%;*/
+/*width: 70%;*/
+/*padding:20px;*/
+/*padding: 2%;*/
+/*background-color:#eceadc;*/
+/*background-color:#AEB7B3;*/
+/*background-color: #D5DEDA;*/
 color:#ec8007
+}
+
+#left-g-d, #right-g-d {
+  height: 600px;
+  /*width: 40px;*/
+  /*position: absolute;*/
+}
+
+#left-g, #right-g {
+  margin: 290px 0 295px 0;
+  font-size: 4em;
+}
+
+#left-g {
+  float: right;
+}
+
+#right-g {
+  float: left;
+}
+
+.lime {
+  color: #CFD11A;
+}
+
+.lime-b {
+  color: #CFD11A;
+}
+
+.dk-grey {
+  color: #595959;
+}
+
+.dk-grey-b{
+  background: #595959;
+}
+
+.button {
+  border-radius: 20px;
+  padding: 10px;
+  width: 100px;
+  text-align: center;
 }
