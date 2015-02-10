@@ -14,7 +14,7 @@ class Location < ActiveRecord::Base
                    :lng_column_name => :long
 
   def switch_off
-    update(active: false, updated_at: Time.now)
+      update(active: false, updated_at: Time.now)
   end
 
   # calls yelp for nearby locations

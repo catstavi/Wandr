@@ -14,6 +14,17 @@
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+require 'vcr'
+
+VCR.configure do |c|
+  #the directory where your cassettes will be saved
+  c.cassette_library_dir = 'spec/vcr_cassettes'
+  # your HTTP request service. You can also use fakeweb, webmock, and more
+  c.hook_into :faraday
+  c.default_cassette_options = { :record => :new_episodes }
+end
+
+
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
