@@ -205,11 +205,8 @@ DEPENDENCIES
   capistrano-rvm
   coffee-rails (~> 4.0.0)
   dotenv-rails
-<<<<<<< HEAD
   faraday (= 0.8.9)
-=======
   font-awesome-rails
->>>>>>> master
   geocoder
   geokit
   geokit-rails
