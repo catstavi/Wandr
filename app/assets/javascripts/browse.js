@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  console.log("The document is ready!")
   $('.click').click(function(){
     var msg = $('.msg')
 
@@ -22,13 +23,14 @@ function findPosition(position) {
       'longitude': position.coords.longitude,
     },
     success: function (data) {
-      $('body').css("background", "pink");
+      //show loading gif here
       console.log("meow!")
       // GET PHOTOS ALREADY IN DB
       ajaxToDatabase();
-      // ajaxTriggerApiCalls();
+      ajaxTriggerApiCalls();
       // addSwipeEvents($('#all').children());
       // var first_div = $('#all').children().eq(0);
+      // console.log(first_div)
       // addPhoto(first_div);
       // addClassVisited(first_div)
     }
@@ -97,14 +99,22 @@ function addClassVisited(div) {
 function ajaxToDatabase() {
   console.log("hey girl")
   $.ajax({
-    type: 'GET',
+    type: 'POST',
     url: '/get_db_photos',
     success: function(data) {
       console.log("I defeated the mighty Ajax!");
+      console.log(data);
+      AppendNew(data, "old");
+      addSwipeEvents($('#all').children());
+      var first_div = $('#all').children().eq(0);
+      console.log(first_div)
+      addPhoto(first_div);
+      addClassVisited(first_div)
+      //go to photo container
     },
     error: function() {
       console.log("ERRORERRORERROR")
-    };
+    }
   })
 };
 
@@ -118,7 +128,7 @@ function ajaxTriggerApiCalls() {
       console.log("SUCCESS!!!!!!!!");
       console.log(data)
       DeleteUnvisited();
-      AppendNew(data);
+      AppendNew(data, "new");
       addSwipeEvents($('#all').children(".new"))
       console.log(Object.keys(data));
     }
@@ -144,7 +154,7 @@ function DeleteUnvisited() {
   };
 };
 
-function AppendNew(data) {
+function AppendNew(data, classname) {
   for (i = 0; i<data.length; i++ ) {
     var url = Object.keys(data[i]).toString();
     var location_id = data[i][url]
@@ -155,7 +165,7 @@ function AppendNew(data) {
         $("#all").append(div);
         div = $("#all").children().last();
         div.addClass(location_id.toString());
-        div.addClass("new");
+        div.addClass(classname);
       };
     }
 }
