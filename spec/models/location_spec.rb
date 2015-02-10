@@ -84,16 +84,6 @@ describe Location do
       loc4
       win2
       win3
-      loc3.windows.each do |win|
-        puts win.open_day, win.close_day, win.open_time, win.close_time
-      end
-      timezone = Timezone::Zone.new :latlon => [47, -122]
-      time_now = timezone.time Time.now
-      time_now_int =  time_now.hour*100 + time_now.min
-      day_int = time_now.strftime("%w").to_i
-      puts "$$$$$$$$$$$$$"
-      puts Location.includes(:windows).where("(locations.id NOT IN (SELECT DISTINCT(location_id) FROM windows)) OR (open_day = ? AND open_time <= ? OR close_day = ? AND close_time > ?)", day_int, time_now_int, day_int, time_now_int).references(:windows)
-      puts "$$$$$$$$$$$$$"
       expect(Location.open_now_or_no_hours(47, -122)).to_not include loc3
     end
 
@@ -112,9 +102,9 @@ describe Location do
       expect(Location.filtered(47.6216643, -122.32132559999998)).to_not include loc4
     end
 
-    it "remove locations that are closed" do
+    it "removes locations that are closed" do
       win3
-      expect(Location.filtered(47.6216643, -122.32132559999998)).to include loc3
+      expect(Location.filtered(47.6216643, -122.32132559999998)).to_not include loc3
     end
 
   end
