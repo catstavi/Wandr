@@ -24,20 +24,6 @@ body {
   font-size: 7em;
 }
 
-#all div {
-  /*width: 90%;
-  height: 90%;*/
-}
-
-.center-block {
- /*width:680px;
-padding:20px;
-
-width: 70%;
-padding: 2%;
-background-color:#eceadc;
-color:#ec8007*/
-}
 
 #all div img {
   /*width: 70%;
@@ -53,14 +39,6 @@ color:#ec8007*/
   background-color: #D5DEDA;
 }
 .center-block {
-/*width:680px;*/
-/*width: 90%;*/
-/*width: 70%;*/
-/*padding:20px;*/
-/*padding: 2%;*/
-/*background-color:#eceadc;*/
-/*background-color:#AEB7B3;*/
-/*background-color: #D5DEDA;*/
 color:#ec8007
 }
 
@@ -143,20 +121,22 @@ color:#ec8007
 }
 
 #team {
-  width: 100%;
+  /*width: 100%;*/
 
 }
 
 #my-body {
-  width: 100%;
-  margin: 0;
-  padding: 0;
+  /*width: 100%;*/
+  /*margin: 0;
+  padding: 0;*/
+
 }
 
+
+
 .container {
-  width: 100%;
   margin: 0;
-  padding: 0;
+  width: 100%;
 }
 
 .big-gly {
