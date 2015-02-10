@@ -1,6 +1,6 @@
 $(document).ready(function(){
   console.log("The document is ready!")
-  $('.click').click(function(){
+  $('#click').click(function(){
     var msg = $('.msg')
 
     if (navigator.geolocation) {
@@ -13,7 +13,6 @@ $(document).ready(function(){
 });
 
 function findPosition(position) {
-  $('body').css("background", "orange");
   var url = '/sessions'
   $.ajax({
     type: 'POST',
