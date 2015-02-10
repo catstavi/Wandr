@@ -1,12 +1,40 @@
 $(document).ready(function(){
-  if (window.location.pathname == "/browse") {
-    ajaxToDatabase();
-    addSwipeEvents($('#all').children());
-    var first_div = $('#all').children().eq(0);
-    addPhoto(first_div);
-    addClassVisited(first_div)
-  }
+  $('.click').click(function(){
+    var msg = $('.msg')
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(findPosition)
+    }
+    else {
+      msg.append("Geolocation is not supported by your browser.")
+    }
+  });
 });
+
+function findPosition(position) {
+  $('body').css("background", "orange");
+  var url = '/sessions'
+  $.ajax({
+    type: 'POST',
+    url: url,
+    data: {
+      'latitude': position.coords.latitude,
+      'longitude': position.coords.longitude,
+    },
+    success: function (data) {
+      $('body').css("background", "pink");
+      console.log("meow!")
+      // GET PHOTOS ALREADY IN DB
+      ajaxToDatabase();
+      // ajaxTriggerApiCalls();
+      // addSwipeEvents($('#all').children());
+      // var first_div = $('#all').children().eq(0);
+      // addPhoto(first_div);
+      // addClassVisited(first_div)
+    }
+  });
+};
+
 
 function addSwipeEvents( objects ) {
   for (i = 0; i< objects.length; i++ ) {
@@ -67,6 +95,20 @@ function addClassVisited(div) {
 };
 
 function ajaxToDatabase() {
+  console.log("hey girl")
+  $.ajax({
+    type: 'GET',
+    url: '/get_db_photos',
+    success: function(data) {
+      console.log("I defeated the mighty Ajax!");
+    },
+    error: function() {
+      console.log("ERRORERRORERROR")
+    };
+  })
+};
+
+function ajaxTriggerApiCalls() {
   // console.log("meow")
   $.ajax({
     type: 'POST',
