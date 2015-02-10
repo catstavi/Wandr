@@ -9,6 +9,14 @@ describe Location do
       loc.switch_off
       expect(loc.active).to be false
     end
+    context "location is already not active" do
+      it "still changes updated_at" do
+        old_time = Time.now - 1.day
+        loc.update(active: false, updated_at: old_time)
+        loc.switch_off
+        expect(loc.updated_at).to be > old_time
+      end
+    end
   end
 
   #
