@@ -10,6 +10,10 @@ $(document).ready(function(){
       msg.append("Geolocation is not supported by your browser.")
     }
   });
+
+  $('#left-g').click(leftArrow);
+  $('#right-g').click(rightArrow);
+
 });
 
 function findPosition(position) {
@@ -27,21 +31,29 @@ function findPosition(position) {
       // GET PHOTOS ALREADY IN DB
       ajaxToDatabase();
       ajaxTriggerApiCalls();
-      // addSwipeEvents($('#all').children());
-      // var first_div = $('#all').children().eq(0);
-      // console.log(first_div)
-      // addPhoto(first_div);
-      // addClassVisited(first_div)
     }
   });
 };
-
 
 function addSwipeEvents( objects ) {
   for (i = 0; i< objects.length; i++ ) {
     addSwipesToElem( objects.eq(i) )
     addClickToElem( objects.eq(i) )
   }
+}
+
+function rightArrow() {
+  var div_index = $('#all').children().children().parent().index()
+  var next_div = $('#all').children().eq(div_index + 1)
+  $('#all').children().children().remove()
+  addPhoto(next_div)
+}
+
+function leftArrow() {
+  var div_index = $('#all').children().children().parent().index()
+  var prev_div = $('#all').children().eq(div_index - 1)
+  $('#all').children().children().remove()
+  addPhoto(prev_div)
 }
 
 function addClickToElem(elem) {
