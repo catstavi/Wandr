@@ -25,6 +25,10 @@ describe Location do
     }
     # not nearby, active, no hours
   let(:loc4) { Location.create(name: "A place", long: -122, lat: 47, desc: "Do you like musical theater? Do you like excellent...", city: "seattle", active: true ) }
+  let(:loc5) { Location.create( name: "Test Box", long: -122.333854660392, lat: 47.608847245574, desc: "Had a great time there with my friends!\nThe time d...", city: "seattle", active: true)}
+  let(:pic5) { Photo.create(url: "ex.url1", location_id: loc5.id)
+              Photo.create(url: "ex.url2", location_id: loc5.id)
+              Photo.create(url: "ex.url3", location_id: loc5.id)}
 
   describe '#switch_off' do
 
@@ -79,10 +83,6 @@ describe Location do
     end
 
     it "does not return a location that is closed now" do
-      loc1
-      loc2
-      loc4
-      win2
       win3
       expect(Location.open_now_or_no_hours(47, -122)).to_not include loc3
     end
@@ -105,6 +105,33 @@ describe Location do
     it "removes locations that are closed" do
       win3
       expect(Location.filtered(47.6216643, -122.32132559999998)).to_not include loc3
+    end
+
+  end
+
+  describe "#url_and_id_arry" do
+    it "returns an array full of hashes" do
+      loc5
+      pic5
+      ar = Location.url_and_id_arry(47.6216643, -122.32132559999998)
+      expect(ar).to be_a Array
+      expect(ar[0]).to be_a Hash
+    end
+
+    it "has photo urls as keys" do
+      loc5
+      pic5
+      url = loc5.photos.first.url
+      ar = Location.url_and_id_arry(47.6216643, -122.32132559999998)
+      keys = ar.collect {|hash| hash.keys}
+      expect(keys.flatten).to include url
+    end
+
+    it "has location id as hash values" do
+      loc5
+      pic5
+      ar = Location.url_and_id_arry(47.6216643, -122.32132559999998)
+      expect(ar.first.values).to include loc5.id
     end
 
   end
