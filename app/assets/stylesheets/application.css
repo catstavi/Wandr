@@ -16,6 +16,14 @@
  *= require font-awesome
  */
 
+body {
+  font-family: 'Cantarell', sans-serif;
+}
+
+#logo {
+  font-size: 7em;
+}
+
 #all div {
   /*width: 90%;
   height: 90%;*/
@@ -62,6 +70,14 @@ color:#ec8007
   /*position: absolute;*/
 }
 
+.can {
+  font-family: 'Cantarell', sans-serif;
+}
+.pay {
+  font-family: 'Paytone One', sans-serif;
+}
+
+
 #left-g, #right-g {
   margin: 290px 0 295px 0;
   font-size: 4em;
@@ -92,8 +108,61 @@ color:#ec8007
 }
 
 .button {
+  text-align: center;
+}
+
+#go {
   border-radius: 20px;
   padding: 10px;
   width: 100px;
-  text-align: center;
+
+}
+
+.button:hover {
+  text-decoration: none;
+  color: darkgrey;
+}
+
+#learn {
+  margin-top: 30px;
+}
+
+.gly-div {
+  width: 190px;
+  padding: 10px;
+}
+
+.gly {
+  font-size: 2em;
+  border-radius: 30px;
+  border: none;
+  box-shadow: none;
+  background: #CFD11A;
+  text-shadow: none;
+  color: dimgrey;
+}
+
+#team {
+  width: 100%;
+
+}
+
+#my-body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.big-gly {
+  color: green;
+}
+
+#twi, #lin, #git {
+  color: green;
 }
