@@ -14,7 +14,7 @@ describe Location do
               Window.create(open_day: 6, close_day: 6, open_time: 0001, close_time: 2359, location_id: loc2.id)
     }
   # nearby and active, but always closed
-  let(:loc3) {  Location.create(name: "John John's Game Room", long: -122.327515, lat: 47.616615, desc: "Gotta love it here! The vibe is cool, the drinks a...", active: true)}
+  let(:loc3) {  Location.create(name: "John John's Game Room", long: -122.327515, lat: 47.616615, desc: "Gotta love it here! The vibe is cool, the drinks a...", active: true, city: "seattle")}
   let(:win3) { Window.create(open_day: 0, close_day: 0, open_time: 0001, close_time: 0002, location_id: loc3.id)
               Window.create(open_day: 1, close_day: 1, open_time: 0001, close_time: 0002, location_id: loc3.id)
               Window.create(open_day: 2, close_day: 2, open_time: 0001, close_time: 0002, location_id: loc3.id)
@@ -79,21 +79,44 @@ describe Location do
     end
 
     it "does not return a location that is closed now" do
+      loc1
+      loc2
+      loc4
+      win2
       win3
+      loc3.windows.each do |win|
+        puts win.open_day, win.close_day, win.open_time, win.close_time
+      end
+      timezone = Timezone::Zone.new :latlon => [47, -122]
+      time_now = timezone.time Time.now
+      time_now_int =  time_now.hour*100 + time_now.min
+      day_int = time_now.strftime("%w").to_i
+      puts "$$$$$$$$$$$$$"
+      puts Location.includes(:windows).where("(locations.id NOT IN (SELECT DISTINCT(location_id) FROM windows)) OR (open_day = ? AND open_time <= ? OR close_day = ? AND close_time > ?)", day_int, time_now_int, day_int, time_now_int).references(:windows)
+      puts "$$$$$$$$$$$$$"
       expect(Location.open_now_or_no_hours(47, -122)).to_not include loc3
     end
 
   end
 
-  # describe "#filtered" do
-  #   it "returns locations that are active, near, and open/no hours"
-  #     expect(Location.filtered(47.6216643, -122.32132559999998)).to include loc1
-  #     # expect(Location.filtered(47.6216643, -122.32132559999998)).to_not include loc3
-  #     # expect(Location.filtered(47.6216643, -122.32132559999998)).to_not include loc4
-  #   end
-  #
-  #   it "removes locations that are not active" do
-  #     expect(Location.filtered(47.6216643, -122.32132559999998)).to_not include loc2
-  #   end
-  # end
+  describe "#filtered" do
+    it "returns locations that are active, near, and open/no hours" do
+      expect(Location.filtered(47.6216643, -122.32132559999998)).to include loc1
+    end
+
+    it "removes locations that are not active" do
+      expect(Location.filtered(47.6216643, -122.32132559999998)).to_not include loc2
+    end
+
+    it "removes locations that are not near" do
+      expect(Location.filtered(47.6216643, -122.32132559999998)).to_not include loc4
+    end
+
+    it "remove locations that are closed" do
+      win3
+      expect(Location.filtered(47.6216643, -122.32132559999998)).to include loc3
+    end
+
+  end
+
 end
