@@ -16,6 +16,56 @@
  *= require font-awesome
  */
 
+.section-heading {
+  /*top: 0px;*/
+}
+
+#my-nav {
+  padding: 2px;
+  font-family: 'Cantarell';
+}
+
+.tag2 {
+  margin-bottom: 70px;
+  margin-top: 30px;
+}
+section {
+  padding-top: 100px;
+
+}
+#landing {
+  background: white;
+  /*top: -100%;*/
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+#howitworks {
+  background: white;
+  top: -100%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+#team {
+  background: lightgreen;
+  top: -100%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+#photo-slides {
+    top: -100%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
 body {
   font-family: 'Cantarell', sans-serif;
 }
