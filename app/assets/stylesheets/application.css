@@ -51,7 +51,6 @@ section {
 }
 
 #team {
-  background: lightgreen;
   top: -100%;
   position: absolute;
   width: 100%;
@@ -153,6 +152,7 @@ color:#ec8007
 
 #learn {
   margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .gly-div {

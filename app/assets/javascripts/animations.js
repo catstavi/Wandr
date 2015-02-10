@@ -33,22 +33,6 @@ $(document).ready(function(){
       });
     });
 
-//NAVBAR ABOUT LINK
-    $( "#how").click(function() {
-      console.log("clickity click")
-      $( "#landing" ).animate({
-        top: "-100%"
-      }, 1000, function() {
-        // Animation complete.
-      });
-
-
-      $( "#howitworks" ).animate({
-        top: "0"
-      }, 1000, function() {
-        // Animation complete.
-      });
-    });
 
 //NAVBAR LANDING LINK
     $( "#land-link").click(function() {
@@ -84,7 +68,7 @@ $(document).ready(function(){
       });
     });
 
-//NAVBAR about link
+//NAVBAR ABOUT LINK
   $( "#how-link").click(function() {
     console.log("clickity click")
     $( "#landing" ).animate({
@@ -113,6 +97,40 @@ $(document).ready(function(){
 
     $( "#team" ).animate({
       top: "-100%"
+    }, 1000, function() {
+      // Animation complete.
+    });
+  });
+
+//NAVBAR TEAM LINK
+  $( "#team-link").click(function() {
+    console.log("clickity click")
+    $( "#landing" ).animate({
+      top: "-100%"
+    }, 1000, function() {
+      // Animation complete.
+    });
+
+    $( "#howitworks" ).animate({
+      top: "-100%"
+    }, 1000, function() {
+      // Animation complete.
+    });
+
+    $( "#learn" ).animate({
+      top: "-100%"
+    }, 1000, function() {
+      // Animation complete.
+    });
+
+    $( "#photo-slides" ).animate({
+      top: "-100%"
+    }, 1000, function() {
+      // Animation complete.
+    });
+
+    $( "#team" ).animate({
+      top: "0"
     }, 1000, function() {
       // Animation complete.
     });
