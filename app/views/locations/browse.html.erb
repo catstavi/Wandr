@@ -1,15 +1,131 @@
-HELLO YOUR LINK WORKED
-<span style ="color:pink">
-  LAT: <%= @lat %>
-  LONG: <%= @long %>
-</span>
+<div class = "container" id = "landing">
+  <h1 class = "text-center pay dk-grey" id = "logo"><span class = "lime">W</span>andr</h1>
+  <h3 class="section-subheading text-muted text-center">Rediscover your city.</h3>
+  <div class = "center-block">
+    <%= link_to "[ Learn More ]", root_path, class: "center-block lime button", id: "learn" %>
+  <hr>
 
-<div id = "all">
-  <% @photo_hash.each do |inner_hash| %>
-      <% url = inner_hash.keys.first %>
-      <div id =<%= url %> class = <%= inner_hash[url] %> ></div>
-  <% end %>
+  <div class = "center-block gly-div">
+      <span class = "btn btn-default gly" id = "click"><span class = "pay">Wandr  </span><i class="fa fa-rocket"></i></span>
+  </div>
+
 </div>
-<div id = "details">
-  
+
+<!-- HOW TO USE -->
+<section id="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading dk-grey">How It Works</h2>
+                <p class="text-muted">Wandr takes the research out of planning an outing, so you can focus on what inspires you.</p>
+                <!-- <h3 class="section-subheading text-muted">Wandr takes the guesswork and the research out of planning an outing.</h3> -->
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <span class="fa-stack fa-4x">
+                    <i class="fa fa-circle fa-stack-2x text-primary lime"></i>
+                    <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="service-heading dk-grey">Browse</h4>
+                <p class="text-muted">Swipe through real photos of activities and entertainment in your area.</p>
+            </div>
+            <div class="col-md-4">
+                <span class="fa-stack fa-4x">
+                    <i class="fa fa-circle fa-stack-2x text-primary lime"></i>
+                    <i class="fa fa-map-marker fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="service-heading dk-grey">Learn More</h4>
+                <p class="text-muted">Choose a photo that interests you, and click to learn more about where it was taken.</p>
+            </div>
+            <div class="col-md-4">
+                <span class="fa-stack fa-4x">
+                    <i class="fa fa-circle fa-stack-2x text-primary lime"></i>
+                    <i class="fa fa-rocket fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="service-heading dk-grey">Go</h4>
+                <p class="text-muted">Once you've picked a destination, Wandr will tell you how to get there.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BROWSE PHOTOS -->
+<div class = "container" id = "photo-slides">
+  <span>
+    LAT: <%= @lat %>
+    LONG: <%= @long %>
+  </span>
+    <div class = "row">
+      <div class = "col-md-2">
+        <div id = "left-g-d" class = "">
+          <span class="glyphicon glyphicon-triangle-left" aria-hidden="true" id = "left-g"></span>
+        </div>
+    </div>
+
+    <div id = "middle" class = "col-md-8">
+        <div id = "all" class = "center-block">
+
+        </div>
+    </div>
+
+    <div class = "col-md-2">
+      <div  id = "right-g-d" class = "">
+        <span class="glyphicon glyphicon-triangle-right" aria-hidden="true" id = "right-g"></span>
+      </div>
+  </div>
+  </div>
 </div>
+
+<!-- SHOW PAGES -->
+<div id = "details"></div>
+
+
+<!-- ABOUT THE TEAM -->
+<section id="team" class="bg-light-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Our Amazing Team</h2>
+                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="team-member">
+                    <%= image_tag("lily.jpg", class: "img-responsive img-circle") %>
+                    <h4>Lily Pace</h4>
+                    <p class="text-muted">Design / Front-end Development</p>
+                    <ul class="list-inline social-buttons">
+                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-github"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="team-member">
+                    <img src="img/team/3.jpg" class="img-responsive img-circle" alt="">
+                    <h4>Cate Uselton</h4>
+                    <p class="text-muted">Back-end Development</p>
+                    <ul class="list-inline social-buttons">
+                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-github"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <p class="large text-muted">Lily and Cate are students at the Ada Developers Academy in Seattle, Washington. Wandr is our capstone project. Hope you enjoy it!</p>
+            </div>
+        </div>
+    </div>
+</section>
