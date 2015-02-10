@@ -50,18 +50,19 @@ class Location < ActiveRecord::Base
   # scope :no_hours, -> { where('locations.id NOT IN (SELECT DISTINCT(location_id) FROM windows)') }
 
   def self.filtered(lat, long)
-    Location.active.near(lat,long).open_now_or_no_hours
+    Location.active.near(lat,long).open_now_or_no_hours(lat, long)
   end
 
   def self.near(lat, long)
     Location.within(2, origin: [lat, long])
   end
 
-  def self.open_now_or_no_hours
+  def self.open_now_or_no_hours(lat, long)
     timezone = Timezone::Zone.new :latlon => [lat, long]
     time_now = timezone.time Time.now
     time_now_int =  time_now.hour*100 + time_now.min
-    Location.joins(:windows).where("(locations.id NOT IN (SELECT DISTINCT(location_id) FROM windows)) OR (open_day = ? AND open_time <= ? OR close_day = ? AND close_time > ?)", Time.now.day, time_now_int, Time.now.day, time_now_int)
+    day_int = time_now.strftime("%w").to_i
+    Location.includes(:windows).where("(locations.id NOT IN (SELECT DISTINCT(location_id) FROM windows)) OR (open_day = ? AND open_time <= ? OR close_day = ? AND close_time > ?)", day_int, time_now_int, day_int, time_now_int).references(:windows)
   end
 
   def self.url_and_id_arry(lat, long)
