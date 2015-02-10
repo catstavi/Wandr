@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 describe Location do
+
   describe '#switch_off' do
 
     let(:loc) {Location.create(name: 'bob', lat: 1, long: 2, active: true) }
@@ -17,6 +18,28 @@ describe Location do
         expect(loc.updated_at).to be > old_time
       end
     end
+  end
+
+  describe '#self.near' do
+    let(:loc1) { Location.create(name: "The 5th Avenue Theatre", long: -122.333854660392, lat: 47.608847245574, desc: "Do you like musical theater? Do you like excellent...", city: "seattle", active: true )}
+    let(:loc2) { Location.create( name: "Rock Box", long: -122.3202286, lat: 47.6156311, desc: "Had a great time there with my friends!\nThe time d...", city: "seattle")}
+
+    context 'location are within 2 miles of lat & long' do
+      it "returns the locations" do
+        # why doesn't this work when I assign Locations.near to a variable?
+        # the variable only gets one location. wat.
+        expect(Location.near(47.6216643, -122.32132559999998) ).to include loc1
+        expect(Location.near(47.6216643, -122.32132559999998) ).to include loc2
+      end
+    end
+
+    context 'locations are not within 2 miles of lat & long' do
+      it 'does not return those locations' do
+        expect(Location.near(47, -122) ).to_not include loc1
+        expect(Location.near(47, -122) ).to_not include loc2
+      end
+    end
+
   end
 
   #
