@@ -22,7 +22,7 @@ describe Location do
 
   describe '#self.near' do
     let(:loc1) { Location.create(name: "The 5th Avenue Theatre", long: -122.333854660392, lat: 47.608847245574, desc: "Do you like musical theater? Do you like excellent...", city: "seattle", active: true )}
-    let(:loc2) { Location.create( name: "Rock Box", long: -122.3202286, lat: 47.6156311, desc: "Had a great time there with my friends!\nThe time d...", city: "seattle")}
+    let(:loc2) { Location.create( name: "Rock Box", long: -122.3202286, lat: 47.6156311, desc: "Had a great time there with my friends!\nThe time d...", city: "seattle"), active: false}
 
     context 'location are within 2 miles of lat & long' do
       it "returns the locations" do
@@ -40,6 +40,12 @@ describe Location do
       end
     end
 
+  describe "active" do
+    it 'returns only active locations' do
+      expect(Location.active).to include loc1
+      expect(Location.active).to_not include loc2
+    end
+  end
   end
 
   #
