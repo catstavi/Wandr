@@ -47,9 +47,10 @@ end
 group :test do
   gem 'rspec-rails'
   gem 'vcr'
-  # gem 'webmock'
+  gem 'webmock'
   # gem 'typhoeus'
   gem 'faraday', '0.8.9'
+  gem 'httparty'
   # locked due to: https://github.com/vcr/vcr/issues/386
 end
 

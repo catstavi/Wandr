@@ -1,6 +1,5 @@
 class GoogleRequester
 
-# if there is never a place_id found then
   def self.check_for_updates(location)
     if location.hours_updated_at < Time.now - 2.weeks
       if location.place_id == nil
@@ -29,14 +28,16 @@ class GoogleRequester
   end
 
   def self.get_hours(location)
+    @@client = GooglePlaces::Client.new(ENV["GOOGLE_PLACE_KEY"])
     hours = @@client.spot(location.place_id).opening_hours
     unless hours == nil
       # clear out any old windows before building new ones
       location.windows.destroy_all
       hours["periods"].each do |day_hash|
-        Window.create(location_id: location.id, open_day: day_hash["open"]["day"],
-                      open_time: day_hash["open"]["time"], close_day: day_hash["close"]["day"],
-                      close_time: day_hash["close"]["time"])
+        location.windows << Window.create(open_day: day_hash["open"]["day"],
+                                        open_time: day_hash["open"]["time"],
+                                        close_day: day_hash["close"]["day"],
+                                        close_time: day_hash["close"]["time"])
       end
     end
     location.update(hours_updated_at: Time.now)
