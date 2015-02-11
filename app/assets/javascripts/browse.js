@@ -1,17 +1,77 @@
 $(document).ready(function(){
-  if (window.location.pathname == "/browse") {
-    ajaxToDatabase();
-    addSwipeEvents($('#all').children());
-    var first_div = $('#all').children().eq(0);
-    addPhoto(first_div);
-    addClassVisited(first_div)
-  }
+  console.log("The document is ready!")
+  $('#click').click(function(){
+    var msg = $('.msg')
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(findPosition)
+    }
+    else {
+      msg.append("Geolocation is not supported by your browser.")
+    }
+  });
+
+  $('#left-g').click(leftArrow);
+  $('#right-g').click(rightArrow);
+
 });
+
+function findPosition(position) {
+  var url = '/sessions'
+  $.ajax({
+    type: 'POST',
+    url: url,
+    data: {
+      'latitude': position.coords.latitude,
+      'longitude': position.coords.longitude,
+    },
+    success: function (data) {
+      //show loading gif here
+      console.log("meow!")
+      // GET PHOTOS ALREADY IN DB
+      ajaxToDatabase();
+      ajaxTriggerApiCalls();
+    }
+  });
+};
 
 function addSwipeEvents( objects ) {
   for (i = 0; i< objects.length; i++ ) {
     addSwipesToElem( objects.eq(i) )
+    addClickToElem( objects.eq(i) )
   }
+}
+
+function rightArrow() {
+  var div_index = $('#all').children().children().parent().index()
+  var next_div = $('#all').children().eq(div_index + 1)
+  $('#all').children().children().remove()
+  addPhoto(next_div)
+}
+
+function leftArrow() {
+  var div_index = $('#all').children().children().parent().index()
+  var prev_div = $('#all').children().eq(div_index - 1)
+  $('#all').children().children().remove()
+  addPhoto(prev_div)
+}
+
+function addClickToElem(elem) {
+  elem.click( function() {
+    $('#details').show();
+    var clicked = $(this)
+    $.ajax({
+      type: 'POST',
+      url: 'locations/show',
+      data: {
+        id: clicked.attr('class').replace(/\D/g,'')
+      },
+      success: function(data) {
+        console.log(data.name)
+        $('#details').html("<h3>" + data.name + "</h3> <p>" + data.desc + "</p>")
+      }
+    })
+  })
 }
 
 function addSwipesToElem(elem) {
@@ -24,12 +84,14 @@ function swipeLeftHandler() {
   $(this).children().remove();
   addClassVisited($(this).next());
   addPhoto( $(this).next() );
+  $('#details').hide();
 }
 
 function swipeRightHandler() {
   console.log("You just swiped right!")
   $(this).children().remove();
   addPhoto( $(this).prev() );
+  $('#details').hide();
 }
 
 function addPhoto(active_div) {
@@ -46,6 +108,28 @@ function addClassVisited(div) {
 };
 
 function ajaxToDatabase() {
+  console.log("hey girl")
+  $.ajax({
+    type: 'POST',
+    url: '/get_db_photos',
+    success: function(data) {
+      console.log("I defeated the mighty Ajax!");
+      console.log(data);
+      AppendNew(data, "old");
+      addSwipeEvents($('#all').children());
+      var first_div = $('#all').children().eq(0);
+      console.log(first_div)
+      addPhoto(first_div);
+      addClassVisited(first_div)
+      //go to photo container
+    },
+    error: function() {
+      console.log("ERRORERRORERROR")
+    }
+  })
+};
+
+function ajaxTriggerApiCalls() {
   // console.log("meow")
   $.ajax({
     type: 'POST',
@@ -55,7 +139,7 @@ function ajaxToDatabase() {
       console.log("SUCCESS!!!!!!!!");
       console.log(data)
       DeleteUnvisited();
-      AppendNew(data);
+      AppendNew(data, "new");
       addSwipeEvents($('#all').children(".new"))
       console.log(Object.keys(data));
     }
@@ -81,7 +165,7 @@ function DeleteUnvisited() {
   };
 };
 
-function AppendNew(data) {
+function AppendNew(data, classname) {
   for (i = 0; i<data.length; i++ ) {
     var url = Object.keys(data[i]).toString();
     var location_id = data[i][url]
@@ -92,7 +176,7 @@ function AppendNew(data) {
         $("#all").append(div);
         div = $("#all").children().last();
         div.addClass(location_id.toString());
-        div.addClass("new");
+        div.addClass(classname);
       };
     }
 }

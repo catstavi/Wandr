@@ -7,6 +7,9 @@ gem 'geocoder'
 gem 'geokit'
 gem 'geokit-rails'
 gem 'google_places'
+gem 'timezone'
+
+gem "font-awesome-rails"
 
 gem 'rspec-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
