@@ -27,12 +27,26 @@
   /*z-index: 2;*/
 }
 
+.lilycate {
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.row {
+  margin: 0;
+  padding: 0;
+}
+
+.phot {
+  width: 350px;
+  height: 350px;
+}
 #lilgreen {
-  width: 10px;
-  height: 23px;
+  width: 15px;
+  height: 29px;
   background: #CFD11A;
-  margin-top: -28px;
-  margin-left:10px;
+  margin-top: -35px;
+  margin-left:15px;
 }
 
 #lilroad {
@@ -54,6 +68,12 @@
 
 }
 
+#land-link {
+  color: dimgrey;
+  font-size: 2.5em;
+  margin-left: 10px;
+  margin-top: 25px;
+}
 #green {
   background: #CFD11A;
   /*position: absolute;*/
@@ -303,5 +323,8 @@ color:#ec8007
     height: 100%;
   }
 
+  #landing-con {
+    width: 100%;
+  }
 
 }
