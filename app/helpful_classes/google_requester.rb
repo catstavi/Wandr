@@ -19,7 +19,7 @@ class GoogleRequester
       location.update( active: false, hours_updated_at: Time.now )
     else
       # save google place ID
-      location.update(place_id: loc_arry[0].place_id)
+      location.update(place_id: loc_arry[0].place_id, active: true, hours_updated_at: Time.now)
       #save hours in association with location
       unless loc_arry[0].opening_hours == nil
         get_hours(location)

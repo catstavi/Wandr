@@ -1,16 +1,5 @@
 require 'rails_helper'
 
-require 'vcr'
-
-VCR.configure do |c|
-  #the directory where your cassettes will be saved
-  c.cassette_library_dir = 'spec/vcr_cassettes'
-  # your HTTP request service. You can also use fakeweb, webmock, and more
-  c.hook_into :webmock
-  c.default_cassette_options = { :record => :new_episodes }
-end
-
-
 describe GoogleRequester do
 
   describe '#self.request' do

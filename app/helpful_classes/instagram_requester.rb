@@ -16,17 +16,16 @@ class InstagramRequester
     location.update(photos_updated_at: Time.now)
   end
 
-  # queries instagram to find new location codes if the given location has none
+  # queries instagram to find new location codes if the given location has never been checked before
   # or if it hasn't been updated for 2 weeks
   def self.find_insta_codes(location)
-    if location.insta_codes.empty? || location.insta_codes_updated_at < Time.now - 2.weeks
-      insta_size = InstaCode.count
+    if location.insta_codes_updated_at.nil? || location.insta_codes_updated_at < Time.now - 2.weeks
       Instagram.location_search(location.lat, location.long, "500").each do |result|
         if result.name.include?(location.name)
-          InstaCode.create(code: result.id, location_id: location.id)
+          location.insta_codes << InstaCode.create(code: result.id )
         end
       end
-      location.update(insta_codes_updated_at: Time.now)
+      location.update(active: location.insta_codes.present?, insta_codes_updated_at: Time.now)
     end
   end
 
