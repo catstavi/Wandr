@@ -20,6 +20,39 @@
   /*top: 0px;*/
 }
 
+#road {
+  font-size: .95em;
+}
+
+#lilgreen {
+  width: 10px;
+  height: 23px;
+  background: #CFD11A;
+  margin-top: -28px;
+  margin-left:10px;
+}
+
+#white-div {
+  width: 10px;
+  height: 23px;
+  background: white;
+  position: absolute;
+  margin-top: -28px;
+  margin-left:10px;
+  z-index: -2;
+}
+
+#green {
+  background: #CFD11A;
+  position: absolute;
+  width: 30px;
+  height :76px;
+  /*margin-left: 450px;
+  margin-top: 32px;*/
+  margin-top: -91px;
+  margin-left:40px;
+  z-index: -2;
+}
 #my-nav {
   padding: 2px;
   font-family: 'Cantarell';
@@ -28,6 +61,7 @@
 .tag2 {
   margin-bottom: 70px;
   margin-top: 30px;
+  font-size: 1.15em;
 }
 section {
   padding-top: 100px;
@@ -62,8 +96,14 @@ section {
     top: -100%;
     position: absolute;
     width: 100%;
-    height: 100%;
-    overflow: auto;
+    height: 100vh;
+    overflow: hidden;
+    background: white;
+}
+
+#photo-con {
+  /*height :100vh;
+  overflow: hidden;*/
 }
 body {
   font-family: 'Cantarell', sans-serif;
@@ -153,6 +193,26 @@ color:#ec8007
 #learn {
   margin-top: 30px;
   margin-bottom: 30px;
+  font-size: 1.4em;
+  color: dimgrey;
+}
+
+#click {
+  margin-top : 25px;
+}
+
+#landing {
+  padding: 0;
+  background: url('sky2.jpg');
+  background-size: 110%;
+}
+#landing-con {
+  /*margin-top :-50px;*/
+  padding-top: 90px;
+  height: 100vh;
+  background: aqua;
+  width: 70vw;
+  background: rgba(255, 255, 255, .8);
 }
 
 .gly-div {
@@ -195,4 +255,13 @@ color:#ec8007
 
 #twi, #lin, #git {
   color: green;
+}
+
+@media (max-width: @screen-sm) {
+  .hide {
+    /*display: none;*/
+  }
+  #all {
+    /*width: 100vw;*/
+  }
 }

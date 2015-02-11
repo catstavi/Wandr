@@ -102,8 +102,8 @@ $(document).ready(function(){
     });
   });
 
-//NAVBAR TEAM LINK
-  $( "#team-link").click(function() {
+//NAVBAR PHOTOS LINK
+  $( "#photo-link").click(function() {
     console.log("clickity click")
     $( "#landing" ).animate({
       top: "-100%"
@@ -124,16 +124,85 @@ $(document).ready(function(){
     });
 
     $( "#photo-slides" ).animate({
-      top: "-100%"
+      top: "0"
     }, 1000, function() {
       // Animation complete.
     });
 
     $( "#team" ).animate({
-      top: "0"
+      top: "-100%"
     }, 1000, function() {
       // Animation complete.
     });
   });
+
+  //NAVBAR TEAM LINK
+    $( "#team-link").click(function() {
+      console.log("clickity click")
+      $( "#landing" ).animate({
+        top: "-100%"
+      }, 1000, function() {
+        // Animation complete.
+      });
+
+      $( "#howitworks" ).animate({
+        top: "-100%"
+      }, 1000, function() {
+        // Animation complete.
+      });
+
+      $( "#learn" ).animate({
+        top: "-100%"
+      }, 1000, function() {
+        // Animation complete.
+      });
+
+      $( "#photo-slides" ).animate({
+        top: "-100%"
+      }, 1000, function() {
+        // Animation complete.
+      });
+
+      $( "#team" ).animate({
+        top: "0"
+      }, 1000, function() {
+        // Animation complete.
+      });
+    });
+
+    //WANDR PHOTOS LINK
+      $( "#click").click(function() {
+        console.log("clickity click")
+        $( "#landing" ).animate({
+          top: "-100%"
+        }, 1000, function() {
+          // Animation complete.
+        });
+
+        $( "#howitworks" ).animate({
+          top: "-100%"
+        }, 1000, function() {
+          // Animation complete.
+        });
+
+        $( "#learn" ).animate({
+          top: "-100%"
+        }, 1000, function() {
+          // Animation complete.
+        });
+
+        $( "#photo-slides" ).animate({
+          top: "0"
+        }, 1000, function() {
+          // Animation complete.
+        });
+
+        $( "#team" ).animate({
+          top: "-100%"
+        }, 1000, function() {
+          // Animation complete.
+        });
+      });
+
 
 });
