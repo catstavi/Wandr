@@ -308,6 +308,10 @@ color:#ec8007
     background: white;
 
   }
+  #landing {
+    padding: 0;
+    background: url('sky3.jpg');
+    background-size: 100vh;
 
   #middle {
     padding: 0;
