@@ -171,38 +171,7 @@ $(document).ready(function(){
     });
 
     //WANDR PHOTOS LINK
-      $( "#click").click(function() {
-        console.log("clickity click")
-        $( "#landing" ).animate({
-          top: "-100%"
-        }, 1000, function() {
-          // Animation complete.
-        });
 
-        $( "#howitworks" ).animate({
-          top: "-100%"
-        }, 1000, function() {
-          // Animation complete.
-        });
-
-        $( "#learn" ).animate({
-          top: "-100%"
-        }, 1000, function() {
-          // Animation complete.
-        });
-
-        $( "#photo-slides" ).animate({
-          top: "0"
-        }, 1000, function() {
-          // Animation complete.
-        });
-
-        $( "#team" ).animate({
-          top: "-100%"
-        }, 1000, function() {
-          // Animation complete.
-        });
-      });
 
 
 });

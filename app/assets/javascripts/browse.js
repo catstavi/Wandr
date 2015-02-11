@@ -31,6 +31,35 @@ function findPosition(position) {
       // GET PHOTOS ALREADY IN DB
       ajaxToDatabase();
       ajaxTriggerApiCalls();
+      $( "#landing" ).animate({
+        top: "-100%"
+      }, 1000, function() {
+        // Animation complete.
+      });
+
+      $( "#howitworks" ).animate({
+        top: "-100%"
+      }, 1000, function() {
+        // Animation complete.
+      });
+
+      $( "#learn" ).animate({
+        top: "-100%"
+      }, 1000, function() {
+        // Animation complete.
+      });
+
+      $( "#photo-slides" ).animate({
+        top: "0"
+      }, 1000, function() {
+        // Animation complete.
+      });
+
+      $( "#team" ).animate({
+        top: "-100%"
+      }, 1000, function() {
+        // Animation complete.
+      });
     }
   });
 };
