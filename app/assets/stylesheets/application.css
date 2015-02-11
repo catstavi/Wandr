@@ -22,8 +22,9 @@
 
 #road {
   font-size: .95em;
-  z-index: 100;
-  position: relative;
+  /*z-index: 100;*/
+  /*position: relative;*/
+  /*z-index: 2;*/
 }
 
 #lilgreen {
@@ -35,30 +36,35 @@
 }
 
 #lilroad {
-  position: relative;
-  z-index: 20;
+  /*position: relative;*/
+  /*z-index: 20;*/
+  /*z-index: 10;*/
+  opacity: .99;
 }
 
 #white-div {
   width: 10px;
   height: 23px;
   background: white;
-  position: absolute;
+  /*position: absolute;*/
   margin-top: -28px;
   margin-left:10px;
-  z-index: -2;
+  /*z-index: -2;*/
+  /*z-index: 1;*/
+
 }
 
 #green {
   background: #CFD11A;
-  position: absolute;
+  /*position: absolute;*/
   width: 30px;
   height :76px;
   /*margin-left: 450px;
   margin-top: 32px;*/
   margin-top: -91px;
   margin-left:40px;
-  z-index: -1;
+  /*z-index: 1;*/
+
 }
 #my-nav {
   padding: 2px;
@@ -206,7 +212,7 @@ color:#ec8007
 
 #click {
   margin-top : 25px;
-  z-index: 50;
+  /*z-index: 50;*/
   position: relative;
 }
 
@@ -214,7 +220,7 @@ color:#ec8007
   padding: 0;
   background: url('sky2.jpg');
   background-size: 110%;
-  z-index: -40;
+  /*z-index: -40;*/
 }
 #landing-con {
   /*z-index :-5;*/
@@ -253,16 +259,6 @@ color:#ec8007
 
 }
 
-#hangry {
-  font-family: 'Anton';
-  color: dimgrey;
-  /*text-transform: none;*/
-}
-
-.hang {
-  color: tomato;
-  font-size :1.6em;
-}
 .container {
   margin: 0;
   width: 100%;
