@@ -16,6 +16,109 @@
  *= require font-awesome
  */
 
+.section-heading {
+  /*top: 0px;*/
+}
+
+#road {
+  font-size: .95em;
+  /*z-index: 100;*/
+  /*position: relative;*/
+  /*z-index: 2;*/
+}
+
+#lilgreen {
+  width: 10px;
+  height: 23px;
+  background: #CFD11A;
+  margin-top: -28px;
+  margin-left:10px;
+}
+
+#lilroad {
+  /*position: relative;*/
+  /*z-index: 20;*/
+  /*z-index: 10;*/
+  opacity: .99;
+}
+
+#white-div {
+  width: 10px;
+  height: 23px;
+  background: white;
+  /*position: absolute;*/
+  margin-top: -28px;
+  margin-left:10px;
+  /*z-index: -2;*/
+  /*z-index: 1;*/
+
+}
+
+#green {
+  background: #CFD11A;
+  /*position: absolute;*/
+  width: 30px;
+  height :76px;
+  /*margin-left: 450px;
+  margin-top: 32px;*/
+  margin-top: -91px;
+  margin-left:40px;
+  /*z-index: 1;*/
+
+}
+#my-nav {
+  padding: 2px;
+  font-family: 'Cantarell';
+}
+
+.tag2 {
+  margin-bottom: 70px;
+  margin-top: 30px;
+  font-size: 1.15em;
+}
+section {
+  padding-top: 100px;
+
+}
+#landing {
+  background: white;
+  /*top: -100%;*/
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+#howitworks {
+  background: white;
+  top: -100%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+#team {
+  top: -100%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+#photo-slides {
+    top: -100%;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    background: white;
+}
+
+
+#photo-con {
+  /*height :100vh;
+  overflow: hidden;*/
+}
 body {
   font-family: 'Cantarell', sans-serif;
 }
@@ -103,6 +206,36 @@ color:#ec8007
 
 #learn {
   margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 1.4em;
+  color: dimgrey;
+}
+
+#click {
+  margin-top : 25px;
+  /*z-index: 50;*/
+  position: relative;
+}
+
+#click:hover {
+  background: dimgrey;
+  color: #CFD11A;
+}
+
+#landing {
+  padding: 0;
+  background: url('sky2.jpg');
+  background-size: 110%;
+  /*z-index: -40;*/
+}
+#landing-con {
+  /*z-index :-5;*/
+  /*margin-top :-50px;*/
+  padding-top: 90px;
+  height: 100vh;
+  background: aqua;
+  width: 70vw;
+  background: rgba(255, 255, 255, .8);
 }
 
 .gly-div {
@@ -132,8 +265,6 @@ color:#ec8007
 
 }
 
-
-
 .container {
   margin: 0;
   width: 100%;
@@ -145,4 +276,32 @@ color:#ec8007
 
 #twi, #lin, #git {
   color: green;
+}
+
+@media (max-width: 768px) {
+  #left, #right {
+    display: none;
+  }
+  #all {
+    width: 100vw;
+    padding: 0;
+    background: white;
+
+  }
+
+  #middle {
+    padding: 0;
+    margin-top: 55px;
+  }
+
+  #photo-slides {
+    padding: 0;
+  }
+
+  #all div img {
+    width :100%;
+    height: 100%;
+  }
+
+
 }

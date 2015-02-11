@@ -1,23 +1,67 @@
-<div class = "container" id = "landing">
-  <h1 class = "text-center pay dk-grey" id = "logo"><span class = "lime">W</span>andr</h1>
-  <h3 class="section-subheading text-muted text-center">Rediscover your city.</h3>
-  <div class = "center-block">
-    <%= link_to "[ Learn More ]", root_path, class: "center-block lime button", id: "learn" %>
-  <hr>
+<nav class="navbar navbar-default navbar-fixed-top" id = "my-nav">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" id = "land-link"><i class="fa fa-road"><div id = "lilgreen"></div></i></a>
+        </div>
 
-  <div class = "center-block gly-div">
-      <span class = "btn btn-default gly" id = "click"><span class = "pay">Wandr  </span><i class="fa fa-rocket"></i></span>
-  </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="hidden">
+                    <a href="#page-top"></a>
+                </li>
+                <li>
+                    <a href="#services"></a>
+                </li>
+                <li>
+                    <a id = "photo-link">Photos</a>
+                </li>
+                <li>
+                    <a id = "how-link">About</a>
+                </li>
+                <li>
+                    <a id="team-link">Team</a>
+                </li>
+                <li>
+                    <a id="contact-link">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
 
+<section id = "landing">
+<div class = "container center-block" id = "landing-con">
+  <h1 class = "text-center pay dk-grey" id = "logo"><span class = "">W</span><i class="fa fa-road" id = "road"><div id = "green"></div></i>ndr</h1>
+  <h3 class="text-muted text-center">Rediscover your city.</h3>
+
+
+
+    <div class = "center-block gly-div">
+        <span class = "btn btn-default gly" id = "click"><span class = "pay">Wandr  </span><i class="fa fa-road" id = "lilroad"><div id = "white-div"></div></i></span>
+    </div>
+    <div class = "center-block">
+      <span class = "center-block lime button" id = "learn">[ Learn More ]</span>
+    </div>
 </div>
+</section>
 
 <!-- HOW TO USE -->
-<section id="services">
+<section id="howitworks">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading dk-grey">How It Works</h2>
-                <p class="text-muted">Wandr takes the research out of planning an outing, so you can focus on what inspires you.</p>
+                <p class="text-muted tag2">Wandr takes the research out of planning an outing, so you can focus on what inspires you.</p>
                 <!-- <h3 class="section-subheading text-muted">Wandr takes the guesswork and the research out of planning an outing.</h3> -->
             </div>
         </div>
@@ -41,7 +85,7 @@
             <div class="col-md-4">
                 <span class="fa-stack fa-4x">
                     <i class="fa fa-circle fa-stack-2x text-primary lime"></i>
-                    <i class="fa fa-rocket fa-stack-1x fa-inverse"></i>
+                    <i class="fa fa-road fa-stack-1x fa-inverse"></i>
                 </span>
                 <h4 class="service-heading dk-grey">Go</h4>
                 <p class="text-muted">Once you've picked a destination, Wandr will tell you how to get there.</p>
@@ -50,44 +94,13 @@
     </div>
 </section>
 
-<!-- BROWSE PHOTOS -->
-<div class = "container" id = "photo-slides">
-  <span>
-    LAT: <%= @lat %>
-    LONG: <%= @long %>
-  </span>
-    <div class = "row">
-      <div class = "col-md-2">
-        <div id = "left-g-d" class = "">
-          <span class="glyphicon glyphicon-triangle-left" aria-hidden="true" id = "left-g"></span>
-        </div>
-    </div>
-
-    <div id = "middle" class = "col-md-8">
-        <div id = "all" class = "center-block">
-
-        </div>
-    </div>
-
-    <div class = "col-md-2">
-      <div  id = "right-g-d" class = "">
-        <span class="glyphicon glyphicon-triangle-right" aria-hidden="true" id = "right-g"></span>
-      </div>
-  </div>
-  </div>
-</div>
-
-<!-- SHOW PAGES -->
-<div id = "details"></div>
-
-
 <!-- ABOUT THE TEAM -->
 <section id="team" class="bg-light-gray">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading">Our Amazing Team</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                <!-- <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> -->
             </div>
         </div>
         <div class="row">
@@ -128,4 +141,41 @@
             </div>
         </div>
     </div>
+</section>
+
+<!-- BROWSE PHOTOS -->
+<section id = "photo-slides">
+<div class = "container" id = "photo-con">
+    <div class = "row">
+      <div class = "col-md-2" id = "left">
+        <div id = "left-g-d" class = "">
+          <span class="glyphicon glyphicon-triangle-left" aria-hidden="true" id = "left-g"></span>
+        </div>
+    </div>
+
+    <div id = "middle" class = "col-md-8">
+        <div id = "all" class = "center-block">
+
+        </div>
+    </div>
+
+    <div class = "col-md-2" id = "right">
+      <div  id = "right-g-d" class = "">
+        <span class="glyphicon glyphicon-triangle-right" aria-hidden="true" id = "right-g"></span>
+      </div>
+  </div>
+  </div>
+</div>
+</section>
+<!-- SHOW PAGES -->
+<section id = "show">
+  <div class = "container">
+    <div id = "details"></div>
+  </div>
+</section>
+
+<section id = "show">
+  <div class = "container">
+    <div id = "details"></div>
+  </div>
 </section>
