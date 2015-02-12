@@ -1,6 +1,11 @@
 #loading {
   top: -100%;
-  background: pink;
+  // background: pink;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  background: white;
 }
 
 #load {
@@ -21,9 +26,11 @@
 #load div {
   position:absolute;
   width:20px;
-  height:36px;
+  height:100px;
+  font-size: 1.5em;
   opacity:0;
-  font-family:Helvetica, Arial, sans-serif;
+  font-family: 'Cantarell';
+  color: #CFD11A;
   animation:move 2s linear infinite;
   -o-animation:move 2s linear infinite;
   -moz-animation:move 2s linear infinite;
@@ -32,7 +39,6 @@
   -o-transform:rotate(180deg);
   -moz-transform:rotate(180deg);
   -webkit-transform:rotate(180deg);
-  color:#35C4F0;
 }
 
 #load div:nth-child(2) {
@@ -72,6 +78,19 @@
   -webkit-animation-delay:1.2s;
 }
 
+#load div:nth-child(8) {
+  animation-delay:1.4s;
+  -o-animation-delay:1.4s;
+  -moz-animation-delay:1.4s;
+  -webkit-animation-delay:1.4s;
+}
+
+#load div:nth-child(9) {
+  animation-delay:1.6s;
+  -o-animation-delay:1.6s;
+  -moz-animation-delay:1.6s;
+  -webkit-animation-delay:1.6s;
+}
 @keyframes move {
   0% {
     left:0;

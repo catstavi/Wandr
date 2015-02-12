@@ -4,10 +4,15 @@ $(document).ready(function(){
     var msg = $('.msg')
 
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(findPosition)
+      navigator.geolocation.getCurrentPosition(findPosition, function(errorCode) {
+          console.log('WHERE ARE YOU????');
+      })
+      hideDiv("#landing")
+      showDiv("#loading");
     }
     else {
       msg.append("Geolocation is not supported by your browser.")
+      console.log("HEY! Geolocation is not supported by your browser.")
     }
   });
 
@@ -29,10 +34,13 @@ function findPosition(position) {
       //show loading gif here
       console.log("meow!")
       // GET PHOTOS ALREADY IN DB
-      hideDiv("#landing")
-      showDiv("#loading");
+      // hideDiv("#landing")
+      // showDiv("#loading");
       ajaxToDatabase();
       ajaxTriggerApiCalls();
+    },
+    error: function() {
+      console.log("IM AN ERROR YOU GUYS!!!!")
     }
   });
 };
@@ -124,8 +132,8 @@ function ajaxToDatabase() {
       addPhoto(first_div);
       addClassVisited(first_div)
       //go to photo container
-      hideDiv("#loading")
-      showDiv("#photo-slides")
+      fadeOut("#loading")
+      quickShow("#photo-slides")
     },
     error: function() {
       console.log("ERRORERRORERROR")
