@@ -29,37 +29,10 @@ function findPosition(position) {
       //show loading gif here
       console.log("meow!")
       // GET PHOTOS ALREADY IN DB
+      hideDiv("#landing")
+      showDiv("#loading");
       ajaxToDatabase();
       ajaxTriggerApiCalls();
-      $( "#landing" ).animate({
-        top: "-100%"
-      }, 1000, function() {
-        // Animation complete.
-      });
-
-      $( "#howitworks" ).animate({
-        top: "-100%"
-      }, 1000, function() {
-        // Animation complete.
-      });
-
-      $( "#learn" ).animate({
-        top: "-100%"
-      }, 1000, function() {
-        // Animation complete.
-      });
-
-      $( "#photo-slides" ).animate({
-        top: "0"
-      }, 1000, function() {
-        // Animation complete.
-      });
-
-      $( "#team" ).animate({
-        top: "-100%"
-      }, 1000, function() {
-        // Animation complete.
-      });
     }
   });
 };
@@ -151,6 +124,8 @@ function ajaxToDatabase() {
       addPhoto(first_div);
       addClassVisited(first_div)
       //go to photo container
+      hideDiv("#loading")
+      showDiv("#photo-slides")
     },
     error: function() {
       console.log("ERRORERRORERROR")
@@ -252,4 +227,4 @@ function allVisitedUrls() {
   //   active_div.children().remove()
   //   switchPhoto($('#all').children().eq(n-1), n-1)
   // });
-// };
+// }
