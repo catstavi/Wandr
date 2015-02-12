@@ -15,6 +15,6 @@
 /log/*.log
 /tmp
 .env
-/spec/vcr_cassettes
+/public/assets
+spec/vcr_cassettes
 /coverage
-public/assets

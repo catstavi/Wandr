@@ -1,0 +1,335 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require bootstrap
+ *= require font-awesome
+ */
+
+.section-heading {
+  /*top: 0px;*/
+}
+
+#road {
+  font-size: .95em;
+  /*z-index: 100;*/
+  /*position: relative;*/
+  /*z-index: 2;*/
+}
+
+.lilycate {
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.row {
+  margin: 0;
+  padding: 0;
+}
+
+.phot {
+  width: 350px;
+  height: 350px;
+}
+#lilgreen {
+  width: 15px;
+  height: 29px;
+  background: #CFD11A;
+  margin-top: -35px;
+  margin-left:15px;
+}
+
+#lilroad {
+  /*position: relative;*/
+  /*z-index: 20;*/
+  /*z-index: 10;*/
+  opacity: .99;
+}
+
+#white-div {
+  width: 10px;
+  height: 23px;
+  background: white;
+  /*position: absolute;*/
+  margin-top: -28px;
+  margin-left:10px;
+  /*z-index: -2;*/
+  /*z-index: 1;*/
+
+}
+
+#land-link {
+  color: dimgrey;
+  font-size: 2.5em;
+  margin-left: 10px;
+  margin-top: 25px;
+}
+#green {
+  background: #CFD11A;
+  /*position: absolute;*/
+  width: 30px;
+  height :76px;
+  /*margin-left: 450px;
+  margin-top: 32px;*/
+  margin-top: -91px;
+  margin-left:40px;
+  /*z-index: 1;*/
+
+}
+#my-nav {
+  padding: 2px;
+  font-family: 'Cantarell';
+}
+
+.tag2 {
+  margin-bottom: 70px;
+  margin-top: 30px;
+  font-size: 1.15em;
+}
+section {
+  padding-top: 100px;
+
+}
+#landing {
+  background: white;
+  /*top: -100%;*/
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+#howitworks {
+  background: white;
+  top: -100%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+#team {
+  top: -100%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+#photo-slides {
+    top: -100%;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    background: white;
+}
+
+
+#photo-con {
+  /*height :100vh;
+  overflow: hidden;*/
+}
+body {
+  font-family: 'Cantarell', sans-serif;
+}
+
+#logo {
+  font-size: 7em;
+}
+
+
+#all div img {
+  /*width: 70%;
+  height: 90%;*/
+  width: 550px;
+  height: 550px;
+}
+
+#all {
+  height: 600px;
+  width: 600px;
+  padding: 25px;
+  background-color: #D5DEDA;
+}
+.center-block {
+color:#ec8007
+}
+
+#left-g-d, #right-g-d {
+  height: 600px;
+  /*width: 40px;*/
+  /*position: absolute;*/
+}
+
+.can {
+  font-family: 'Cantarell', sans-serif;
+}
+.pay {
+  font-family: 'Paytone One', sans-serif;
+}
+
+
+#left-g, #right-g {
+  margin: 290px 0 295px 0;
+  font-size: 4em;
+}
+
+#left-g {
+  float: right;
+}
+
+#right-g {
+  float: left;
+}
+
+.lime {
+  color: #CFD11A;
+}
+
+.lime-b {
+  color: #CFD11A;
+}
+
+.dk-grey {
+  color: #595959;
+}
+
+.dk-grey-b{
+  background: #595959;
+}
+
+.button {
+  text-align: center;
+}
+
+#go {
+  border-radius: 20px;
+  padding: 10px;
+  width: 100px;
+
+}
+
+.button:hover {
+  text-decoration: none;
+  color: darkgrey;
+}
+
+#learn {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 1.4em;
+  color: dimgrey;
+}
+
+#click {
+  margin-top : 25px;
+  /*z-index: 50;*/
+  position: relative;
+}
+
+#click:hover {
+  background: dimgrey;
+  color: #CFD11A;
+}
+
+#landing {
+  padding: 0;
+  background: image-url('sky2.jpg');
+  background-size: 110%;
+  /*z-index: -40;*/
+}
+#landing-con {
+  /*z-index :-5;*/
+  /*margin-top :-50px;*/
+  padding-top: 90px;
+  height: 100vh;
+  background: aqua;
+  width: 70vw;
+  background: rgba(255, 255, 255, .8);
+}
+
+.gly-div {
+  width: 190px;
+  padding: 10px;
+}
+
+.gly {
+  font-size: 2em;
+  border-radius: 30px;
+  border: none;
+  box-shadow: none;
+  background: #CFD11A;
+  text-shadow: none;
+  color: dimgrey;
+}
+
+#team {
+  /*width: 100%;*/
+
+}
+
+#my-body {
+  /*width: 100%;*/
+  /*margin: 0;
+  padding: 0;*/
+
+}
+
+.container {
+  margin: 0;
+  width: 100%;
+}
+
+.big-gly {
+  color: green;
+}
+
+#twi, #lin, #git {
+  color: green;
+}
+
+@media (max-width: 768px) {
+  #left, #right {
+    display: none;
+  }
+  #all {
+    width: 100vw;
+    padding: 0;
+    background: white;
+
+  }
+  #landing {
+    padding: 0;
+    background: image-url('sky3.jpg');
+    background-size: 100vh;
+  }
+  
+  #middle {
+    padding: 0;
+    margin-top: 55px;
+  }
+
+  #photo-slides {
+    padding: 0;
+  }
+
+  #all div img {
+    width :100%;
+    height: 100%;
+  }
+
+  #landing-con {
+    width: 100%;
+  }
+
+}

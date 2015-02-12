@@ -29,6 +29,8 @@ function findPosition(position) {
       //show loading gif here
       console.log("meow!")
       // GET PHOTOS ALREADY IN DB
+      hideDiv("#landing")
+      showDiv("#loading");
       ajaxToDatabase();
       ajaxTriggerApiCalls();
     }
@@ -122,6 +124,8 @@ function ajaxToDatabase() {
       addPhoto(first_div);
       addClassVisited(first_div)
       //go to photo container
+      hideDiv("#loading")
+      showDiv("#photo-slides")
     },
     error: function() {
       console.log("ERRORERRORERROR")
@@ -223,4 +227,4 @@ function allVisitedUrls() {
   //   active_div.children().remove()
   //   switchPhoto($('#all').children().eq(n-1), n-1)
   // });
-// };
+// }
