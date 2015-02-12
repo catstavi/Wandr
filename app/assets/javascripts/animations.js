@@ -48,6 +48,29 @@ function showDiv(div_id) {
     }
   )}
 
+function quickHide(div_id) {
+  $( div_id ).css("top", "-100%")
+}
+
+function quickShow(div_id) {
+  $( div_id ).css("top", "0")
+}
+
+function fadeOut(div_id) {
+  $( div_id ).animate({
+    opacity: "0"
+  }, 1000, function() {
+    // Animation complete.
+  });
+}
+
+function fadeIn(div_id) {
+  $( div_id ).animate({
+    opacity: "1"
+  }, 1000, function() {
+    // Animation complete.
+  });
+}
 
 function hideDiv(div_id) {
   $( div_id ).animate({
