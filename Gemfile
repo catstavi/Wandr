@@ -10,8 +10,6 @@ gem 'google_places'
 gem 'timezone'
 
 gem "font-awesome-rails"
-
-gem 'rspec-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 # Use postgresql as the database for Active Record
@@ -48,6 +46,18 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-passenger'
 end
+
+group :test do
+  gem 'rspec-rails'
+  gem 'vcr'
+  gem 'webmock'
+  # gem 'typhoeus'
+  gem 'faraday', '0.8.9'
+  gem 'httparty'
+  # locked due to: https://github.com/vcr/vcr/issues/386
+  gem 'simplecov'
+end
+
 
 
 # Use ActiveModel has_secure_password

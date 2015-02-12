@@ -1,0 +1,158 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyDvio9wDNPZ-UnG7Ws-ynKiDPAV0aUrrkU&keyword=&language=&location=47.60884725,-122.33385466&name=Fremont%20Troll&radius=1000&rankby=
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 11 Feb 2015 00:13:31 GMT
+      Expires:
+      - Wed, 11 Feb 2015 00:18:31 GMT
+      Cache-Control:
+      - public, max-age=300
+      Server:
+      - mafe
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Alternate-Protocol:
+      - 443:quic,p=0.02
+      Accept-Ranges:
+      - none
+      Vary:
+      - Accept-Language,Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+           "html_attributions" : [],
+           "results" : [],
+           "status" : "ZERO_RESULTS"
+        }
+    http_version: 
+  recorded_at: Wed, 11 Feb 2015 00:13:30 GMT
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/place/textsearch/json?key=AIzaSyDvio9wDNPZ-UnG7Ws-ynKiDPAV0aUrrkU&language=&query=Fremont%20Troll%20in%20seattle&rankby=
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 11 Feb 2015 00:13:31 GMT
+      Expires:
+      - Wed, 11 Feb 2015 00:18:31 GMT
+      Cache-Control:
+      - public, max-age=300
+      Server:
+      - mafe
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Alternate-Protocol:
+      - 443:quic,p=0.02
+      Accept-Ranges:
+      - none
+      Vary:
+      - Accept-Language,Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+           "html_attributions" : [],
+           "results" : [
+              {
+                 "formatted_address" : "3405 Troll Avenue North, Seattle, WA 98103, United States",
+                 "geometry" : {
+                    "location" : {
+                       "lat" : 47.651034,
+                       "lng" : -122.347323
+                    }
+                 },
+                 "icon" : "http://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+                 "id" : "ef9f0907651c63ac80c8b3b8cb650de02c805494",
+                 "name" : "Fremont Troll",
+                 "photos" : [
+                    {
+                       "height" : 608,
+                       "html_attributions" : [
+                          "\u003ca href=\"https://plus.google.com/114516640043416042984\"\u003eJosh Keng\u003c/a\u003e"
+                       ],
+                       "photo_reference" : "CnRtAAAAVe9QQMYRkpZjdwnslWtAWXW7KsRzuZ1uT00TdET86Jzun0NAPMA7v1ERA_X9QW2j4oHmWFDz2SrJnt52GsK_VZbPMGhaoYSTs0hELwHflHg3pKq1NrvABiwaHE5Ddw8HbcESettHRv5Jt31nMU2rMhIQPAbwee96TsGKJnFa0QXLmxoUYkIOnzp4YEGAGOLACJQUEccbmCo",
+                       "width" : 1080
+                    }
+                 ],
+                 "place_id" : "ChIJvYSnKAEVkFQR35lxzvEE250",
+                 "rating" : 4.2,
+                 "reference" : "CnRwAAAAQm-Wx6HTHJXog6xUnrfb2j4jMvDcaCKSfxxu_11mXKLSJq4V-c1nWGbWBDhF8XIOSasSXnGT0QbD4pGWhx8gI29XJOidBGC6xZzMayzH60HUfyciUxYdkg32KWTWLE9zeELtB-SZJl-gl5aoS-GKoBIQbBzfyGN7CpNdfRC_gag86BoUMJWDv5G0x9Wz1e1tKKl3JZbfsFQ",
+                 "types" : [ "establishment" ]
+              },
+              {
+                 "formatted_address" : "3405 Troll Avenue North, Seattle, WA 98103, United States",
+                 "geometry" : {
+                    "location" : {
+                       "lat" : 47.649778,
+                       "lng" : -122.347612
+                    }
+                 },
+                 "icon" : "http://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+                 "id" : "83f20332a0089be0e59bcc1de30c6b50220a7649",
+                 "name" : "Fremont Chamber of Commerce",
+                 "opening_hours" : {
+                    "open_now" : true,
+                    "weekday_text" : []
+                 },
+                 "photos" : [
+                    {
+                       "height" : 206,
+                       "html_attributions" : [],
+                       "photo_reference" : "CnRnAAAAIBcFYN1ALPSXGT6m0Bi75Ik11gxXXweETO0UysbVyI_sDIyYr3rpop6RggMp0QnOkS0KYZZXRm-FHKh9HeR6-PFUDFo3EunwLhqeyUmVKv0bxpWWH5mpxotfwvmJcch_oseZlaC8X7so975yzO4KSxIQmG3JLuleei6b-b4ADJZz1hoUbe8oD8DasircfkuJQvgbSb9ToL8",
+                       "width" : 300
+                    }
+                 ],
+                 "place_id" : "ChIJF4LmNwEVkFQRzlWyxMXLEZ4",
+                 "rating" : 4.2,
+                 "reference" : "CoQBfgAAAE5ncZI9fT_JZtjSB3du360Qkgaz7wjhosoRfNA6fJwYgwk97eJpatkkXmnf2_K0ASKVUL6U6l1b_4fIRKrimcgIiKhGgELBjSHesvrS6j-CC19oR7MmH29gNcXNDNd9ePc5ZvFMZbBN1TYKjkyIO9uYxeu2mTm1wDz6CCF_WLEDEhBFHDaVywi7D_sZoWb1JHdXGhSixU_gC0q_UqaaYxWWloCcpnr2ZQ",
+                 "types" : [ "establishment" ]
+              }
+           ],
+           "status" : "OK"
+        }
+    http_version: 
+  recorded_at: Wed, 11 Feb 2015 00:13:30 GMT
+recorded_with: VCR 2.9.3
