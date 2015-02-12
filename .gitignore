@@ -17,3 +17,4 @@
 .env
 /public/assets
 spec/vcr_cassettes
+/coverage
