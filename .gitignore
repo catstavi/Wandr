@@ -16,3 +16,5 @@
 /tmp
 .env
 /spec/vcr_cassettes
+/coverage
+public/assets
