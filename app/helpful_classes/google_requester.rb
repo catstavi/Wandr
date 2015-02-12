@@ -1,6 +1,7 @@
 class GoogleRequester
 
   def self.check_for_updates(location)
+
     if location.hours_updated_at < Time.now - 2.weeks
       if location.place_id == nil
         request(location)

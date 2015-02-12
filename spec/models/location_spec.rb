@@ -75,36 +75,50 @@ describe Location do
   describe "#open_now_or no_hours" do
     it "returns a location that is open now" do
       win2
-      expect(Location.open_now_or_no_hours(47, -122)).to include loc2
+      VCR.use_cassette 'google_time_zone' do
+        expect(Location.open_now_or_no_hours(47, -122)).to include loc2
+      end
     end
 
     it "returns a location that has no hourly info/windows" do
-      expect(Location.open_now_or_no_hours(47, -122)).to include loc1
+      VCR.use_cassette 'google_time_zone' do
+        expect(Location.open_now_or_no_hours(47, -122)).to include loc1
+      end
     end
 
     it "does not return a location that is closed now" do
       win3
-      expect(Location.open_now_or_no_hours(47, -122)).to_not include loc3
+      VCR.use_cassette 'google_time_zone' do
+        expect(Location.open_now_or_no_hours(47, -122)).to_not include loc3
+      end
     end
 
   end
 
   describe "#filtered" do
     it "returns locations that are active, near, and open/no hours" do
-      expect(Location.filtered(47.6216643, -122.32132559999998)).to include loc1
+      VCR.use_cassette 'google_time_zone' do
+        expect(Location.filtered(47.6216643, -122.32132559999998)).to include loc1
+      end
     end
 
     it "removes locations that are not active" do
-      expect(Location.filtered(47.6216643, -122.32132559999998)).to_not include loc2
+      VCR.use_cassette 'google_time_zone' do
+        expect(Location.filtered(47.6216643, -122.32132559999998)).to_not include loc2
+      end
     end
 
     it "removes locations that are not near" do
-      expect(Location.filtered(47.6216643, -122.32132559999998)).to_not include loc4
+      VCR.use_cassette 'google_time_zone' do
+        expect(Location.filtered(47.6216643, -122.32132559999998)).to_not include loc4
+      end
     end
 
     it "removes locations that are closed" do
       win3
-      expect(Location.filtered(47.6216643, -122.32132559999998)).to_not include loc3
+      VCR.use_cassette 'google_time_zone' do
+        expect(Location.filtered(47.6216643, -122.32132559999998)).to_not include loc3
+      end
     end
 
   end
@@ -113,7 +127,9 @@ describe Location do
     it "returns an array full of hashes" do
       loc5
       pic5
-      ar = Location.url_and_id_arry(47.6216643, -122.32132559999998)
+      ar = VCR.use_cassette 'google_time_zone' do
+        Location.url_and_id_arry(47.6216643, -122.32132559999998)
+      end
       expect(ar).to be_a Array
       expect(ar[0]).to be_a Hash
     end
@@ -122,7 +138,9 @@ describe Location do
       loc5
       pic5
       url = loc5.photos.first.url
-      ar = Location.url_and_id_arry(47.6216643, -122.32132559999998)
+      ar = VCR.use_cassette 'google_time_zone' do
+        Location.url_and_id_arry(47.6216643, -122.32132559999998)
+      end
       keys = ar.collect {|hash| hash.keys}
       expect(keys.flatten).to include url
     end
@@ -130,10 +148,32 @@ describe Location do
     it "has location id as hash values" do
       loc5
       pic5
-      ar = Location.url_and_id_arry(47.6216643, -122.32132559999998)
+      ar = VCR.use_cassette 'google_time_zone' do
+        Location.url_and_id_arry(47.6216643, -122.32132559999998)
+      end
       expect(ar.first.values).to include loc5.id
     end
 
+  end
+
+  describe '#record_new' do
+
+    it "saves new locations to the database" do
+      VCR.use_cassette 'location_record' do
+        Location.record_new(47.609020, -122.334050)
+      end
+      expect(Location.count).to be > 0
+    end
+
+    context "an old location hasn't been updated for 2weeks" do
+      it "checks for updates" do
+        loc1.update(hours_updated_at: Time.now - 3.weeks, photos_updated_at: Time.now)
+        VCR.use_cassette 'location_record_downtown' do
+          Location.record_new(47.609020, -122.334050)
+        end
+        expect(loc1.reload.place_id).to be_truthy
+      end
+    end
   end
 
 end
