@@ -116,12 +116,9 @@ function addPhoto(active_div) {
   var photo = document.createElement("img");
   photo.setAttribute("src", active_div.attr('id'));
   active_div.append(photo);
-  console.log("I added a photo!")
 }
 
 function addClassVisited(div) {
-  console.log("inside addClassVisited")
-  console.log(div)
   if (div.attr("class").indexOf("visited") == -1) {
     div.addClass("visited");
   };
@@ -138,13 +135,9 @@ function ajaxToDatabase() {
       //if a user hits the wander button a second time, without refreshing the page
       // it removes old divs and finds again (your location may have changed)
       if (db_loaded) {
-        console.log("I think that db_loaded is true!")
         $('#all').children().remove();
-        console.log("children removed");
         AppendNew(data, "old");
-        console.log("appended new");
         addSwipeEvents($('#all').children());
-        console.log("swipe events added");
         handleLoadedPhotos();
       }
       //go to photo container
@@ -157,13 +150,9 @@ function ajaxToDatabase() {
 };
 
 function handleLoadedPhotos() {
-
   var first_div = $('#all').children().eq(0);
   addPhoto(first_div);
-  console.log("the div we're trying to add 'visited' to")
-  console.log(first_div)
   addClassVisited(first_div)
-  console.log("class visited was added")
   hideDiv("#loading")
   showDiv("#photo-slides")
   addPhotoButton()
@@ -175,13 +164,11 @@ function ajaxTriggerApiCalls(already_loaded) {
     url: "/load_locations",
     success: function(data) {
       //add divs to view
-      console.log(data)
       console.log("SUCCESS!!!!!!!!");
       DeleteUnvisited();
       AppendNew(data, "new");
       addSwipeEvents($('#all').children(".new"))
       if (!already_loaded) {
-        console.log("db loaded was false, so this is post API")
         handleLoadedPhotos();
       }
     }
@@ -219,5 +206,4 @@ function allVisitedUrls() {
 
 function addPhotoButton() {
   $("#photo-link").css("display", "inline-block");
-  console.log("PHOTO BUTTON HAYYYYY");
 }
