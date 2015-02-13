@@ -56,6 +56,7 @@ function rightArrowHandler() {
     next_div = $('#all').children().eq(0)
   }
   $('#all').children().children().remove()
+  addClassVisited(next_div);
   addPhoto(next_div)
 }
 
@@ -63,6 +64,7 @@ function leftArrowHandler() {
   var div_index = $('#all').children().children().parent().index()
   var prev_div = $('#all').children().eq(div_index - 1)
   $('#all').children().children().remove()
+  addClassVisited(prev_div);
   addPhoto(prev_div)
 }
 
@@ -104,6 +106,7 @@ function swipeLeftHandler() {
 function swipeRightHandler() {
   console.log("You just swiped right!")
   $(this).children().remove();
+  addClassVisited(prev_div);
   addPhoto( $(this).prev() );
   $('#details').hide();
 }
@@ -156,29 +159,15 @@ function ajaxTriggerApiCalls() {
       //add divs to view
       console.log("SUCCESS!!!!!!!!");
       DeleteUnvisited();
-      AppendNew(data, "new");
-      addSwipeEvents($('#all').children(".new"))
+      // AppendNew(data, "new");
+      // addSwipeEvents($('#all').children(".new"))
     }
   })
 }
 
-function firstUnvisitedIndex() {
-  var photos = $('#all').children()
-  for (i = 0; i < photos.length; i++ ) {
-    var div = photos.eq(i)
-    if (div.attr("class").indexOf("visited") == -1) {
-      return i
-    };
-  };
-
-}
-
 function DeleteUnvisited() {
-  var index = firstUnvisitedIndex()
-  while ( $('#all').children().length > index ) {
-    $('#all').children().eq(index).remove();
-  };
-};
+  $("#all").children().not(".visited").remove()
+}
 
 function AppendNew(data, classname) {
   for (i = 0; i<data.length; i++ ) {
@@ -187,23 +176,20 @@ function AppendNew(data, classname) {
     var visited = allVisitedUrls();
     if ( visited.indexOf( url ) == -1 ) {
         var div = document.createElement("div");
+        var class_str = location_id.toString() + " " + classname
         div.setAttribute("id", url);
+        div.setAttribute("class", class_str);
         $("#all").append(div);
-        div = $("#all").children().last();
-        div.addClass(location_id.toString());
-        div.addClass(classname);
-      };
-    }
+    };
+  }
 }
 
 function allVisitedUrls() {
   var visited = []
-  var photos = $('#all').children()
+  var photos = $('#all').children(".visited")
   for (i = 0; i<photos.length; i++ ) {
     var div = photos.eq(i);
-    if (div.attr("class").indexOf("visited") != -1) {
-      visited.push(div.attr("id"));
-    };
+    visited.push(div.attr("id"));
   }
   return visited
 }
