@@ -134,6 +134,7 @@ function ajaxToDatabase() {
       //go to photo container
       fadeOut("#loading")
       quickShow("#photo-slides")
+      addPhotoButton()
     },
     error: function() {
       console.log("ERRORERRORERROR")
@@ -202,6 +203,11 @@ function allVisitedUrls() {
     };
   }
   return visited
+}
+
+function addPhotoButton() {
+  $("#photo-link").css("display", "inline-block");
+  console.log("PHOTO BUTTON HAYYYYY");
 }
 //
 //
