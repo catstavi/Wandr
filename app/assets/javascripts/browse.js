@@ -131,13 +131,20 @@ function ajaxToDatabase() {
       //if a user hits the wander button a second time, without refreshing the page
       // it removes old divs and finds again (your location may have changed)
       $('#all').children().remove()
+      console.log("1")
       AppendNew(data, "old");
+      console.log("2")
       addSwipeEvents($('#all').children());
+      console.log("3")
       var first_div = $('#all').children().eq(0);
+      console.log("4")
       addPhoto(first_div);
+      console.log("5")
       addClassVisited(first_div)
+      console.log("6")
       //go to photo container
       fadeOut("#loading")
+      console.log("7")
       quickShow("#photo-slides")
       addPhotoButton()
       ajaxTriggerApiCalls();
@@ -163,8 +170,9 @@ function ajaxTriggerApiCalls() {
 }
 
 function firstUnvisitedIndex() {
-  for (i = 0; i < $('#all').children().length; i++ ) {
-    var div = $("#all").children().eq(i)
+  var photos = $('#all').children()
+  for (i = 0; i < photos.length; i++ ) {
+    var div = photos.eq(i)
     if (div.attr("class").indexOf("visited") == -1) {
       return i
     };
@@ -197,8 +205,9 @@ function AppendNew(data, classname) {
 
 function allVisitedUrls() {
   var visited = []
-  for (i = 0; i<$('#all').children().length; i++ ) {
-    var div = $('#all').children().eq(i);
+  var photos = $('#all').children()
+  for (i = 0; i<photos.length; i++ ) {
+    var div = photos.eq(i);
     if (div.attr("class").indexOf("visited") != -1) {
       visited.push(div.attr("id"));
     };
