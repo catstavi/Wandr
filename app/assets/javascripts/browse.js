@@ -57,6 +57,7 @@ function rightArrowHandler() {
   }
   $('#all').children().children().remove()
   addPhoto(next_div)
+  showDetails(next_div)
 }
 
 function leftArrowHandler() {
@@ -64,6 +65,7 @@ function leftArrowHandler() {
   var prev_div = $('#all').children().eq(div_index - 1)
   $('#all').children().children().remove()
   addPhoto(prev_div)
+  showDetails(prev_div)
 }
 
 function showDetails(current_photo) {
@@ -94,12 +96,14 @@ function swipeLeftHandler() {
   }
   addClassVisited(next_div);
   addPhoto( next_div );
+  showDetails(next_div);
 }
 
 function swipeRightHandler() {
   console.log("You just swiped right!")
   $(this).children().remove();
   addPhoto( $(this).prev() );
+  showDetails( $(this).prev() );
 }
 
 function addPhoto(active_div) {
