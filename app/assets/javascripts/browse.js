@@ -17,8 +17,8 @@ $(document).ready(function(){
     }
   });
 
-  $('#left-g').click(leftArrow);
-  $('#right-g').click(rightArrow);
+  $('#left-g').click(leftArrowHandler);
+  $('#right-g').click(rightArrowHandler);
 
 });
 
@@ -49,14 +49,17 @@ function addSwipeEvents( objects ) {
   }
 }
 
-function rightArrow() {
+function rightArrowHandler() {
   var div_index = $('#all').children().children().parent().index()
   var next_div = $('#all').children().eq(div_index + 1)
+  if (next_div.length === 0 ) {
+    next_div = $('#all').children().eq(0)
+  }
   $('#all').children().children().remove()
   addPhoto(next_div)
 }
 
-function leftArrow() {
+function leftArrowHandler() {
   var div_index = $('#all').children().children().parent().index()
   var prev_div = $('#all').children().eq(div_index - 1)
   $('#all').children().children().remove()
@@ -89,8 +92,12 @@ function addSwipesToElem(elem) {
 function swipeLeftHandler() {
   console.log("You just swiped left!")
   $(this).children().remove();
-  addClassVisited($(this).next());
-  addPhoto( $(this).next() );
+  next_div = $(this).next()
+  if (next_div.length === 0 ) {
+    next_div = $('#all').children().eq(0)
+  }
+  addClassVisited(next_div);
+  addPhoto( next_div );
   $('#details').hide();
 }
 
