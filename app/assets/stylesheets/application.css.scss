@@ -20,6 +20,10 @@
   /*top: 0px;*/
 }
 
+#photo-link {
+  display: none;
+}
+
 #road {
   font-size: .95em;
   /*z-index: 100;*/
@@ -253,7 +257,6 @@ color:#ec8007
   /*margin-top :-50px;*/
   padding-top: 90px;
   height: 100vh;
-  background: aqua;
   width: 70vw;
   background: rgba(255, 255, 255, .8);
 }
@@ -313,7 +316,7 @@ color:#ec8007
     background: image-url('sky3.jpg');
     background-size: 100vh;
   }
-  
+
   #middle {
     padding: 0;
     margin-top: 55px;

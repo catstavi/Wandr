@@ -28,6 +28,11 @@ class GoogleRequester
     end
   end
 
+  # def self.get_review(location)
+  #   review = @@client.spot(location.place_id).reviews.first
+  #   location.top_review = review
+  # end
+
   def self.get_hours(location)
     @@client = GooglePlaces::Client.new(ENV["GOOGLE_PLACE_KEY"])
     hours = @@client.spot(location.place_id).opening_hours

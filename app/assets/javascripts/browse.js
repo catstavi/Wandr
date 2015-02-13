@@ -1,38 +1,43 @@
 $(document).ready(function(){
   console.log("The document is ready!")
   $('#click').click(function(){
-    var msg = $('.msg')
 
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(findPosition)
+      navigator.geolocation.getCurrentPosition(findPosition, function(errorCode) {
+          console.log('WHERE ARE YOU????');
+          // offer address form here
+      })
+      // shows the loading gif
+      hideDiv("#landing")
+      showDiv("#loading");
     }
     else {
-      msg.append("Geolocation is not supported by your browser.")
+      // offer address form here?
+      console.log("HEY! Geolocation is not supported by your browser.")
     }
   });
 
-  $('#left-g').click(leftArrow);
-  $('#right-g').click(rightArrow);
+  $('#left-g').click(leftArrowHandler);
+  $('#right-g').click(rightArrowHandler);
 
 });
 
 function findPosition(position) {
-  var url = '/sessions'
   $.ajax({
     type: 'POST',
-    url: url,
+    url: '/sessions',
     data: {
       'latitude': position.coords.latitude,
       'longitude': position.coords.longitude,
     },
     success: function (data) {
-      //show loading gif here
       console.log("meow!")
       // GET PHOTOS ALREADY IN DB
-      hideDiv("#landing")
-      showDiv("#loading");
       ajaxToDatabase();
       ajaxTriggerApiCalls();
+    },
+    error: function() {
+      console.log("IM AN ERROR YOU GUYS!!!!")
     }
   });
 };
@@ -44,14 +49,17 @@ function addSwipeEvents( objects ) {
   }
 }
 
-function rightArrow() {
+function rightArrowHandler() {
   var div_index = $('#all').children().children().parent().index()
   var next_div = $('#all').children().eq(div_index + 1)
+  if (next_div.length === 0 ) {
+    next_div = $('#all').children().eq(0)
+  }
   $('#all').children().children().remove()
   addPhoto(next_div)
 }
 
-function leftArrow() {
+function leftArrowHandler() {
   var div_index = $('#all').children().children().parent().index()
   var prev_div = $('#all').children().eq(div_index - 1)
   $('#all').children().children().remove()
@@ -84,8 +92,12 @@ function addSwipesToElem(elem) {
 function swipeLeftHandler() {
   console.log("You just swiped left!")
   $(this).children().remove();
-  addClassVisited($(this).next());
-  addPhoto( $(this).next() );
+  next_div = $(this).next()
+  if (next_div.length === 0 ) {
+    next_div = $('#all').children().eq(0)
+  }
+  addClassVisited(next_div);
+  addPhoto( next_div );
   $('#details').hide();
 }
 
@@ -116,16 +128,18 @@ function ajaxToDatabase() {
     url: '/get_db_photos',
     success: function(data) {
       console.log("I defeated the mighty Ajax!");
-      console.log(data);
+      //if a user hits the wander button a second time, without refreshing the page
+      // it removes old divs and finds again (your location may have changed)
+      $('#all').children().remove()
       AppendNew(data, "old");
       addSwipeEvents($('#all').children());
       var first_div = $('#all').children().eq(0);
-      console.log(first_div)
       addPhoto(first_div);
       addClassVisited(first_div)
       //go to photo container
-      hideDiv("#loading")
-      showDiv("#photo-slides")
+      fadeOut("#loading")
+      quickShow("#photo-slides")
+      addPhotoButton()
     },
     error: function() {
       console.log("ERRORERRORERROR")
@@ -154,7 +168,6 @@ function firstUnvisitedIndex() {
   for (i = 0; i < $('#all').children().length; i++ ) {
     var div = $("#all").children().eq(i)
     if (div.attr("class").indexOf("visited") == -1) {
-      // console.log("i found the first unvisited div at index: "+ i);
       return i
     };
   };
@@ -165,7 +178,6 @@ function DeleteUnvisited() {
   var index = firstUnvisitedIndex()
   while ( $('#all').children().length > index ) {
     $('#all').children().eq(index).remove();
-    // console.log("Length after removal is: " + $('#all').children().length )
   };
 };
 
@@ -194,6 +206,11 @@ function allVisitedUrls() {
     };
   }
   return visited
+}
+
+function addPhotoButton() {
+  $("#photo-link").css("display", "inline-block");
+  console.log("PHOTO BUTTON HAYYYYY");
 }
 //
 //
