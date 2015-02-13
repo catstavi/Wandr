@@ -150,6 +150,7 @@ function ajaxToDatabase() {
 function handleLoadedPhotos() {
   var first_div = $('#all').children().eq(0);
   addPhoto(first_div);
+  showDetails(first_div)
   addClassVisited(first_div)
   hideDiv("#loading")
   showDiv("#photo-slides")
