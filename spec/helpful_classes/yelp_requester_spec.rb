@@ -10,7 +10,10 @@ describe YelpRequester do
 
     context "there is legit data passed" do
       it "returns a BurstStruct::Burst Object" do
-        expect(YelpRequester.request(47.618517,-122.335852)).to be_a BurstStruct::Burst
+        response = VCR.use_cassette 'yelp_response' do
+          YelpRequester.request(47.608847245574, -122.333854660392)
+        end
+        expect(response).to be_a BurstStruct::Burst
       end
     end
   end

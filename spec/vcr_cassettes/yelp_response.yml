@@ -1,0 +1,793 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.yelp.com/v2/search?ll=47.608847245574%2C-122.333854660392%2C%2C%2C&category_filter=aquariums%2Cbasketballcourts%2Cbeaches%2Cbowling%2Cboating%2Cclimbing%2Cgokarts%2Cgun_ranges%2Chiking%2Chorsebackriding%2Chot_air_balloons%2Clakes%2Clasertag%2Cmini_golf%2Cpaintball%2Cparks%2Crecreation%2Cskatingrinks%2Cskydiving%2Cswimmingpools%2Ctennis%2Czoos%2Carcades%2Cgalleries%2Cgardens%2Cmovietheaters%2Cjazzandblues%2Cmuseums%2Cmusicvenues%2Cobservatories%2Copera%2Ctheater%2Cplanetarium%2Cpsychic_astrology%2Cspas%2Cmassage%2Cfarmersmarket%2Ctea%2Ctours%2Cpoolhalls%2Ckaraoke%2Clibraries%2Clandmarks%2Cbookstores%2Cfleamarkets%2Cvintage%2Cantiques&sort=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth oauth_consumer_key="CSL-X8Q5F6gYNeGO38crvg", oauth_nonce="b8c7ac7ee778f8f188f8e67872e8318f",
+        oauth_signature="Riurwpb%2BQgun%2B1ToBfshoI6QsgA%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1423524696", oauth_token="qEpO3668P19wjIB-1uzHIxGqkdd-7wwC",
+        oauth_version="1.0"
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      date:
+      - Mon, 09 Feb 2015 23:31:37 GMT
+      server:
+      - Apache
+      x-node:
+      - web4-r1-sfo2, api_com
+      cache-control:
+      - private
+      set-cookie:
+      - yuv=28hqOBgOWRAkm3d0mm8bkOAvAeLZpwTU0Wr3bcsz68_FttjIcx87NpuN84RFWzcwiHafLM0zKBUNwR7IVDhAaFRUXS2CIs3R;
+        Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Sun, 04-Feb-2035 23:31:37
+        GMT, bse=bbb6b549f8baf321de5cbfa0dd263930; Domain=.yelp.com; Path=/; HttpOnly
+      content-length:
+      - '31902'
+      vary:
+      - User-Agent
+      connection:
+      - close
+      content-type:
+      - application/json; charset=UTF-8
+      x-mode:
+      - ro
+      x-proxied:
+      - extlb2-r5-sfo2
+    body:
+      encoding: UTF-8
+      string: '{"region": {"span": {"latitude_delta": 0.0076239384100063035, "longitude_delta":
+        0.0090557134855089316}, "center": {"latitude": 47.608271173449999, "longitude":
+        -122.33624345440249}}, "total": 40, "businesses": [{"is_claimed": true, "distance":
+        7.0689339192292477, "mobile_url": "http://m.yelp.com/biz/the-5th-avenue-theatre-seattle",
+        "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 127, "name": "The 5th Avenue Theatre", "snippet_image_url":
+        "http://s3-media4.fl.yelpcdn.com/photo/MFXmEhbXxyBgV3QFRv-rtg/ms.jpg", "rating":
+        4.5, "url": "http://www.yelp.com/biz/the-5th-avenue-theatre-seattle", "location":
+        {"cross_streets": "University St \u0026 Union St", "city": "Seattle", "display_address":
+        ["1308 5th Ave", "Downtown", "Seattle, WA 98101"], "geo_accuracy": 8.0, "neighborhoods":
+        ["Downtown"], "postal_code": "98101", "country_code": "US", "address": ["1308
+        5th Ave"], "coordinate": {"latitude": 47.608847245573997, "longitude": -122.33385466039201},
+        "state_code": "WA"}, "phone": "2066251418", "snippet_text": "I have been to
+        the 5th Avenue theater a couple of different times and most recently I went
+        for a christmas story.  The theater is a really beautiful and...", "image_url":
+        "http://s3-media1.fl.yelpcdn.com/bphoto/nRgf5r8GGbWoP54_BDgmwQ/ms.jpg", "categories":
+        [["Performing Arts", "theater"], ["Cinema", "movietheaters"]], "display_phone":
+        "+1-206-625-1418", "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "id": "the-5th-avenue-theatre-seattle", "is_closed": false, "rating_img_url_small":
+        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png"},
+        {"is_claimed": true, "distance": 93.463622358669994, "mobile_url": "http://m.yelp.com/biz/seattle-bites-food-tours-seattle",
+        "rating_img_url": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 32, "name": "Seattle Bites Food Tours", "snippet_image_url":
+        "http://s3-media3.fl.yelpcdn.com/photo/I63TyeOlBvxyfr9_c6tV4w/ms.jpg", "rating":
+        5.0, "url": "http://www.yelp.com/biz/seattle-bites-food-tours-seattle", "location":
+        {"city": "Seattle", "display_address": ["Pike Place Market", "Downtown", "Seattle,
+        WA 98101"], "geo_accuracy": 9.5, "neighborhoods": ["Downtown"], "postal_code":
+        "98101", "country_code": "US", "address": ["Pike Place Market"], "coordinate":
+        {"latitude": 47.609186612776902, "longitude": -122.33499526977501}, "state_code":
+        "WA"}, "phone": "4258888837", "snippet_text": "I loved the food tour!  It
+        was a crowded Labor Day weekend, but our guide kept us together, and made
+        it so much fun.  The food was incredible, and our guide...", "image_url":
+        "http://s3-media3.fl.yelpcdn.com/bphoto/kgPhdRGXWimmgWLcNiZkYg/ms.jpg", "categories":
+        [["Food Tours", "foodtours"]], "display_phone": "+1-425-888-8837", "rating_img_url_large":
+        "http://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "seattle-bites-food-tours-seattle", "is_closed": false, "rating_img_url_small":
+        "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png"},
+        {"is_claimed": true, "distance": 199.02042588263822, "mobile_url": "http://m.yelp.com/biz/salon-circa-seattle",
+        "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 60, "name": "Salon Circa", "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/T8U464x6s605wSsSc1lT-A/ms.jpg",
+        "rating": 4.5, "url": "http://www.yelp.com/biz/salon-circa-seattle", "location":
+        {"cross_streets": "Union St \u0026 Pike St", "city": "Seattle", "display_address":
+        ["1417 4th Ave", "Downtown", "Seattle, WA 98101"], "geo_accuracy": 8.0, "neighborhoods":
+        ["Downtown"], "postal_code": "98101", "country_code": "US", "address": ["1417
+        4th Ave"], "coordinate": {"latitude": 47.609531400000002, "longitude": -122.3364716},
+        "state_code": "WA"}, "phone": "2062230457", "snippet_text": "Monica cut my
+        hair a month or so ago, and she did a fabulous job. I hate finding new stylists
+        because I have really thick hair, and not everyone quite knows...", "image_url":
+        "http://s3-media1.fl.yelpcdn.com/bphoto/ngC0b6CxuAxWQ37ituhFfw/ms.jpg", "categories":
+        [["Day Spas", "spas"], ["Hair Salons", "hair"], ["Nail Salons", "othersalons"]],
+        "display_phone": "+1-206-223-0457", "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "id": "salon-circa-seattle", "is_closed": false, "rating_img_url_small": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png"},
+        {"is_claimed": true, "distance": 224.80590242677283, "mobile_url": "http://m.yelp.com/biz/act-a-contemporary-theatre-seattle",
+        "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 75, "name": "ACT - A Contemporary Theatre", "snippet_image_url":
+        "http://s3-media1.fl.yelpcdn.com/photo/8zLA17AbtLB-b37bJJ-ynQ/ms.jpg", "rating":
+        4.5, "url": "http://www.yelp.com/biz/act-a-contemporary-theatre-seattle",
+        "location": {"cross_streets": "7th Ave \u0026 Convention Pl", "city": "Seattle",
+        "display_address": ["700 Union St", "Downtown", "Seattle, WA 98101"], "geo_accuracy":
+        9.5, "neighborhoods": ["Downtown"], "postal_code": "98101", "country_code":
+        "US", "address": ["700 Union St"], "coordinate": {"latitude": 47.610618768623098,
+        "longitude": -122.33240962028501}, "state_code": "WA"}, "phone": "2062927676",
+        "snippet_text": "The ACTPass is, hands down, the region''s best cultural-events
+        deal (a bargain at $30/mo, or $50/mo for two).  More importantly, it''s a
+        nice encouragement to...", "image_url": "http://s3-media1.fl.yelpcdn.com/bphoto/XIeUjuOhHyAdZwyrJNDD0Q/ms.jpg",
+        "categories": [["Performing Arts", "theater"], ["Cabaret", "cabaret"]], "display_phone":
+        "+1-206-292-7676", "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "id": "act-a-contemporary-theatre-seattle", "is_closed": false, "rating_img_url_small":
+        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png"},
+        {"is_claimed": true, "distance": 258.22718963366799, "mobile_url": "http://m.yelp.com/biz/the-seattle-public-library-central-library-seattle",
+        "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 360, "name": "The Seattle Public Library - Central Library",
+        "snippet_image_url": "http://s3-media4.fl.yelpcdn.com/photo/f6Cu2S9tfFVBr2wsxCESew/ms.jpg",
+        "rating": 4.5, "url": "http://www.yelp.com/biz/the-seattle-public-library-central-library-seattle",
+        "location": {"city": "Seattle", "display_address": ["1000 4th Ave", "Downtown",
+        "Seattle, WA 98104"], "geo_accuracy": 9.5, "neighborhoods": ["Downtown"],
+        "postal_code": "98104", "country_code": "US", "address": ["1000 4th Ave"],
+        "coordinate": {"latitude": 47.606600399999998, "longitude": -122.33298379999999},
+        "state_code": "WA"}, "phone": "2063864636", "snippet_text": "If you''re looking
+        for something to do that is free around downtown Seattle, I''d recommend that
+        you stop by here.  The exterior of the library doesn''t scream...", "image_url":
+        "http://s3-media2.fl.yelpcdn.com/bphoto/IsJX7aWvuFcFBDdc-jySuQ/ms.jpg", "categories":
+        [["Libraries", "libraries"]], "display_phone": "+1-206-386-4636", "rating_img_url_large":
+        "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "id": "the-seattle-public-library-central-library-seattle", "is_closed": false,
+        "rating_img_url_small": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png"},
+        {"is_claimed": false, "distance": 284.76892945908986, "mobile_url": "http://m.yelp.com/biz/benaroya-hall-seattle",
+        "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 108, "name": "Benaroya Hall", "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/pxSKi7_biFOqF0Sz1sc9cA/ms.jpg",
+        "rating": 4.5, "url": "http://www.yelp.com/biz/benaroya-hall-seattle", "location":
+        {"city": "Seattle", "display_address": ["200 University St", "Downtown", "Seattle,
+        WA 98101"], "geo_accuracy": 8.0, "neighborhoods": ["Downtown"], "postal_code":
+        "98101", "country_code": "US", "address": ["200 University St"], "coordinate":
+        {"latitude": 47.607407569885297, "longitude": -122.336996197701}, "state_code":
+        "WA"}, "menu_date_updated": 1418383448, "phone": "2062154700", "snippet_text":
+        "Exceptional music hall. The acoustics are fabulous. It''s quite a beautiful
+        work of architecture. When you buy your tickets, I recommend being up on one
+        of...", "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/-m1aeuOLiwhF0yE3Jm6EEw/ms.jpg",
+        "categories": [["Performing Arts", "theater"], ["Music Venues", "musicvenues"]],
+        "display_phone": "+1-206-215-4700", "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "menu_provider": "single_platform", "id": "benaroya-hall-seattle", "is_closed":
+        false, "rating_img_url_small": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png"},
+        {"is_claimed": false, "distance": 335.85513508263472, "mobile_url": "http://m.yelp.com/biz/bocz-salon-seattle",
+        "rating_img_url": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 129, "name": "Bocz Salon", "snippet_image_url": "http://s3-media3.fl.yelpcdn.com/photo/SZd7lRRE6kFdiCr8a4hz0Q/ms.jpg",
+        "rating": 5.0, "url": "http://www.yelp.com/biz/bocz-salon-seattle", "location":
+        {"city": "Seattle", "display_address": ["1523 6th Ave", "Downtown", "Seattle,
+        WA 98101"], "geo_accuracy": 8.0, "neighborhoods": ["Downtown"], "postal_code":
+        "98101", "country_code": "US", "address": ["1523 6th Ave"], "coordinate":
+        {"latitude": 47.611648600000002, "longitude": -122.3352737}, "state_code":
+        "WA"}, "phone": "2066249134", "snippet_text": "I had some pretty long hair
+        and I just felt like chopping it all off and starting fresh! Since I was making
+        such a drastic length change I wanted to make...", "image_url": "http://s3-media1.fl.yelpcdn.com/bphoto/YZmcHTTqpPTemd6rL6tePw/ms.jpg",
+        "categories": [["Day Spas", "spas"], ["Hair Salons", "hair"], ["Skin Care",
+        "skincare"]], "display_phone": "+1-206-624-9134", "rating_img_url_large":
+        "http://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "bocz-salon-seattle", "is_closed": false, "rating_img_url_small": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png"},
+        {"is_claimed": true, "distance": 376.05938957270291, "mobile_url": "http://m.yelp.com/biz/devine-chiropractic-center-seattle-2",
+        "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 37, "name": "Devine Chiropractic Center", "snippet_image_url":
+        "http://s3-media3.fl.yelpcdn.com/photo/6-awqL9_lxxfD-fa-NJf6g/ms.jpg", "rating":
+        4.5, "url": "http://www.yelp.com/biz/devine-chiropractic-center-seattle-2",
+        "location": {"cross_streets": "Seneca St \u0026 University St", "city": "Seattle",
+        "display_address": ["1205 2nd Ave", "Ste 120", "Downtown", "Seattle, WA 98101"],
+        "geo_accuracy": 9.5, "neighborhoods": ["Downtown"], "postal_code": "98101",
+        "country_code": "US", "address": ["1205 2nd Ave", "Ste 120"], "coordinate":
+        {"latitude": 47.610329, "longitude": -122.338364}, "state_code": "WA"}, "deals":
+        [{"is_popular": true, "what_you_get": "You get a voucher redeemable for $125
+        at Devine Chiropractic Center.\nPrint out your voucher, or redeem on your
+        phone with the \u003ca href=\"http://www.yelp.com/yelpmobile\"\u003eYelp app\u003c/a\u003e.",
+        "time_start": 1386087922, "title": "$75 for $125", "url": "http://www.yelp.com/deals/devine-chiropractic-center-seattle-5",
+        "additional_restrictions": "Promotion lasts for 1 year from date of purchase.
+        After that period, your voucher is redeemable for the amount you paid, less
+        any value you may have received. Not valid with other vouchers, certificates,
+        or offers. Voucher can only be used for services, not retail products. Only
+        1 voucher(s) can be purchased and redeemed per person. Up to 3 can be purchased
+        as gifts for others. Subject to the \u003ca target=\"_blank\" href=\"http://www.yelp.com/tos/general_b2c_us_20120911\"\u003eGeneral
+        Terms\u003c/a\u003e.", "options": [{"original_price": 12500, "title": "$75
+        for $125", "price": 7500, "purchase_url": "https://www.yelp.com/checkout/deal/aII5B5wLfqB1noyVD_DDXw",
+        "formatted_original_price": "$125", "formatted_price": "$75", "is_quantity_limited":
+        false}], "important_restrictions": "Cannot be combined with insurance.\nNew
+        customers only.", "image_url": "http://s3-media2.fl.yelpcdn.com/dphoto/LbhPqFQ0BucnuwAuOG_K-w/m.jpg",
+        "id": "jXy7G4K5ZpCirj90lgsQKg", "currency_code": "USD"}], "phone": "2066232225",
+        "snippet_text": "This is literally the BEST chiropractic facility EVERRRRR!
+        \n\nI was on vacation in Seattle in July and was in so much pain on my first
+        day there. So I yelped...", "image_url": "http://s3-media2.fl.yelpcdn.com/bphoto/QN5_wmvl0V1duXtwY1zOaQ/ms.jpg",
+        "categories": [["Massage", "massage"], ["Chiropractors", "chiropractors"],
+        ["Sports Medicine", "sportsmed"]], "display_phone": "+1-206-623-2225", "rating_img_url_large":
+        "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "id": "devine-chiropractic-center-seattle-2", "is_closed": false, "rating_img_url_small":
+        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png"},
+        {"is_claimed": false, "distance": 383.13769260544569, "mobile_url": "http://m.yelp.com/biz/ancient-grounds-seattle-2",
+        "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 52, "name": "Ancient Grounds", "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/QDGcFVsAp7Yx4hPQIhqr2w/ms.jpg",
+        "rating": 4.5, "url": "http://www.yelp.com/biz/ancient-grounds-seattle-2",
+        "location": {"cross_streets": "Seneca St \u0026 University St", "city": "Seattle",
+        "display_address": ["1220 1st Ave", "Downtown", "Seattle, WA 98101"], "geo_accuracy":
+        8.0, "neighborhoods": ["Downtown"], "postal_code": "98101", "country_code":
+        "US", "address": ["1220 1st Ave"], "coordinate": {"latitude": 47.606750499999997,
+        "longitude": -122.337822}, "state_code": "WA"}, "phone": "2067490747", "snippet_text":
+        "How I heard of this place: When we moved to Belltown, a neighbor and good
+        friend invited me out for a summer walk. We traversed downtown, Pioneer Square,...",
+        "image_url": "http://s3-media1.fl.yelpcdn.com/bphoto/Id-xrlOwGGVBGRCuCfIhxA/ms.jpg",
+        "categories": [["Art Galleries", "galleries"], ["Coffee \u0026 Tea", "coffee"]],
+        "display_phone": "+1-206-749-0747", "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "id": "ancient-grounds-seattle-2", "is_closed": false, "rating_img_url_small":
+        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png"},
+        {"is_claimed": false, "distance": 397.56206227945313, "mobile_url": "http://m.yelp.com/biz/sinner-saint-burlesque-seattle",
+        "rating_img_url": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 17, "name": "Sinner Saint Burlesque", "snippet_image_url":
+        "http://s3-media4.fl.yelpcdn.com/photo/SEPWZ8Ei2-xgORPYnLBD1w/ms.jpg", "rating":
+        5.0, "url": "http://www.yelp.com/biz/sinner-saint-burlesque-seattle", "snippet_text":
+        "That was a great performance. Nice alternative to a 5th Ave Theater Elf show
+        for sure. \n\nSingers were very well prepared.", "image_url": "http://s3-media4.fl.yelpcdn.com/bphoto/xx8Sb4lLg6I1vuqxITXfkQ/ms.jpg",
+        "categories": [["Performing Arts", "theater"]], "rating_img_url_small": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+        "rating_img_url_large": "http://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "sinner-saint-burlesque-seattle", "is_closed": false, "location": {"cross_streets":
+        "Pike St \u0026 Pine St", "city": "Seattle", "display_address": ["1516 2nd
+        Ave", "Downtown", "Seattle, WA 98101"], "geo_accuracy": 8.0, "neighborhoods":
+        ["Downtown"], "postal_code": "98101", "country_code": "US", "address": ["1516
+        2nd Ave"], "coordinate": {"latitude": 47.609909100000003, "longitude": -122.33898929999999},
+        "state_code": "WA"}}, {"is_claimed": true, "distance": 423.70034430394111,
+        "mobile_url": "http://m.yelp.com/biz/the-showbox-seattle-2", "rating_img_url":
+        "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+        "review_count": 269, "name": "The Showbox", "snippet_image_url": "http://s3-media4.fl.yelpcdn.com/photo/uybg7uTlmldCTwcAbpkOHA/ms.jpg",
+        "rating": 4.0, "url": "http://www.yelp.com/biz/the-showbox-seattle-2", "location":
+        {"cross_streets": "Union St \u0026 Pike St", "city": "Seattle", "display_address":
+        ["1426 1st Ave", "Downtown", "Seattle, WA 98101"], "geo_accuracy": 8.0, "neighborhoods":
+        ["Downtown"], "postal_code": "98101", "country_code": "US", "address": ["1426
+        1st Ave"], "coordinate": {"latitude": 47.608509099999999, "longitude": -122.3394089},
+        "state_code": "WA"}, "phone": "2066283151", "snippet_text": "I went here a
+        couple years ago to see The Maine, Augustana, and Austin Gibbs. It was a great
+        show. The whole environment made my first concert experience a...", "image_url":
+        "http://s3-media2.fl.yelpcdn.com/bphoto/X5ntRhVB25OX9utR7pUgrQ/ms.jpg", "categories":
+        [["Music Venues", "musicvenues"], ["Bars", "bars"]], "display_phone": "+1-206-628-3151",
+        "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+        "id": "the-showbox-seattle-2", "is_closed": false, "rating_img_url_small":
+        "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png"},
+        {"is_claimed": true, "distance": 435.78534615264397, "mobile_url": "http://m.yelp.com/biz/vital-tea-leaf-seattle",
+        "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 66, "name": "Vital Tea Leaf", "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/R4tuf2C6JY7hcjGIA7NbyQ/ms.jpg",
+        "rating": 4.5, "url": "http://www.yelp.com/biz/vital-tea-leaf-seattle", "location":
+        {"city": "Seattle", "display_address": ["1401 1st Ave", "Downtown", "Seattle,
+        WA 98121"], "geo_accuracy": 9.5, "neighborhoods": ["Downtown"], "postal_code":
+        "98121", "country_code": "US", "address": ["1401 1st Ave"], "coordinate":
+        {"latitude": 47.607840199999998, "longitude": -122.3394725}, "state_code":
+        "WA"}, "phone": "2064417476", "snippet_text": "This was my first visit to
+        Vital T-Leaf on Tuesday 10/14/14. \n\nThis was the spontaneous meeting spot
+        after my lunch with former colleagues and my husband''s...", "image_url":
+        "http://s3-media3.fl.yelpcdn.com/bphoto/L7wz2mZzYT5I9cayIhhqaw/ms.jpg", "categories":
+        [["Tea Rooms", "tea"]], "display_phone": "+1-206-441-7476", "rating_img_url_large":
+        "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "id": "vital-tea-leaf-seattle", "is_closed": false, "rating_img_url_small":
+        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png"},
+        {"is_claimed": false, "distance": 459.33954282575883, "mobile_url": "http://m.yelp.com/biz/blmf-literary-saloon-seattle",
+        "rating_img_url": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 14, "name": "BLMF Literary Saloon", "snippet_image_url": "http://s3-media4.fl.yelpcdn.com/photo/tswmt5QiJc9ADWBA7_Ui9g/ms.jpg",
+        "rating": 5.0, "url": "http://www.yelp.com/biz/blmf-literary-saloon-seattle",
+        "location": {"cross_streets": "Post Aly", "city": "Seattle", "display_address":
+        ["1501 Pike Pl", "#324", "Downtown", "Seattle, WA 98101"], "geo_accuracy":
+        8.0, "neighborhoods": ["Downtown"], "postal_code": "98101", "country_code":
+        "US", "address": ["1501 Pike Pl", "#324"], "coordinate": {"latitude": 47.608699799999997,
+        "longitude": -122.3410416}, "state_code": "WA"}, "phone": "2066217894", "snippet_text":
+        "Every time I go to Pike Place Market I come away pixie-dusted from some small
+        but magical new discovery. A flavored salt that transforms my cooking for...",
+        "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/BA2cNJFyBapxn8t4uX5aFQ/ms.jpg",
+        "categories": [["Bookstores", "bookstores"]], "display_phone": "+1-206-621-7894",
+        "rating_img_url_large": "http://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "blmf-literary-saloon-seattle", "is_closed": false, "rating_img_url_small":
+        "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png"},
+        {"is_claimed": false, "distance": 459.33954282575883, "mobile_url": "http://m.yelp.com/biz/lion-heart-book-store-seattle",
+        "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 27, "name": "Lion Heart Book Store", "snippet_image_url":
+        "http://s3-media2.fl.yelpcdn.com/photo/mIagi4eSZpSAiRMlVkTW_A/ms.jpg", "rating":
+        4.5, "url": "http://www.yelp.com/biz/lion-heart-book-store-seattle", "location":
+        {"cross_streets": "Post Aly", "city": "Seattle", "display_address": ["1501
+        Pike Pl", "Ste 326", "Downtown", "Seattle, WA 98101"], "geo_accuracy": 8.0,
+        "neighborhoods": ["Downtown"], "postal_code": "98101", "country_code": "US",
+        "address": ["1501 Pike Pl", "Ste 326"], "coordinate": {"latitude": 47.608699799999997,
+        "longitude": -122.3410416}, "state_code": "WA"}, "phone": "2069036511", "snippet_text":
+        "Certainly the first book store I''ve ever visited where a few minutes into
+        browsing, I turn and find the owner serenading my wife. It''s less creepy
+        than it...", "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/e8Fcek0wWzsUEJpkkXzZnA/ms.jpg",
+        "categories": [["Bookstores", "bookstores"]], "display_phone": "+1-206-903-6511",
+        "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "id": "lion-heart-book-store-seattle", "is_closed": false, "rating_img_url_small":
+        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png"},
+        {"is_claimed": true, "distance": 459.33954282575883, "mobile_url": "http://m.yelp.com/biz/christophers-lamp-seattle",
+        "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+        "review_count": 25, "name": "Christophers Lamp", "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/WijC_kiFHxzgbweB0GlAng/ms.jpg",
+        "rating": 4.0, "url": "http://www.yelp.com/biz/christophers-lamp-seattle",
+        "location": {"cross_streets": "Post Aly", "city": "Seattle", "display_address":
+        ["1501 Pike Pl", "Ste 330", "Downtown", "Seattle, WA 98101"], "geo_accuracy":
+        8.0, "neighborhoods": ["Downtown"], "postal_code": "98101", "country_code":
+        "US", "address": ["1501 Pike Pl", "Ste 330"], "coordinate": {"latitude": 47.608699799999997,
+        "longitude": -122.3410416}, "state_code": "WA"}, "phone": "2069038344", "snippet_text":
+        "AMAZING.\n\nOne of the most incredible, intuitive, and honest readings I
+        have ever experienced. She was able to give me insight to my current relationship,...",
+        "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/kU3vZ0bemS7LVXkj-DTm_A/ms.jpg",
+        "categories": [["Psychics \u0026 Astrologers", "psychic_astrology"]], "display_phone":
+        "+1-206-903-8344", "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+        "id": "christophers-lamp-seattle", "is_closed": false, "rating_img_url_small":
+        "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png"},
+        {"is_claimed": true, "distance": 463.2862051086156, "mobile_url": "http://m.yelp.com/biz/milagros-mexican-folk-art-seattle",
+        "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 19, "name": "Milagros Mexican Folk Art", "snippet_image_url":
+        "http://s3-media1.fl.yelpcdn.com/photo/Wwqi0ivthHIPZGPk_h6G5g/ms.jpg", "rating":
+        4.5, "url": "http://www.yelp.com/biz/milagros-mexican-folk-art-seattle", "location":
+        {"cross_streets": "Pine St \u0026 Pike Pl", "city": "Seattle", "display_address":
+        ["1530 Post Aly", "Ste 9B", "Downtown", "Seattle, WA 98101"], "geo_accuracy":
+        8.0, "neighborhoods": ["Downtown"], "postal_code": "98101", "country_code":
+        "US", "address": ["1530 Post Aly", "Ste 9B"], "coordinate": {"latitude": 47.609319984912901,
+        "longitude": -122.341156303883}, "state_code": "WA"}, "phone": "2064640490",
+        "snippet_text": "I love Seattle, but sometimes when I need some color to break
+        up the gray I''ll come here and get something bright and warm to remind me
+        of when I lived in...", "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/Uk1W5jKUlo5YkWOskNmb-Q/ms.jpg",
+        "categories": [["Art Galleries", "galleries"], ["Home Decor", "homedecor"]],
+        "display_phone": "+1-206-464-0490", "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "id": "milagros-mexican-folk-art-seattle", "is_closed": false, "rating_img_url_small":
+        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png"},
+        {"is_claimed": true, "distance": 466.01185704848393, "mobile_url": "http://m.yelp.com/biz/seattle-by-foot-seattle",
+        "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 65, "name": "Seattle By Foot", "snippet_image_url": "http://s3-media3.fl.yelpcdn.com/photo/lmbXGHOV9j4y0yu5jfjsBA/ms.jpg",
+        "rating": 4.5, "url": "http://www.yelp.com/biz/seattle-by-foot-seattle", "location":
+        {"city": "Seattle", "display_address": ["1st Ave and Pike St", "Downtown",
+        "Seattle, WA 98101"], "geo_accuracy": 7.0, "neighborhoods": ["Downtown"],
+        "postal_code": "98101", "country_code": "US", "address": ["1st Ave and Pike
+        St"], "coordinate": {"latitude": 47.608821900000002, "longitude": -122.34004210000001},
+        "state_code": "WA"}, "phone": "2065087017", "snippet_text": "I was in Seattle
+        to take a cruise but had the whole day Saturday to \"see\" Seattle. I read
+        about some of the interesting things to see/do and stumbled upon...", "image_url":
+        "http://s3-media2.fl.yelpcdn.com/bphoto/-cmyGfPdvDpAdJPYuhY61g/ms.jpg", "categories":
+        [["Walking Tours", "walkingtours"]], "display_phone": "+1-206-508-7017", "rating_img_url_large":
+        "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "id": "seattle-by-foot-seattle", "is_closed": false, "rating_img_url_small":
+        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png"},
+        {"is_claimed": true, "distance": 467.68214644449023, "mobile_url": "http://m.yelp.com/biz/sky-view-observatory-seattle",
+        "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 159, "name": "Sky View Observatory", "snippet_image_url":
+        "http://s3-media3.fl.yelpcdn.com/photo/q9D8K6k5Va2xZQW0n1HGcg/ms.jpg", "rating":
+        4.5, "url": "http://www.yelp.com/biz/sky-view-observatory-seattle", "location":
+        {"city": "Seattle", "display_address": ["Columbia Center", "701 5th Ave, Fl
+        73", "Downtown", "Seattle, WA 98104"], "geo_accuracy": 9.5, "neighborhoods":
+        ["Downtown"], "postal_code": "98104", "country_code": "US", "address": ["Columbia
+        Center", "701 5th Ave, Fl 73"], "coordinate": {"latitude": 47.604805746899999,
+        "longitude": -122.33212722099999}, "state_code": "WA"}, "phone": "2063865564",
+        "snippet_text": "$9 with student ID for a 365 view of Seattle. Valid for the
+        entire day of purchase so I recommend going once during the day and once at
+        night for 2...", "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/Evm3QUGD26C6_F67HWxqpw/ms.jpg",
+        "categories": [["Landmarks \u0026 Historical Buildings", "landmarks"]], "display_phone":
+        "+1-206-386-5564", "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "id": "sky-view-observatory-seattle", "is_closed": false, "rating_img_url_small":
+        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png"},
+        {"is_claimed": true, "distance": 468.0077766278805, "mobile_url": "http://m.yelp.com/biz/unexpected-productions-seattle",
+        "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+        "review_count": 152, "name": "Unexpected Productions", "snippet_image_url":
+        "http://s3-media3.fl.yelpcdn.com/photo/-uE8lhzHLtT9xZV78NG4cQ/ms.jpg", "rating":
+        4.0, "url": "http://www.yelp.com/biz/unexpected-productions-seattle", "location":
+        {"cross_streets": "Union St", "city": "Seattle", "display_address": ["1428
+        Post Alley", "Downtown", "Seattle, WA 98101"], "geo_accuracy": 9.5, "neighborhoods":
+        ["Downtown"], "postal_code": "98101", "country_code": "US", "address": ["1428
+        Post Alley"], "coordinate": {"latitude": 47.6091195286036, "longitude": -122.340084506153},
+        "state_code": "WA"}, "menu_date_updated": 1389346743, "phone": "2065872414",
+        "snippet_text": "I''ve been back for several shows and I''ve got to tell you
+        I''m always blown away.  Twin Peaks was never a favorite show of mine,  but
+        the folks at Unexpected...", "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/hqTypVrx5AYOW8eCIz0eNA/ms.jpg",
+        "categories": [["Performing Arts", "theater"], ["Lounges", "lounges"], ["Comedy
+        Clubs", "comedyclubs"]], "display_phone": "+1-206-587-2414", "rating_img_url_large":
+        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+        "menu_provider": "single_platform", "id": "unexpected-productions-seattle",
+        "is_closed": false, "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png"},
+        {"is_claimed": false, "distance": 490.29243565452293, "mobile_url": "http://m.yelp.com/biz/pike-place-market-gum-wall-seattle",
+        "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+        "review_count": 424, "name": "Pike Place Market Gum Wall", "snippet_image_url":
+        "http://s3-media2.fl.yelpcdn.com/photo/WhKqkMPZxJ6RHrSvjCmbvA/ms.jpg", "rating":
+        4.0, "url": "http://www.yelp.com/biz/pike-place-market-gum-wall-seattle",
+        "snippet_text": "GUM GUM GUM GUM GUM GUM GUM GUM GUM GUM\n\nEither you love
+        it or hate it. But it''s a must when you come to Seattle, and then you will
+        not want to encounter it...", "image_url": "http://s3-media1.fl.yelpcdn.com/bphoto/CfT0M0voYvNF93spIqcteQ/ms.jpg",
+        "categories": [["Landmarks \u0026 Historical Buildings", "landmarks"], ["Local
+        Flavor", "localflavor"]], "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+        "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+        "id": "pike-place-market-gum-wall-seattle", "is_closed": false, "location":
+        {"city": "Seattle", "display_address": ["Pike St", "Downtown", "Seattle, WA
+        98101"], "geo_accuracy": 9.5, "neighborhoods": ["Downtown"], "postal_code":
+        "98101", "country_code": "US", "address": ["Pike St"], "coordinate": {"latitude":
+        47.608390953694297, "longitude": -122.34035968780499}, "state_code": "WA"}}]}'
+    http_version: 
+  recorded_at: Mon, 09 Feb 2015 23:31:37 GMT
+- request:
+    method: get
+    uri: http://api.yelp.com/v2/search?ll=47.608847245574%2C-122.333854660392%2C%2C%2C&category_filter=aquariums%2Cbasketballcourts%2Cbeaches%2Cbowling%2Cboating%2Cclimbing%2Cgokarts%2Cgun_ranges%2Chiking%2Chorsebackriding%2Chot_air_balloons%2Clakes%2Clasertag%2Cmini_golf%2Cpaintball%2Cparks%2Crecreation%2Cskatingrinks%2Cskydiving%2Cswimmingpools%2Ctennis%2Czoos%2Carcades%2Cgalleries%2Cgardens%2Cmovietheaters%2Cjazzandblues%2Cmuseums%2Cmusicvenues%2Cobservatories%2Copera%2Ctheater%2Cplanetarium%2Cpsychic_astrology%2Cmassage%2Cfarmersmarket%2Ctea%2Ctours%2Cpoolhalls%2Ckaraoke%2Clibraries%2Clandmarks%2Cbookstores%2Cfleamarkets%2Cvintage%2Cantiques&sort=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth oauth_consumer_key="CSL-X8Q5F6gYNeGO38crvg", oauth_nonce="6d2f01159c1a47d17b0d71f17b342507",
+        oauth_signature="p2O95bZIRiUDdHYP7HuGbn%2Fm49A%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1423615821", oauth_token="qEpO3668P19wjIB-1uzHIxGqkdd-7wwC",
+        oauth_version="1.0"
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      date:
+      - Wed, 11 Feb 2015 00:50:22 GMT
+      server:
+      - Apache
+      x-node:
+      - web57-r7-sfo2, api_com
+      cache-control:
+      - private
+      set-cookie:
+      - yuv=WTEP1XghBWlOyASgKes2QmeGTlYGGm0UJaDEjnysjkBz2FNrkEK1JrXBy_L0oe1ZnNX-fzpsDKHFdVgByG3BZM-3Rj5bsJcN;
+        Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Tue, 06-Feb-2035 00:50:22
+        GMT, bse=3e6a8b4fb4641170c8d24db8fd7260b4; Domain=.yelp.com; Path=/; HttpOnly
+      content-length:
+      - '32128'
+      vary:
+      - User-Agent
+      content-type:
+      - application/json; charset=UTF-8
+      x-mode:
+      - ro
+      x-proxied:
+      - extlb1-r4-sfo2
+    body:
+      encoding: UTF-8
+      string: '{"region": {"span": {"latitude_delta": 0.0063943238954067283, "longitude_delta":
+        0.0087530136683255932}, "center": {"latitude": 47.607712257761548, "longitude":
+        -122.33610586357651}}, "total": 40, "businesses": [{"is_claimed": true, "distance":
+        7.0689339192292477, "mobile_url": "http://m.yelp.com/biz/the-5th-avenue-theatre-seattle",
+        "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 127, "name": "The 5th Avenue Theatre", "snippet_image_url":
+        "http://s3-media4.fl.yelpcdn.com/photo/MFXmEhbXxyBgV3QFRv-rtg/ms.jpg", "rating":
+        4.5, "url": "http://www.yelp.com/biz/the-5th-avenue-theatre-seattle", "location":
+        {"cross_streets": "University St \u0026 Union St", "city": "Seattle", "display_address":
+        ["1308 5th Ave", "Downtown", "Seattle, WA 98101"], "geo_accuracy": 8.0, "neighborhoods":
+        ["Downtown"], "postal_code": "98101", "country_code": "US", "address": ["1308
+        5th Ave"], "coordinate": {"latitude": 47.608847245573997, "longitude": -122.33385466039201},
+        "state_code": "WA"}, "phone": "2066251418", "snippet_text": "I have been to
+        the 5th Avenue theater a couple of different times and most recently I went
+        for a christmas story.  The theater is a really beautiful and...", "image_url":
+        "http://s3-media1.fl.yelpcdn.com/bphoto/nRgf5r8GGbWoP54_BDgmwQ/ms.jpg", "categories":
+        [["Performing Arts", "theater"], ["Cinema", "movietheaters"]], "display_phone":
+        "+1-206-625-1418", "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "id": "the-5th-avenue-theatre-seattle", "is_closed": false, "rating_img_url_small":
+        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png"},
+        {"is_claimed": true, "distance": 93.463622358669994, "mobile_url": "http://m.yelp.com/biz/seattle-bites-food-tours-seattle",
+        "rating_img_url": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 32, "name": "Seattle Bites Food Tours", "snippet_image_url":
+        "http://s3-media3.fl.yelpcdn.com/photo/I63TyeOlBvxyfr9_c6tV4w/ms.jpg", "rating":
+        5.0, "url": "http://www.yelp.com/biz/seattle-bites-food-tours-seattle", "location":
+        {"city": "Seattle", "display_address": ["Pike Place Market", "Downtown", "Seattle,
+        WA 98101"], "geo_accuracy": 9.5, "neighborhoods": ["Downtown"], "postal_code":
+        "98101", "country_code": "US", "address": ["Pike Place Market"], "coordinate":
+        {"latitude": 47.609186612776902, "longitude": -122.33499526977501}, "state_code":
+        "WA"}, "phone": "4258888837", "snippet_text": "I loved the food tour!  It
+        was a crowded Labor Day weekend, but our guide kept us together, and made
+        it so much fun.  The food was incredible, and our guide...", "image_url":
+        "http://s3-media3.fl.yelpcdn.com/bphoto/kgPhdRGXWimmgWLcNiZkYg/ms.jpg", "categories":
+        [["Food Tours", "foodtours"]], "display_phone": "+1-425-888-8837", "rating_img_url_large":
+        "http://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "seattle-bites-food-tours-seattle", "is_closed": false, "rating_img_url_small":
+        "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png"},
+        {"is_claimed": true, "distance": 106.55071646499029, "mobile_url": "http://m.yelp.com/biz/georgian-restaurant-seattle",
+        "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+        "review_count": 223, "name": "Georgian Restaurant", "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/Ttb3w8LtESbWEHiZyxRtZg/ms.jpg",
+        "rating": 4.0, "url": "http://www.yelp.com/biz/georgian-restaurant-seattle",
+        "location": {"cross_streets": "4th Ave \u0026 5th Ave", "city": "Seattle",
+        "display_address": ["411 University Street", "Downtown", "Seattle, WA 98101"],
+        "geo_accuracy": 8.0, "neighborhoods": ["Downtown"], "postal_code": "98101",
+        "country_code": "US", "address": ["411 University Street"], "coordinate":
+        {"latitude": 47.608188599999998, "longitude": -122.334137}, "state_code":
+        "WA"}, "menu_date_updated": 1415868511, "phone": "2066217889", "snippet_text":
+        "Yum. It''s rare when you go to a restaurant and every item you order is a
+        winner! Well, that happened when I went to lunch with my mom here. \n\nWe
+        shared the...", "image_url": "http://s3-media1.fl.yelpcdn.com/bphoto/vvspbgLZlmPCtSzlNc5fXA/ms.jpg",
+        "categories": [["Tea Rooms", "tea"], ["French", "french"], ["American (New)",
+        "newamerican"]], "display_phone": "+1-206-621-7889", "rating_img_url_large":
+        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+        "menu_provider": "single_platform", "id": "georgian-restaurant-seattle", "is_closed":
+        false, "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png"},
+        {"is_claimed": true, "distance": 224.80590242677283, "mobile_url": "http://m.yelp.com/biz/act-a-contemporary-theatre-seattle",
+        "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 75, "name": "ACT - A Contemporary Theatre", "snippet_image_url":
+        "http://s3-media1.fl.yelpcdn.com/photo/8zLA17AbtLB-b37bJJ-ynQ/ms.jpg", "rating":
+        4.5, "url": "http://www.yelp.com/biz/act-a-contemporary-theatre-seattle",
+        "location": {"cross_streets": "7th Ave \u0026 Convention Pl", "city": "Seattle",
+        "display_address": ["700 Union St", "Downtown", "Seattle, WA 98101"], "geo_accuracy":
+        9.5, "neighborhoods": ["Downtown"], "postal_code": "98101", "country_code":
+        "US", "address": ["700 Union St"], "coordinate": {"latitude": 47.610618768623098,
+        "longitude": -122.33240962028501}, "state_code": "WA"}, "phone": "2062927676",
+        "snippet_text": "The ACTPass is, hands down, the region''s best cultural-events
+        deal (a bargain at $30/mo, or $50/mo for two).  More importantly, it''s a
+        nice encouragement to...", "image_url": "http://s3-media1.fl.yelpcdn.com/bphoto/XIeUjuOhHyAdZwyrJNDD0Q/ms.jpg",
+        "categories": [["Performing Arts", "theater"], ["Cabaret", "cabaret"]], "display_phone":
+        "+1-206-292-7676", "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "id": "act-a-contemporary-theatre-seattle", "is_closed": false, "rating_img_url_small":
+        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png"},
+        {"is_claimed": true, "distance": 258.22718963366799, "mobile_url": "http://m.yelp.com/biz/the-seattle-public-library-central-library-seattle",
+        "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 360, "name": "The Seattle Public Library - Central Library",
+        "snippet_image_url": "http://s3-media4.fl.yelpcdn.com/photo/f6Cu2S9tfFVBr2wsxCESew/ms.jpg",
+        "rating": 4.5, "url": "http://www.yelp.com/biz/the-seattle-public-library-central-library-seattle",
+        "location": {"city": "Seattle", "display_address": ["1000 4th Ave", "Downtown",
+        "Seattle, WA 98104"], "geo_accuracy": 9.5, "neighborhoods": ["Downtown"],
+        "postal_code": "98104", "country_code": "US", "address": ["1000 4th Ave"],
+        "coordinate": {"latitude": 47.606600399999998, "longitude": -122.33298379999999},
+        "state_code": "WA"}, "phone": "2063864636", "snippet_text": "If you''re looking
+        for something to do that is free around downtown Seattle, I''d recommend that
+        you stop by here.  The exterior of the library doesn''t scream...", "image_url":
+        "http://s3-media2.fl.yelpcdn.com/bphoto/IsJX7aWvuFcFBDdc-jySuQ/ms.jpg", "categories":
+        [["Libraries", "libraries"]], "display_phone": "+1-206-386-4636", "rating_img_url_large":
+        "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "id": "the-seattle-public-library-central-library-seattle", "is_closed": false,
+        "rating_img_url_small": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png"},
+        {"is_claimed": true, "distance": 260.61646763319277, "mobile_url": "http://m.yelp.com/biz/seattle-symphony-seattle-2",
+        "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 45, "name": "Seattle Symphony", "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/VMLrr9vgZN9Q1_SC3AXNxQ/ms.jpg",
+        "rating": 4.5, "url": "http://www.yelp.com/biz/seattle-symphony-seattle-2",
+        "location": {"city": "Seattle", "display_address": ["200 University St", "Downtown",
+        "Seattle, WA 98127"], "geo_accuracy": 8.0, "neighborhoods": ["Downtown"],
+        "postal_code": "98127", "country_code": "US", "address": ["200 University
+        St"], "coordinate": {"latitude": 47.607490499999997, "longitude": -122.3370132},
+        "state_code": "WA"}, "phone": "2062154747", "snippet_text": "Attended the
+        Seattle Symphony Orchestras production of Beethoven''s 9th on New Years Eve.
+        It was my first time attending a symphony, so I won''t pretend to...", "image_url":
+        "http://s3-media1.fl.yelpcdn.com/bphoto/eZgT6W5htBZLrOMo1Ey0ig/ms.jpg", "categories":
+        [["Performing Arts", "theater"]], "display_phone": "+1-206-215-4747", "rating_img_url_large":
+        "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "id": "seattle-symphony-seattle-2", "is_closed": false, "rating_img_url_small":
+        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png"},
+        {"is_claimed": true, "distance": 267.51357224316064, "mobile_url": "http://m.yelp.com/biz/the-triple-door-seattle",
+        "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+        "review_count": 434, "name": "The Triple Door", "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/eEcZIISgrzg-rnFfPSroAA/ms.jpg",
+        "rating": 4.0, "url": "http://www.yelp.com/biz/the-triple-door-seattle", "location":
+        {"cross_streets": "3rd Ave \u0026 2nd Ave", "city": "Seattle", "display_address":
+        ["216 Union St", "Downtown", "Seattle, WA 98101"], "geo_accuracy": 8.0, "neighborhoods":
+        ["Downtown"], "postal_code": "98101", "country_code": "US", "address": ["216
+        Union St"], "coordinate": {"latitude": 47.6085441559553, "longitude": -122.33749575912999},
+        "state_code": "WA"}, "menu_date_updated": 1387620669, "phone": "2068384333",
+        "snippet_text": "I came here for a burlesque show and only had a couple drinks,
+        no food/dessert, so I''m reviewing solely based on a Triple Door as a show
+        venue. \n\nThe layout...", "image_url": "http://s3-media1.fl.yelpcdn.com/bphoto/6fhO3U1TsYiOsfKEG1WviA/ms.jpg",
+        "categories": [["Music Venues", "musicvenues"], ["Asian Fusion", "asianfusion"]],
+        "display_phone": "+1-206-838-4333", "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+        "menu_provider": "single_platform", "id": "the-triple-door-seattle", "is_closed":
+        false, "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png"},
+        {"is_claimed": false, "distance": 284.76892945908986, "mobile_url": "http://m.yelp.com/biz/benaroya-hall-seattle",
+        "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 108, "name": "Benaroya Hall", "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/pxSKi7_biFOqF0Sz1sc9cA/ms.jpg",
+        "rating": 4.5, "url": "http://www.yelp.com/biz/benaroya-hall-seattle", "location":
+        {"city": "Seattle", "display_address": ["200 University St", "Downtown", "Seattle,
+        WA 98101"], "geo_accuracy": 8.0, "neighborhoods": ["Downtown"], "postal_code":
+        "98101", "country_code": "US", "address": ["200 University St"], "coordinate":
+        {"latitude": 47.607407569885297, "longitude": -122.336996197701}, "state_code":
+        "WA"}, "menu_date_updated": 1418383448, "phone": "2062154700", "snippet_text":
+        "Exceptional music hall. The acoustics are fabulous. It''s quite a beautiful
+        work of architecture. When you buy your tickets, I recommend being up on one
+        of...", "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/-m1aeuOLiwhF0yE3Jm6EEw/ms.jpg",
+        "categories": [["Performing Arts", "theater"], ["Music Venues", "musicvenues"]],
+        "display_phone": "+1-206-215-4700", "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "menu_provider": "single_platform", "id": "benaroya-hall-seattle", "is_closed":
+        false, "rating_img_url_small": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png"},
+        {"is_claimed": true, "distance": 376.05938957270291, "mobile_url": "http://m.yelp.com/biz/devine-chiropractic-center-seattle-2",
+        "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 37, "name": "Devine Chiropractic Center", "snippet_image_url":
+        "http://s3-media3.fl.yelpcdn.com/photo/6-awqL9_lxxfD-fa-NJf6g/ms.jpg", "rating":
+        4.5, "url": "http://www.yelp.com/biz/devine-chiropractic-center-seattle-2",
+        "location": {"cross_streets": "Seneca St \u0026 University St", "city": "Seattle",
+        "display_address": ["1205 2nd Ave", "Ste 120", "Downtown", "Seattle, WA 98101"],
+        "geo_accuracy": 9.5, "neighborhoods": ["Downtown"], "postal_code": "98101",
+        "country_code": "US", "address": ["1205 2nd Ave", "Ste 120"], "coordinate":
+        {"latitude": 47.610329, "longitude": -122.338364}, "state_code": "WA"}, "deals":
+        [{"is_popular": true, "what_you_get": "You get a voucher redeemable for $125
+        at Devine Chiropractic Center.\nPrint out your voucher, or redeem on your
+        phone with the \u003ca href=\"http://www.yelp.com/yelpmobile\"\u003eYelp app\u003c/a\u003e.",
+        "time_start": 1386087922, "title": "$75 for $125", "url": "http://www.yelp.com/deals/devine-chiropractic-center-seattle-5",
+        "additional_restrictions": "Promotion lasts for 1 year from date of purchase.
+        After that period, your voucher is redeemable for the amount you paid, less
+        any value you may have received. Not valid with other vouchers, certificates,
+        or offers. Voucher can only be used for services, not retail products. Only
+        1 voucher(s) can be purchased and redeemed per person. Up to 3 can be purchased
+        as gifts for others. Subject to the \u003ca target=\"_blank\" href=\"http://www.yelp.com/tos/general_b2c_us_20120911\"\u003eGeneral
+        Terms\u003c/a\u003e.", "options": [{"original_price": 12500, "title": "$75
+        for $125", "price": 7500, "purchase_url": "https://www.yelp.com/checkout/deal/aII5B5wLfqB1noyVD_DDXw",
+        "formatted_original_price": "$125", "formatted_price": "$75", "is_quantity_limited":
+        false}], "important_restrictions": "Cannot be combined with insurance.\nNew
+        customers only.", "image_url": "http://s3-media2.fl.yelpcdn.com/dphoto/LbhPqFQ0BucnuwAuOG_K-w/m.jpg",
+        "id": "jXy7G4K5ZpCirj90lgsQKg", "currency_code": "USD"}], "phone": "2066232225",
+        "snippet_text": "This is literally the BEST chiropractic facility EVERRRRR!
+        \n\nI was on vacation in Seattle in July and was in so much pain on my first
+        day there. So I yelped...", "image_url": "http://s3-media2.fl.yelpcdn.com/bphoto/QN5_wmvl0V1duXtwY1zOaQ/ms.jpg",
+        "categories": [["Massage", "massage"], ["Chiropractors", "chiropractors"],
+        ["Sports Medicine", "sportsmed"]], "display_phone": "+1-206-623-2225", "rating_img_url_large":
+        "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "id": "devine-chiropractic-center-seattle-2", "is_closed": false, "rating_img_url_small":
+        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png"},
+        {"is_claimed": false, "distance": 383.13769260544569, "mobile_url": "http://m.yelp.com/biz/ancient-grounds-seattle-2",
+        "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 52, "name": "Ancient Grounds", "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/QDGcFVsAp7Yx4hPQIhqr2w/ms.jpg",
+        "rating": 4.5, "url": "http://www.yelp.com/biz/ancient-grounds-seattle-2",
+        "location": {"cross_streets": "Seneca St \u0026 University St", "city": "Seattle",
+        "display_address": ["1220 1st Ave", "Downtown", "Seattle, WA 98101"], "geo_accuracy":
+        8.0, "neighborhoods": ["Downtown"], "postal_code": "98101", "country_code":
+        "US", "address": ["1220 1st Ave"], "coordinate": {"latitude": 47.606750499999997,
+        "longitude": -122.337822}, "state_code": "WA"}, "phone": "2067490747", "snippet_text":
+        "How I heard of this place: When we moved to Belltown, a neighbor and good
+        friend invited me out for a summer walk. We traversed downtown, Pioneer Square,...",
+        "image_url": "http://s3-media1.fl.yelpcdn.com/bphoto/Id-xrlOwGGVBGRCuCfIhxA/ms.jpg",
+        "categories": [["Art Galleries", "galleries"], ["Coffee \u0026 Tea", "coffee"]],
+        "display_phone": "+1-206-749-0747", "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "id": "ancient-grounds-seattle-2", "is_closed": false, "rating_img_url_small":
+        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png"},
+        {"is_claimed": false, "distance": 397.56206227945313, "mobile_url": "http://m.yelp.com/biz/sinner-saint-burlesque-seattle",
+        "rating_img_url": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 17, "name": "Sinner Saint Burlesque", "snippet_image_url":
+        "http://s3-media4.fl.yelpcdn.com/photo/SEPWZ8Ei2-xgORPYnLBD1w/ms.jpg", "rating":
+        5.0, "url": "http://www.yelp.com/biz/sinner-saint-burlesque-seattle", "snippet_text":
+        "That was a great performance. Nice alternative to a 5th Ave Theater Elf show
+        for sure. \n\nSingers were very well prepared.", "image_url": "http://s3-media4.fl.yelpcdn.com/bphoto/xx8Sb4lLg6I1vuqxITXfkQ/ms.jpg",
+        "categories": [["Performing Arts", "theater"]], "rating_img_url_small": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+        "rating_img_url_large": "http://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "sinner-saint-burlesque-seattle", "is_closed": false, "location": {"cross_streets":
+        "Pike St \u0026 Pine St", "city": "Seattle", "display_address": ["1516 2nd
+        Ave", "Downtown", "Seattle, WA 98101"], "geo_accuracy": 8.0, "neighborhoods":
+        ["Downtown"], "postal_code": "98101", "country_code": "US", "address": ["1516
+        2nd Ave"], "coordinate": {"latitude": 47.609909100000003, "longitude": -122.33898929999999},
+        "state_code": "WA"}}, {"is_claimed": true, "distance": 423.70034430394111,
+        "mobile_url": "http://m.yelp.com/biz/the-showbox-seattle-2", "rating_img_url":
+        "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+        "review_count": 269, "name": "The Showbox", "snippet_image_url": "http://s3-media4.fl.yelpcdn.com/photo/uybg7uTlmldCTwcAbpkOHA/ms.jpg",
+        "rating": 4.0, "url": "http://www.yelp.com/biz/the-showbox-seattle-2", "location":
+        {"cross_streets": "Union St \u0026 Pike St", "city": "Seattle", "display_address":
+        ["1426 1st Ave", "Downtown", "Seattle, WA 98101"], "geo_accuracy": 8.0, "neighborhoods":
+        ["Downtown"], "postal_code": "98101", "country_code": "US", "address": ["1426
+        1st Ave"], "coordinate": {"latitude": 47.608509099999999, "longitude": -122.3394089},
+        "state_code": "WA"}, "phone": "2066283151", "snippet_text": "I went here a
+        couple years ago to see The Maine, Augustana, and Austin Gibbs. It was a great
+        show. The whole environment made my first concert experience a...", "image_url":
+        "http://s3-media2.fl.yelpcdn.com/bphoto/X5ntRhVB25OX9utR7pUgrQ/ms.jpg", "categories":
+        [["Music Venues", "musicvenues"], ["Bars", "bars"]], "display_phone": "+1-206-628-3151",
+        "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+        "id": "the-showbox-seattle-2", "is_closed": false, "rating_img_url_small":
+        "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png"},
+        {"is_claimed": true, "distance": 435.78534615264397, "mobile_url": "http://m.yelp.com/biz/vital-tea-leaf-seattle",
+        "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 66, "name": "Vital Tea Leaf", "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/R4tuf2C6JY7hcjGIA7NbyQ/ms.jpg",
+        "rating": 4.5, "url": "http://www.yelp.com/biz/vital-tea-leaf-seattle", "location":
+        {"city": "Seattle", "display_address": ["1401 1st Ave", "Downtown", "Seattle,
+        WA 98121"], "geo_accuracy": 9.5, "neighborhoods": ["Downtown"], "postal_code":
+        "98121", "country_code": "US", "address": ["1401 1st Ave"], "coordinate":
+        {"latitude": 47.607840199999998, "longitude": -122.3394725}, "state_code":
+        "WA"}, "phone": "2064417476", "snippet_text": "This was my first visit to
+        Vital T-Leaf on Tuesday 10/14/14. \n\nThis was the spontaneous meeting spot
+        after my lunch with former colleagues and my husband''s...", "image_url":
+        "http://s3-media3.fl.yelpcdn.com/bphoto/L7wz2mZzYT5I9cayIhhqaw/ms.jpg", "categories":
+        [["Tea Rooms", "tea"]], "display_phone": "+1-206-441-7476", "rating_img_url_large":
+        "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "id": "vital-tea-leaf-seattle", "is_closed": false, "rating_img_url_small":
+        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png"},
+        {"is_claimed": false, "distance": 459.33954282575883, "mobile_url": "http://m.yelp.com/biz/blmf-literary-saloon-seattle",
+        "rating_img_url": "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+        "review_count": 14, "name": "BLMF Literary Saloon", "snippet_image_url": "http://s3-media4.fl.yelpcdn.com/photo/tswmt5QiJc9ADWBA7_Ui9g/ms.jpg",
+        "rating": 5.0, "url": "http://www.yelp.com/biz/blmf-literary-saloon-seattle",
+        "location": {"cross_streets": "Post Aly", "city": "Seattle", "display_address":
+        ["1501 Pike Pl", "#324", "Downtown", "Seattle, WA 98101"], "geo_accuracy":
+        8.0, "neighborhoods": ["Downtown"], "postal_code": "98101", "country_code":
+        "US", "address": ["1501 Pike Pl", "#324"], "coordinate": {"latitude": 47.608699799999997,
+        "longitude": -122.3410416}, "state_code": "WA"}, "phone": "2066217894", "snippet_text":
+        "Every time I go to Pike Place Market I come away pixie-dusted from some small
+        but magical new discovery. A flavored salt that transforms my cooking for...",
+        "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/BA2cNJFyBapxn8t4uX5aFQ/ms.jpg",
+        "categories": [["Bookstores", "bookstores"]], "display_phone": "+1-206-621-7894",
+        "rating_img_url_large": "http://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+        "id": "blmf-literary-saloon-seattle", "is_closed": false, "rating_img_url_small":
+        "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png"},
+        {"is_claimed": false, "distance": 459.33954282575883, "mobile_url": "http://m.yelp.com/biz/lion-heart-book-store-seattle",
+        "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 27, "name": "Lion Heart Book Store", "snippet_image_url":
+        "http://s3-media2.fl.yelpcdn.com/photo/mIagi4eSZpSAiRMlVkTW_A/ms.jpg", "rating":
+        4.5, "url": "http://www.yelp.com/biz/lion-heart-book-store-seattle", "location":
+        {"cross_streets": "Post Aly", "city": "Seattle", "display_address": ["1501
+        Pike Pl", "Ste 326", "Downtown", "Seattle, WA 98101"], "geo_accuracy": 8.0,
+        "neighborhoods": ["Downtown"], "postal_code": "98101", "country_code": "US",
+        "address": ["1501 Pike Pl", "Ste 326"], "coordinate": {"latitude": 47.608699799999997,
+        "longitude": -122.3410416}, "state_code": "WA"}, "phone": "2069036511", "snippet_text":
+        "Certainly the first book store I''ve ever visited where a few minutes into
+        browsing, I turn and find the owner serenading my wife. It''s less creepy
+        than it...", "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/e8Fcek0wWzsUEJpkkXzZnA/ms.jpg",
+        "categories": [["Bookstores", "bookstores"]], "display_phone": "+1-206-903-6511",
+        "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "id": "lion-heart-book-store-seattle", "is_closed": false, "rating_img_url_small":
+        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png"},
+        {"is_claimed": true, "distance": 459.33954282575883, "mobile_url": "http://m.yelp.com/biz/christophers-lamp-seattle",
+        "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+        "review_count": 24, "name": "Christophers Lamp", "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/WijC_kiFHxzgbweB0GlAng/ms.jpg",
+        "rating": 4.0, "url": "http://www.yelp.com/biz/christophers-lamp-seattle",
+        "location": {"cross_streets": "Post Aly", "city": "Seattle", "display_address":
+        ["1501 Pike Pl", "Ste 330", "Downtown", "Seattle, WA 98101"], "geo_accuracy":
+        8.0, "neighborhoods": ["Downtown"], "postal_code": "98101", "country_code":
+        "US", "address": ["1501 Pike Pl", "Ste 330"], "coordinate": {"latitude": 47.608699799999997,
+        "longitude": -122.3410416}, "state_code": "WA"}, "phone": "2069038344", "snippet_text":
+        "AMAZING.\n\nOne of the most incredible, intuitive, and honest readings I
+        have ever experienced. She was able to give me insight to my current relationship,...",
+        "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/kU3vZ0bemS7LVXkj-DTm_A/ms.jpg",
+        "categories": [["Psychics \u0026 Astrologers", "psychic_astrology"]], "display_phone":
+        "+1-206-903-8344", "rating_img_url_large": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+        "id": "christophers-lamp-seattle", "is_closed": false, "rating_img_url_small":
+        "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png"},
+        {"is_claimed": true, "distance": 463.2862051086156, "mobile_url": "http://m.yelp.com/biz/milagros-mexican-folk-art-seattle",
+        "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 19, "name": "Milagros Mexican Folk Art", "snippet_image_url":
+        "http://s3-media1.fl.yelpcdn.com/photo/Wwqi0ivthHIPZGPk_h6G5g/ms.jpg", "rating":
+        4.5, "url": "http://www.yelp.com/biz/milagros-mexican-folk-art-seattle", "location":
+        {"cross_streets": "Pine St \u0026 Pike Pl", "city": "Seattle", "display_address":
+        ["1530 Post Aly", "Ste 9B", "Downtown", "Seattle, WA 98101"], "geo_accuracy":
+        8.0, "neighborhoods": ["Downtown"], "postal_code": "98101", "country_code":
+        "US", "address": ["1530 Post Aly", "Ste 9B"], "coordinate": {"latitude": 47.609319984912901,
+        "longitude": -122.341156303883}, "state_code": "WA"}, "phone": "2064640490",
+        "snippet_text": "I love Seattle, but sometimes when I need some color to break
+        up the gray I''ll come here and get something bright and warm to remind me
+        of when I lived in...", "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/Uk1W5jKUlo5YkWOskNmb-Q/ms.jpg",
+        "categories": [["Art Galleries", "galleries"], ["Home Decor", "homedecor"]],
+        "display_phone": "+1-206-464-0490", "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "id": "milagros-mexican-folk-art-seattle", "is_closed": false, "rating_img_url_small":
+        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png"},
+        {"is_claimed": true, "distance": 466.01185704848393, "mobile_url": "http://m.yelp.com/biz/seattle-by-foot-seattle",
+        "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 65, "name": "Seattle By Foot", "snippet_image_url": "http://s3-media3.fl.yelpcdn.com/photo/lmbXGHOV9j4y0yu5jfjsBA/ms.jpg",
+        "rating": 4.5, "url": "http://www.yelp.com/biz/seattle-by-foot-seattle", "location":
+        {"city": "Seattle", "display_address": ["1st Ave and Pike St", "Downtown",
+        "Seattle, WA 98101"], "geo_accuracy": 7.0, "neighborhoods": ["Downtown"],
+        "postal_code": "98101", "country_code": "US", "address": ["1st Ave and Pike
+        St"], "coordinate": {"latitude": 47.608821900000002, "longitude": -122.34004210000001},
+        "state_code": "WA"}, "phone": "2065087017", "snippet_text": "I was in Seattle
+        to take a cruise but had the whole day Saturday to \"see\" Seattle. I read
+        about some of the interesting things to see/do and stumbled upon...", "image_url":
+        "http://s3-media2.fl.yelpcdn.com/bphoto/-cmyGfPdvDpAdJPYuhY61g/ms.jpg", "categories":
+        [["Walking Tours", "walkingtours"]], "display_phone": "+1-206-508-7017", "rating_img_url_large":
+        "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "id": "seattle-by-foot-seattle", "is_closed": false, "rating_img_url_small":
+        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png"},
+        {"is_claimed": true, "distance": 467.68214644449023, "mobile_url": "http://m.yelp.com/biz/sky-view-observatory-seattle",
+        "rating_img_url": "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 159, "name": "Sky View Observatory", "snippet_image_url":
+        "http://s3-media3.fl.yelpcdn.com/photo/q9D8K6k5Va2xZQW0n1HGcg/ms.jpg", "rating":
+        4.5, "url": "http://www.yelp.com/biz/sky-view-observatory-seattle", "location":
+        {"city": "Seattle", "display_address": ["Columbia Center", "701 5th Ave, Fl
+        73", "Downtown", "Seattle, WA 98104"], "geo_accuracy": 9.5, "neighborhoods":
+        ["Downtown"], "postal_code": "98104", "country_code": "US", "address": ["Columbia
+        Center", "701 5th Ave, Fl 73"], "coordinate": {"latitude": 47.604805746899999,
+        "longitude": -122.33212722099999}, "state_code": "WA"}, "phone": "2063865564",
+        "snippet_text": "$9 with student ID for a 365 view of Seattle. Valid for the
+        entire day of purchase so I recommend going once during the day and once at
+        night for 2...", "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/Evm3QUGD26C6_F67HWxqpw/ms.jpg",
+        "categories": [["Landmarks \u0026 Historical Buildings", "landmarks"]], "display_phone":
+        "+1-206-386-5564", "rating_img_url_large": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "id": "sky-view-observatory-seattle", "is_closed": false, "rating_img_url_small":
+        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png"},
+        {"is_claimed": true, "distance": 468.0077766278805, "mobile_url": "http://m.yelp.com/biz/unexpected-productions-seattle",
+        "rating_img_url": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+        "review_count": 152, "name": "Unexpected Productions", "snippet_image_url":
+        "http://s3-media3.fl.yelpcdn.com/photo/-uE8lhzHLtT9xZV78NG4cQ/ms.jpg", "rating":
+        4.0, "url": "http://www.yelp.com/biz/unexpected-productions-seattle", "location":
+        {"cross_streets": "Union St", "city": "Seattle", "display_address": ["1428
+        Post Alley", "Downtown", "Seattle, WA 98101"], "geo_accuracy": 9.5, "neighborhoods":
+        ["Downtown"], "postal_code": "98101", "country_code": "US", "address": ["1428
+        Post Alley"], "coordinate": {"latitude": 47.6091195286036, "longitude": -122.340084506153},
+        "state_code": "WA"}, "menu_date_updated": 1389346743, "phone": "2065872414",
+        "snippet_text": "I''ve been back for several shows and I''ve got to tell you
+        I''m always blown away.  Twin Peaks was never a favorite show of mine,  but
+        the folks at Unexpected...", "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/hqTypVrx5AYOW8eCIz0eNA/ms.jpg",
+        "categories": [["Performing Arts", "theater"], ["Lounges", "lounges"], ["Comedy
+        Clubs", "comedyclubs"]], "display_phone": "+1-206-587-2414", "rating_img_url_large":
+        "http://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+        "menu_provider": "single_platform", "id": "unexpected-productions-seattle",
+        "is_closed": false, "rating_img_url_small": "http://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png"}]}'
+    http_version: 
+  recorded_at: Wed, 11 Feb 2015 00:50:22 GMT
+recorded_with: VCR 2.9.3

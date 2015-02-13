@@ -5,7 +5,6 @@ class Location < ActiveRecord::Base
   has_many :photos
 
   validates :long, :lat, :name, :city, presence: true
-  validates :long, :lat, :name, presence: true
 
   acts_as_mappable :default_units => :miles,
                    :default_formula => :sphere,
@@ -62,7 +61,9 @@ class Location < ActiveRecord::Base
     time_now = timezone.time Time.now
     time_now_int =  time_now.hour*100 + time_now.min
     day_int = time_now.strftime("%w").to_i
-    Location.includes(:windows).where("(locations.id NOT IN (SELECT DISTINCT(location_id) FROM windows)) OR (open_day = ? AND open_time <= ? OR close_day = ? AND close_time > ?)", day_int, time_now_int, day_int, time_now_int).references(:windows)
+    Location.includes(:windows).where("(locations.id NOT IN (SELECT DISTINCT(location_id) FROM windows)) OR ( open_day = ? AND ( (open_day = close_day AND open_time < ? AND close_time > ?) OR (open_day != close_day AND open_time < ?) ) OR ( close_day = ? AND open_day != close_day AND close_time > ? ))", day_int, time_now_int, time_now_int, time_now_int, day_int, time_now_int).references(:windows)
+    # Location.includes(:windows).where("(locations.id NOT IN (SELECT DISTINCT(location_id) FROM windows)) OR (open_day = ? AND open_time <= ? OR close_day = ? AND close_time > ?)", day_int, time_now_int, day_int, time_now_int).references(:windows)
+    # Location.where("name IS NOT NULL")
   end
 
   def self.url_and_id_arry(lat, long)

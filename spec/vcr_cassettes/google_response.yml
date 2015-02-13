@@ -1,0 +1,607 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/place/details/json?extensions=&key=AIzaSyDvio9wDNPZ-UnG7Ws-ynKiDPAV0aUrrkU&language=&placeid=ChIJoT6vDbRqkFQRtTKgZ3GsZc0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 11 Feb 2015 00:01:08 GMT
+      Expires:
+      - Wed, 11 Feb 2015 00:06:08 GMT
+      Cache-Control:
+      - public, max-age=300
+      Server:
+      - mafe
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Alternate-Protocol:
+      - 443:quic,p=0.02
+      Accept-Ranges:
+      - none
+      Vary:
+      - Accept-Language,Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICAiaHRtbF9hdHRyaWJ1dGlvbnMiIDogW10sCiAgICJyZXN1bHQiIDog
+        ewogICAgICAiYWRkcmVzc19jb21wb25lbnRzIiA6IFsKICAgICAgICAgewog
+        ICAgICAgICAgICAibG9uZ19uYW1lIiA6ICIxMzA4IiwKICAgICAgICAgICAg
+        InNob3J0X25hbWUiIDogIjEzMDgiLAogICAgICAgICAgICAidHlwZXMiIDog
+        WyAic3RyZWV0X251bWJlciIgXQogICAgICAgICB9LAogICAgICAgICB7CiAg
+        ICAgICAgICAgICJsb25nX25hbWUiIDogIjV0aCBBdmVudWUiLAogICAgICAg
+        ICAgICAic2hvcnRfbmFtZSIgOiAiNXRoIEF2ZSIsCiAgICAgICAgICAgICJ0
+        eXBlcyIgOiBbICJyb3V0ZSIgXQogICAgICAgICB9LAogICAgICAgICB7CiAg
+        ICAgICAgICAgICJsb25nX25hbWUiIDogIlNlYXR0bGUiLAogICAgICAgICAg
+        ICAic2hvcnRfbmFtZSIgOiAiU2VhdHRsZSIsCiAgICAgICAgICAgICJ0eXBl
+        cyIgOiBbICJsb2NhbGl0eSIsICJwb2xpdGljYWwiIF0KICAgICAgICAgfSwK
+        ICAgICAgICAgewogICAgICAgICAgICAibG9uZ19uYW1lIiA6ICJXYXNoaW5n
+        dG9uIiwKICAgICAgICAgICAgInNob3J0X25hbWUiIDogIldBIiwKICAgICAg
+        ICAgICAgInR5cGVzIiA6IFsgImFkbWluaXN0cmF0aXZlX2FyZWFfbGV2ZWxf
+        MSIsICJwb2xpdGljYWwiIF0KICAgICAgICAgfSwKICAgICAgICAgewogICAg
+        ICAgICAgICAibG9uZ19uYW1lIiA6ICJVbml0ZWQgU3RhdGVzIiwKICAgICAg
+        ICAgICAgInNob3J0X25hbWUiIDogIlVTIiwKICAgICAgICAgICAgInR5cGVz
+        IiA6IFsgImNvdW50cnkiLCAicG9saXRpY2FsIiBdCiAgICAgICAgIH0sCiAg
+        ICAgICAgIHsKICAgICAgICAgICAgImxvbmdfbmFtZSIgOiAiOTgxMDEiLAog
+        ICAgICAgICAgICAic2hvcnRfbmFtZSIgOiAiOTgxMDEiLAogICAgICAgICAg
+        ICAidHlwZXMiIDogWyAicG9zdGFsX2NvZGUiIF0KICAgICAgICAgfQogICAg
+        ICBdLAogICAgICAiYWRyX2FkZHJlc3MiIDogIlx1MDAzY3NwYW4gY2xhc3M9
+        XCJzdHJlZXQtYWRkcmVzc1wiXHUwMDNlMTMwOCA1dGggQXZlbnVlXHUwMDNj
+        L3NwYW5cdTAwM2UsIFx1MDAzY3NwYW4gY2xhc3M9XCJsb2NhbGl0eVwiXHUw
+        MDNlU2VhdHRsZVx1MDAzYy9zcGFuXHUwMDNlLCBcdTAwM2NzcGFuIGNsYXNz
+        PVwicmVnaW9uXCJcdTAwM2VXQVx1MDAzYy9zcGFuXHUwMDNlIFx1MDAzY3Nw
+        YW4gY2xhc3M9XCJwb3N0YWwtY29kZVwiXHUwMDNlOTgxMDFcdTAwM2Mvc3Bh
+        blx1MDAzZSwgXHUwMDNjc3BhbiBjbGFzcz1cImNvdW50cnktbmFtZVwiXHUw
+        MDNlVW5pdGVkIFN0YXRlc1x1MDAzYy9zcGFuXHUwMDNlIiwKICAgICAgImZv
+        cm1hdHRlZF9hZGRyZXNzIiA6ICIxMzA4IDV0aCBBdmVudWUsIFNlYXR0bGUs
+        IFdBIDk4MTAxLCBVbml0ZWQgU3RhdGVzIiwKICAgICAgImZvcm1hdHRlZF9w
+        aG9uZV9udW1iZXIiIDogIigyMDYpIDYyNS0xOTAwIiwKICAgICAgImdlb21l
+        dHJ5IiA6IHsKICAgICAgICAgImxvY2F0aW9uIiA6IHsKICAgICAgICAgICAg
+        ImxhdCIgOiA0Ny42MDkyNiwKICAgICAgICAgICAgImxuZyIgOiAtMTIyLjMz
+        MzgxNQogICAgICAgICB9CiAgICAgIH0sCiAgICAgICJpY29uIiA6ICJodHRw
+        Oi8vbWFwcy5nc3RhdGljLmNvbS9tYXBmaWxlcy9wbGFjZV9hcGkvaWNvbnMv
+        Z2VuZXJpY19idXNpbmVzcy03MS5wbmciLAogICAgICAiaWQiIDogIjFkNGZl
+        MzVkODU2M2ZmMGMzMDQ5YzI1NGUzZGYxNjI0YjdiYWM4NDYiLAogICAgICAi
+        aW50ZXJuYXRpb25hbF9waG9uZV9udW1iZXIiIDogIisxIDIwNi02MjUtMTkw
+        MCIsCiAgICAgICJuYW1lIiA6ICJUaGUgNXRoIEF2ZW51ZSBUaGVhdHJlIiwK
+        ICAgICAgIm9wZW5pbmdfaG91cnMiIDogewogICAgICAgICAib3Blbl9ub3ci
+        IDogdHJ1ZSwKICAgICAgICAgInBlcmlvZHMiIDogWwogICAgICAgICAgICB7
+        CiAgICAgICAgICAgICAgICJjbG9zZSIgOiB7CiAgICAgICAgICAgICAgICAg
+        ICJkYXkiIDogMCwKICAgICAgICAgICAgICAgICAgInRpbWUiIDogIjE4MDAi
+        CiAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICJvcGVuIiA6IHsK
+        ICAgICAgICAgICAgICAgICAgImRheSIgOiAwLAogICAgICAgICAgICAgICAg
+        ICAidGltZSIgOiAiMTIwMCIKICAgICAgICAgICAgICAgfQogICAgICAgICAg
+        ICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICJjbG9zZSIgOiB7
+        CiAgICAgICAgICAgICAgICAgICJkYXkiIDogMSwKICAgICAgICAgICAgICAg
+        ICAgInRpbWUiIDogIjE4MDAiCiAgICAgICAgICAgICAgIH0sCiAgICAgICAg
+        ICAgICAgICJvcGVuIiA6IHsKICAgICAgICAgICAgICAgICAgImRheSIgOiAx
+        LAogICAgICAgICAgICAgICAgICAidGltZSIgOiAiMTAwMCIKICAgICAgICAg
+        ICAgICAgfQogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAg
+        ICAgICAgICJjbG9zZSIgOiB7CiAgICAgICAgICAgICAgICAgICJkYXkiIDog
+        MiwKICAgICAgICAgICAgICAgICAgInRpbWUiIDogIjE4MDAiCiAgICAgICAg
+        ICAgICAgIH0sCiAgICAgICAgICAgICAgICJvcGVuIiA6IHsKICAgICAgICAg
+        ICAgICAgICAgImRheSIgOiAyLAogICAgICAgICAgICAgICAgICAidGltZSIg
+        OiAiMTAwMCIKICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9LAogICAg
+        ICAgICAgICB7CiAgICAgICAgICAgICAgICJjbG9zZSIgOiB7CiAgICAgICAg
+        ICAgICAgICAgICJkYXkiIDogMywKICAgICAgICAgICAgICAgICAgInRpbWUi
+        IDogIjE4MDAiCiAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICJv
+        cGVuIiA6IHsKICAgICAgICAgICAgICAgICAgImRheSIgOiAzLAogICAgICAg
+        ICAgICAgICAgICAidGltZSIgOiAiMTAwMCIKICAgICAgICAgICAgICAgfQog
+        ICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICJj
+        bG9zZSIgOiB7CiAgICAgICAgICAgICAgICAgICJkYXkiIDogNCwKICAgICAg
+        ICAgICAgICAgICAgInRpbWUiIDogIjE4MDAiCiAgICAgICAgICAgICAgIH0s
+        CiAgICAgICAgICAgICAgICJvcGVuIiA6IHsKICAgICAgICAgICAgICAgICAg
+        ImRheSIgOiA0LAogICAgICAgICAgICAgICAgICAidGltZSIgOiAiMTAwMCIK
+        ICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9LAogICAgICAgICAgICB7
+        CiAgICAgICAgICAgICAgICJjbG9zZSIgOiB7CiAgICAgICAgICAgICAgICAg
+        ICJkYXkiIDogNSwKICAgICAgICAgICAgICAgICAgInRpbWUiIDogIjE4MDAi
+        CiAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICJvcGVuIiA6IHsK
+        ICAgICAgICAgICAgICAgICAgImRheSIgOiA1LAogICAgICAgICAgICAgICAg
+        ICAidGltZSIgOiAiMTAwMCIKICAgICAgICAgICAgICAgfQogICAgICAgICAg
+        ICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICJjbG9zZSIgOiB7
+        CiAgICAgICAgICAgICAgICAgICJkYXkiIDogNiwKICAgICAgICAgICAgICAg
+        ICAgInRpbWUiIDogIjE4MDAiCiAgICAgICAgICAgICAgIH0sCiAgICAgICAg
+        ICAgICAgICJvcGVuIiA6IHsKICAgICAgICAgICAgICAgICAgImRheSIgOiA2
+        LAogICAgICAgICAgICAgICAgICAidGltZSIgOiAiMTIwMCIKICAgICAgICAg
+        ICAgICAgfQogICAgICAgICAgICB9CiAgICAgICAgIF0sCiAgICAgICAgICJ3
+        ZWVrZGF5X3RleHQiIDogWwogICAgICAgICAgICAiTW9uZGF5OiAxMDowMCBh
+        bSDigJMgNjowMCBwbSIsCiAgICAgICAgICAgICJUdWVzZGF5OiAxMDowMCBh
+        bSDigJMgNjowMCBwbSIsCiAgICAgICAgICAgICJXZWRuZXNkYXk6IDEwOjAw
+        IGFtIOKAkyA2OjAwIHBtIiwKICAgICAgICAgICAgIlRodXJzZGF5OiAxMDow
+        MCBhbSDigJMgNjowMCBwbSIsCiAgICAgICAgICAgICJGcmlkYXk6IDEwOjAw
+        IGFtIOKAkyA2OjAwIHBtIiwKICAgICAgICAgICAgIlNhdHVyZGF5OiAxMjow
+        MCDigJMgNjowMCBwbSIsCiAgICAgICAgICAgICJTdW5kYXk6IDEyOjAwIOKA
+        kyA2OjAwIHBtIgogICAgICAgICBdCiAgICAgIH0sCiAgICAgICJwaG90b3Mi
+        IDogWwogICAgICAgICB7CiAgICAgICAgICAgICJoZWlnaHQiIDogMzAwLAog
+        ICAgICAgICAgICAiaHRtbF9hdHRyaWJ1dGlvbnMiIDogW10sCiAgICAgICAg
+        ICAgICJwaG90b19yZWZlcmVuY2UiIDogIkNuUm5BQUFBZm4xZ3pIT0V0VV9R
+        Y3VUVkJBbnRxYlJ1d0JUZVRMeU10RDhYV1Fob1hGMTVfN2E1aElhZ1pNeElI
+        RndIektmbENPMXc0SlFRMWUwSTZxVkRsZDdYQ25WN0V6OWQ4d3RGdzVCeUR2
+        aVotclUzZjkxS0IyS0E0WkdScktCVEc2MWZKaDA1aFJicS1TWW1NRjlNeWh0
+        TU1SSVFISm1zcTNJamFTQ29FdHZmUHY3MDZSb1VkQXM3dWlWZF9JSHZKZHB0
+        S2VvM2pZNWhWblkiLAogICAgICAgICAgICAid2lkdGgiIDogMjI1CiAgICAg
+        ICAgIH0sCiAgICAgICAgIHsKICAgICAgICAgICAgImhlaWdodCIgOiA4MDcs
+        CiAgICAgICAgICAgICJodG1sX2F0dHJpYnV0aW9ucyIgOiBbXSwKICAgICAg
+        ICAgICAgInBob3RvX3JlZmVyZW5jZSIgOiAiQ25SbkFBQUE0ZDNiMktYS2NQ
+        VndFbkQzMWZiU2FrYUJBVzAtOVlFczJGdEQ0RTY2U0oxUERxRlZZWHhCNTVW
+        d0N3RVpyVWZ0cTBTeHRIQmxfLUF4ajlvYTJTN0w5bF9pMy1HODJoWFR5dHk2
+        aWk1LVNYSUVOT1NZSkVHc0FYVDN6RHJ1LTd0SzcwLVpWeHFIcTNIa2w3ajFK
+        VjhmOUJJUTJySVl1dU5VU2s1LXV2VE04YkxteFJvVWlxMHBPZGlkU2JYWTd6
+        ODI5NFFTb2pFbzBuVSIsCiAgICAgICAgICAgICJ3aWR0aCIgOiAxMDQ5CiAg
+        ICAgICAgIH0sCiAgICAgICAgIHsKICAgICAgICAgICAgImhlaWdodCIgOiA0
+        ODYsCiAgICAgICAgICAgICJodG1sX2F0dHJpYnV0aW9ucyIgOiBbCiAgICAg
+        ICAgICAgICAgICJcdTAwM2NhIGhyZWY9XCJodHRwczovL3BsdXMuZ29vZ2xl
+        LmNvbS8xMTY5OTE4MTUzMzcyOTI2NzgyNjdcIlx1MDAzZWNsaXZlIGJvdWx0
+        b25cdTAwM2MvYVx1MDAzZSIKICAgICAgICAgICAgXSwKICAgICAgICAgICAg
+        InBob3RvX3JlZmVyZW5jZSIgOiAiQ25Sb0FBQUExYkVyZ1NfLXdXN3k4NEFM
+        RE1MdEk4cHQxdHEyTjVZd3l1MU5VVl9oNzBsZEZUcHY1eDB0S3RBNm5sVXFE
+        WTE0bXN3R3hCVnNUaXI2aXN0aGtZWHA1MmtSSGV5ZjYycENiY3lBWkdJZmx4
+        OTBOSWYtUFhvdjFVZlRVSU8wVl92LWhRSF9vMVpieUZXLXNvaVZBUUZQWmhJ
+        UW9kVm9aUzNuZ0x3YThSZTVmQXpDcnhvVUwya1VUVU5jZ0hnck9HWVYwUHoy
+        aHZ2UzNvVSIsCiAgICAgICAgICAgICJ3aWR0aCIgOiA2NDgKICAgICAgICAg
+        fQogICAgICBdLAogICAgICAicGxhY2VfaWQiIDogIkNoSUpvVDZ2RGJScWtG
+        UVJ0VEtnWjNHc1pjMCIsCiAgICAgICJyYXRpbmciIDogNC4zLAogICAgICAi
+        cmVmZXJlbmNlIiA6ICJDblJ3QUFBQVgxRjdzSGREUV9vYzZEQWdjX1VFbWpz
+        RXFraDJyd3N2VzVGNy0zU3hZRDJ1eXdMSTdWSFpiTkh3Z1hHb2M1TjBHWDNy
+        cGRETnpkQUE2d2RsVXpTTi1TUUxzX2xJdDZXQi1ya2VmX3NQNk81RDhoYVBR
+        RDZuX1BDMDRlM01CcjZhYk1Nbnlqb0VvbDM2WldVS1VxbU0xUklRbzc0S2ZV
+        bUVqb1JDdUFDMkFBaDdqaG9VbVI3SWlrVk85Zm04VG9qNWNFU29xY0FZMTg4
+        IiwKICAgICAgInJldmlld3MiIDogWwogICAgICAgICB7CiAgICAgICAgICAg
+        ICJhc3BlY3RzIiA6IFsKICAgICAgICAgICAgICAgewogICAgICAgICAgICAg
+        ICAgICAicmF0aW5nIiA6IDMsCiAgICAgICAgICAgICAgICAgICJ0eXBlIiA6
+        ICJvdmVyYWxsIgogICAgICAgICAgICAgICB9CiAgICAgICAgICAgIF0sCiAg
+        ICAgICAgICAgICJhdXRob3JfbmFtZSIgOiAiTWljaGFlbCBFbGxpcyIsCiAg
+        ICAgICAgICAgICJhdXRob3JfdXJsIiA6ICJodHRwczovL3BsdXMuZ29vZ2xl
+        LmNvbS8xMDcxMzM0OTgzMzQ2ODAzOTg4MTgiLAogICAgICAgICAgICAibGFu
+        Z3VhZ2UiIDogImVuIiwKICAgICAgICAgICAgInJhdGluZyIgOiA1LAogICAg
+        ICAgICAgICAidGV4dCIgOiAiVGhlIDV0aCBpcyBhbiBleHBlcmllbmNlIGV2
+        ZXJ5b25lIG5lYXIgU2VhdHRsZSBtdXN0IGxpdmUhIFRoZSBzaG93cyBhcmUg
+        c3RlbGxhci4gVGhlIHZlbnVlIGlzIHJvbWFudGljLiBUaGUgZXhwZXJpZW5j
+        ZSBpcyBtZW1vcmFibGUuIE5leHQgdGltZSB5b3UgbmVlZCBhIGdyZWF0IGRh
+        dGUgbmlnaHQgKG9yIG1hdGluZWUpIGNvbnNpZGVyIHRoZSA1dGghIiwKICAg
+        ICAgICAgICAgInRpbWUiIDogMTQwMDA0MjA0NwogICAgICAgICB9LAogICAg
+        ICAgICB7CiAgICAgICAgICAgICJhc3BlY3RzIiA6IFsKICAgICAgICAgICAg
+        ICAgewogICAgICAgICAgICAgICAgICAicmF0aW5nIiA6IDMsCiAgICAgICAg
+        ICAgICAgICAgICJ0eXBlIiA6ICJvdmVyYWxsIgogICAgICAgICAgICAgICB9
+        CiAgICAgICAgICAgIF0sCiAgICAgICAgICAgICJhdXRob3JfbmFtZSIgOiAi
+        Q3Jpc2FubmEgTml4b24iLAogICAgICAgICAgICAiYXV0aG9yX3VybCIgOiAi
+        aHR0cHM6Ly9wbHVzLmdvb2dsZS5jb20vMTE0NTUxOTkzOTYzNjc0MTM2MTU2
+        IiwKICAgICAgICAgICAgImxhbmd1YWdlIiA6ICJlbiIsCiAgICAgICAgICAg
+        ICJyYXRpbmciIDogNSwKICAgICAgICAgICAgInRleHQiIDogIldlIGdvIGhl
+        cmUgZXZlcnkgeWVhciBmb3IgQ2hyaXN0bWFzLiBUaGlzIHllYXIgd2Ugc2F3
+        IEEgQ2hyaXN0bWFzIFN0b3J5LiBOZXZlciBkaXNhcHBvaW50cyEgIiwKICAg
+        ICAgICAgICAgInRpbWUiIDogMTQxOTIxNzA0NwogICAgICAgICB9LAogICAg
+        ICAgICB7CiAgICAgICAgICAgICJhc3BlY3RzIiA6IFsKICAgICAgICAgICAg
+        ICAgewogICAgICAgICAgICAgICAgICAicmF0aW5nIiA6IDMsCiAgICAgICAg
+        ICAgICAgICAgICJ0eXBlIiA6ICJvdmVyYWxsIgogICAgICAgICAgICAgICB9
+        CiAgICAgICAgICAgIF0sCiAgICAgICAgICAgICJhdXRob3JfbmFtZSIgOiAi
+        Tm9yaSBNIiwKICAgICAgICAgICAgImF1dGhvcl91cmwiIDogImh0dHBzOi8v
+        cGx1cy5nb29nbGUuY29tLzEwODc5MDgyNTM1Njc3ODU2MzAzNiIsCiAgICAg
+        ICAgICAgICJsYW5ndWFnZSIgOiAiZW4iLAogICAgICAgICAgICAicmF0aW5n
+        IiA6IDUsCiAgICAgICAgICAgICJ0ZXh0IiA6ICJUaGlzIGlzIHRoZSBCRVNU
+        IHBsYWNlIHRvIHdhdGNoIG11c2ljYWxzIGlmIHlvdSdyZSBpbiBTZWF0dGxl
+        LiBOb3NlYmxlZWQgc2VjdGlvbnMgYXJlbid0IGV2ZW4gdGhhdCBiYWQgY29t
+        cGFyZWQgdG8gdGhlIFBhcmFtb3VudC4gU2VyaW91c2x5LCBpdCdzIGhhcmQg
+        Z2V0dGluZyBhIGJhZCBzZWF0IGhlcmUgYW5kIHRoZXkgb2ZmZXIgZ3JlYXQg
+        ZGVhbHMgQUxMIHRoZSB0aW1lLiBJIGhhdmUgYSBzZWFzb24gc3Vic2NyaXB0
+        aW9uIGFuZCBMT1ZFIHRoYXQgaXQgY29tZXMgd2l0aCBmcmVlIHBhcmtpbmcu
+        IE5vdCB0byBtZW50aW9uLCB0aGV5IHBhcnRuZXIgd2l0aCBhIG51bWJlciBv
+        ZiByZXN0YXVyYW50cyBpbiB0aGUgYXJlYSBhbmQgb2ZmZXIgc3BlY2lhbCBk
+        aXNjb3VudHMgd2hlbiB5b3Ugc2hvdyB0aGVtIHlvdXIgdGlja2V0IHN0dWIg
+        ZnJvbSBhIHNob3cuIFRoZSBhY291c3RpY3MgYXJlIGFsc28gcmVhbGx5IGdy
+        ZWF0LiBUaGUgb3JpZW50YWwgZGVjb3IgaXMgcHJldHR5IGNvb2wuIEkganVz
+        dCBsb3ZlIGV2ZXJ5IHByb2R1Y3Rpb24gSSd2ZSBzZWVuIGhlcmUgc28gZmFy
+        LiIsCiAgICAgICAgICAgICJ0aW1lIiA6IDEzMTkwNzA0MzEKICAgICAgICAg
+        fSwKICAgICAgICAgewogICAgICAgICAgICAiYXNwZWN0cyIgOiBbCiAgICAg
+        ICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgInJhdGluZyIgOiAxLAog
+        ICAgICAgICAgICAgICAgICAidHlwZSIgOiAiYXBwZWFsIgogICAgICAgICAg
+        ICAgICB9LAogICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJy
+        YXRpbmciIDogMSwKICAgICAgICAgICAgICAgICAgInR5cGUiIDogImZhY2ls
+        aXRpZXMiCiAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgIHsKICAg
+        ICAgICAgICAgICAgICAgInJhdGluZyIgOiAxLAogICAgICAgICAgICAgICAg
+        ICAidHlwZSIgOiAic2VydmljZSIKICAgICAgICAgICAgICAgfQogICAgICAg
+        ICAgICBdLAogICAgICAgICAgICAiYXV0aG9yX25hbWUiIDogIlBhdWwgSm9z
+        ZXBoIFBheWxhZG8iLAogICAgICAgICAgICAiYXV0aG9yX3VybCIgOiAiaHR0
+        cHM6Ly9wbHVzLmdvb2dsZS5jb20vMTA1OTAxNDEyNjMzOTgxODgxOTU1IiwK
+        ICAgICAgICAgICAgImxhbmd1YWdlIiA6ICJlbiIsCiAgICAgICAgICAgICJy
+        YXRpbmciIDogMywKICAgICAgICAgICAgInRleHQiIDogIldlbnQgdG8gc2Vl
+        IHRoZSBBZGFtcyBmYW1pbHkgbGFzdCB3ZWVrLCBoYWQgYSBncmVhdCB0aW1l
+        LiBUaGUgaXNzdWVzIHdlIGhhZCB3ZXJlLCBJIHBhaWQgZm9yIHBhcmtpbmcg
+        d2hlbiBJIGJvdWdodCBteSB0aWNrZXRzLCBtaXN0YWtlLiBJIGRpZCBub3Qg
+        a25vdyBJIGhhZCB0byBnZXQgYSB0aWNrZXQgZm9yIHBhcmtpbmcgYXQgNXRo
+        IGF2ZSBiZWZvcmUgSSBsZWZ0IHRvIGdvIGhvbWUsIHNvIEkgZGlkbid0IGhh
+        dmUgaXQgd2hlbiBJIGxlZnQgdGhlIGdhcmFnZSBhbmQgd2FzIGNoYXJnZSBh
+        Z2FpbiBmb3IgdGhlIHNhbWUgcGFya2luZywgNiBkb2xsYXJzIHdoYXQgYSBy
+        aXAgb2ZmLiBUaGUgc2hvdyB3YXMgZ29vZCwgYW5kIGVudGVydGFpbmluZywg
+        ZHJpbmtzIHdlcmUgc21hbGwgYW5kIGV4cGVuc2l2ZSwgYW5kIHRvIGJlIGhv
+        bmVzdCBkaWRuJ3QgdGFzdGUgZ29vZCBlaXRoZXIuIEFsc28gdGhleSBoYXZl
+        IGEgYm9hcmQgdXAgZnJvbnQgd2l0aCBkaWdpdGFsIGRpc3BsYXkgdGhhdCBz
+        aG93cyB3aGF0IGlzIGJlaW5nIHNhaWQgZm9yIHRob3NlIHdobyBhcmUgaGVh
+        cmluZyBpbXBhaXJlZCwgcHJvYmxlbSBpcywgaXQgaXMgdG9vIGZhciB0b28g
+        cmVhZCBmcm9tIHdoZXJlIHdlIHNhdC4gV2l0aCBhbGwgdGhhdCBiZWluZyBz
+        YWlkLCB3ZSBzdGlsbCBlbmpveWVkIHRoZSBzaG93LiAiLAogICAgICAgICAg
+        ICAidGltZSIgOiAxMzUyOTg0MTY2CiAgICAgICAgIH0sCiAgICAgICAgIHsK
+        ICAgICAgICAgICAgImFzcGVjdHMiIDogWwogICAgICAgICAgICAgICB7CiAg
+        ICAgICAgICAgICAgICAgICJyYXRpbmciIDogMywKICAgICAgICAgICAgICAg
+        ICAgInR5cGUiIDogImFwcGVhbCIKICAgICAgICAgICAgICAgfSwKICAgICAg
+        ICAgICAgICAgewogICAgICAgICAgICAgICAgICAicmF0aW5nIiA6IDIsCiAg
+        ICAgICAgICAgICAgICAgICJ0eXBlIiA6ICJmYWNpbGl0aWVzIgogICAgICAg
+        ICAgICAgICB9LAogICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAg
+        ICJyYXRpbmciIDogMiwKICAgICAgICAgICAgICAgICAgInR5cGUiIDogInNl
+        cnZpY2UiCiAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgXSwKICAgICAg
+        ICAgICAgImF1dGhvcl9uYW1lIiA6ICJHd2VuZG9seW4gS2luZyIsCiAgICAg
+        ICAgICAgICJhdXRob3JfdXJsIiA6ICJodHRwczovL3BsdXMuZ29vZ2xlLmNv
+        bS8xMDU2OTI1MTQ5NTYwNjkzNjc0OTEiLAogICAgICAgICAgICAibGFuZ3Vh
+        Z2UiIDogImVuIiwKICAgICAgICAgICAgInJhdGluZyIgOiA0LAogICAgICAg
+        ICAgICAidGV4dCIgOiAiTmljZSB2ZW51ZSwgZ29vZCBzaG93cyEgVGhlcmUg
+        YXJlIG11bHRpcGxlIFwibGVhcm5pbmcgb3Bwb3J0dW5pdGllc1wiIGF2YWls
+        YWJsZSAtIDJuZCBTdW5kYXkgVGFsay1iYWNrcywgd2hlcmUgeW91IHNwZWFr
+        IHdpdGggdGhlIGFjdG9ycyBhZnRlciB0aGUgc2hvdzsgcHJlIHNob3cgdGFs
+        a3MsIGxlYXJuIGFib3V0IHJlbGF0ZWQgdGhlYXRlciB0b3BpY3MsIGV0Yy47
+        IGFuZCBTcG90bGlnaHQgTmlnaHRzLCB3aGVyZSB5b3UgZ2V0IHByZXZpZXdz
+        IG9mIHVwY29taW5nIHNob3dzISIsCiAgICAgICAgICAgICJ0aW1lIiA6IDEz
+        NTI2NTc2OTkKICAgICAgICAgfQogICAgICBdLAogICAgICAic2NvcGUiIDog
+        IkdPT0dMRSIsCiAgICAgICJ0eXBlcyIgOiBbICJlc3RhYmxpc2htZW50IiBd
+        LAogICAgICAidXJsIiA6ICJodHRwczovL3BsdXMuZ29vZ2xlLmNvbS8xMDAx
+        MjE1Njk1ODQ5MTY3MDEwNjQvYWJvdXQ/aGw9ZW4tVVMiLAogICAgICAidXNl
+        cl9yYXRpbmdzX3RvdGFsIiA6IDQ5LAogICAgICAidXRjX29mZnNldCIgOiAt
+        NDgwLAogICAgICAidmljaW5pdHkiIDogIjEzMDggNXRoIEF2ZW51ZSwgU2Vh
+        dHRsZSIsCiAgICAgICJ3ZWJzaXRlIiA6ICJodHRwOi8vd3d3LjV0aGF2ZW51
+        ZS5vcmcvIgogICB9LAogICAic3RhdHVzIiA6ICJPSyIKfQo=
+    http_version: 
+  recorded_at: Wed, 11 Feb 2015 00:01:07 GMT
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyDvio9wDNPZ-UnG7Ws-ynKiDPAV0aUrrkU&keyword=&language=&location=47.00000000,-122.00000000&name=Betty%20Boo's%20Best%20Gallery&radius=1000&rankby=
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 11 Feb 2015 00:02:16 GMT
+      Expires:
+      - Wed, 11 Feb 2015 00:07:16 GMT
+      Cache-Control:
+      - public, max-age=300
+      Server:
+      - mafe
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Alternate-Protocol:
+      - 443:quic,p=0.02
+      Accept-Ranges:
+      - none
+      Vary:
+      - Accept-Language,Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+           "html_attributions" : [],
+           "results" : [],
+           "status" : "ZERO_RESULTS"
+        }
+    http_version: 
+  recorded_at: Wed, 11 Feb 2015 00:02:15 GMT
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/place/textsearch/json?key=AIzaSyDvio9wDNPZ-UnG7Ws-ynKiDPAV0aUrrkU&language=&query=Betty%20Boo's%20Best%20Gallery%20in%20seattle&rankby=
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 11 Feb 2015 00:02:16 GMT
+      Expires:
+      - Wed, 11 Feb 2015 00:07:16 GMT
+      Cache-Control:
+      - public, max-age=300
+      Server:
+      - mafe
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Alternate-Protocol:
+      - 443:quic,p=0.02
+      Accept-Ranges:
+      - none
+      Vary:
+      - Accept-Language,Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+           "html_attributions" : [],
+           "results" : [],
+           "status" : "ZERO_RESULTS"
+        }
+    http_version: 
+  recorded_at: Wed, 11 Feb 2015 00:02:15 GMT
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyDvio9wDNPZ-UnG7Ws-ynKiDPAV0aUrrkU&keyword=&language=&location=47.60884725,-122.33385466&name=The%205th%20Avenue%20Theatre&radius=1000&rankby=
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 11 Feb 2015 00:02:17 GMT
+      Expires:
+      - Wed, 11 Feb 2015 00:07:17 GMT
+      Cache-Control:
+      - public, max-age=300
+      Server:
+      - mafe
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Alternate-Protocol:
+      - 443:quic,p=0.02
+      Accept-Ranges:
+      - none
+      Vary:
+      - Accept-Language,Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+           "html_attributions" : [],
+           "results" : [
+              {
+                 "geometry" : {
+                    "location" : {
+                       "lat" : 47.60926,
+                       "lng" : -122.333815
+                    }
+                 },
+                 "icon" : "http://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+                 "id" : "1d4fe35d8563ff0c3049c254e3df1624b7bac846",
+                 "name" : "The 5th Avenue Theatre",
+                 "opening_hours" : {
+                    "open_now" : true,
+                    "weekday_text" : []
+                 },
+                 "photos" : [
+                    {
+                       "height" : 300,
+                       "html_attributions" : [],
+                       "photo_reference" : "CnRnAAAAxYzXJ9MDVoG_s3w0D7AGnhqOGM9tVJRd7PMSxLidqgjWTBQ_aKClDsrOC6ojAkNLDW169IgttblcINHR51OnYergr2TFFMRdPFAravnLWTk25mzVKdMPDBN_u3tWgwj___8YJMsdbNgIkWdyW_Co2hIQQTo7TAtQzED_bb9QDNIzvBoUBynY2VvY53MTOySwI5W00hcMtKA",
+                       "width" : 225
+                    }
+                 ],
+                 "place_id" : "ChIJoT6vDbRqkFQRtTKgZ3GsZc0",
+                 "rating" : 4.3,
+                 "reference" : "CoQBeAAAAJIp9cI7qyyFzdQevPYf3VXPzUamnqTYV-6MT1J3JJz_S_k0Y8KZD8BvS3Fmz7_QobnEhA1ETo1vhOLP8j3yYtFX6LhHpmsCTpem58iEOp9ErgbdA6gkowecoGNAgsJyv0O-Vs2ttpZf3sQIChMC3kbelcEWF2mVWp54KadKE--MEhCHAbjW-MWFa8CsaOtfoq2nGhTnNxPnWc-EwBQBC85PUifQ0vC0iw",
+                 "scope" : "GOOGLE",
+                 "types" : [ "establishment" ],
+                 "vicinity" : "1308 5th Avenue, Seattle"
+              }
+           ],
+           "status" : "OK"
+        }
+    http_version: 
+  recorded_at: Wed, 11 Feb 2015 00:02:16 GMT
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyDvio9wDNPZ-UnG7Ws-ynKiDPAV0aUrrkU&keyword=&language=&location=47.60884725,-122.33385466&name=Fremont%20Troll&radius=1000&rankby=
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 11 Feb 2015 00:02:17 GMT
+      Expires:
+      - Wed, 11 Feb 2015 00:07:17 GMT
+      Cache-Control:
+      - public, max-age=300
+      Server:
+      - mafe
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Alternate-Protocol:
+      - 443:quic,p=0.02
+      Accept-Ranges:
+      - none
+      Vary:
+      - Accept-Language,Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+           "html_attributions" : [],
+           "results" : [],
+           "status" : "ZERO_RESULTS"
+        }
+    http_version: 
+  recorded_at: Wed, 11 Feb 2015 00:02:16 GMT
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/place/textsearch/json?key=AIzaSyDvio9wDNPZ-UnG7Ws-ynKiDPAV0aUrrkU&language=&query=Fremont%20Troll%20in%20seattle&rankby=
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 11 Feb 2015 00:02:17 GMT
+      Expires:
+      - Wed, 11 Feb 2015 00:07:17 GMT
+      Cache-Control:
+      - public, max-age=300
+      Server:
+      - mafe
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Alternate-Protocol:
+      - 443:quic,p=0.02
+      Accept-Ranges:
+      - none
+      Vary:
+      - Accept-Language,Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        {
+           "html_attributions" : [],
+           "results" : [
+              {
+                 "formatted_address" : "3405 Troll Avenue North, Seattle, WA 98103, United States",
+                 "geometry" : {
+                    "location" : {
+                       "lat" : 47.651034,
+                       "lng" : -122.347323
+                    }
+                 },
+                 "icon" : "http://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+                 "id" : "ef9f0907651c63ac80c8b3b8cb650de02c805494",
+                 "name" : "Fremont Troll",
+                 "photos" : [
+                    {
+                       "height" : 608,
+                       "html_attributions" : [
+                          "\u003ca href=\"https://plus.google.com/114516640043416042984\"\u003eJosh Keng\u003c/a\u003e"
+                       ],
+                       "photo_reference" : "CnRtAAAAB1fmdaV7A68mzOrWXsGWVhqjwoHyNoT0st9tKzkbeXEo8fCldj-ibN-CuSHtu6krirhDnrT2NT6j5_GbfUSQQLf7A8D-ZED2IU5l__u29lGlcQ-8fs5AN1LHbI_JDlXSSG_bhwj7wpxxxsXJI3ceGhIQ9m3pTDTWwbem6AJdsRN9PBoUW6JheiZTNVAGphDsd6JlyKhngUg",
+                       "width" : 1080
+                    }
+                 ],
+                 "place_id" : "ChIJvYSnKAEVkFQR35lxzvEE250",
+                 "rating" : 4.2,
+                 "reference" : "CnRvAAAAWH_ynHX5NX5zCTuQccj7FXk0NNyrryWJ4-WEUQj9dycdMAf9v1TakaVd0vjtY5mfdDhKrJNr7cmMNlhoK_vHtxVN8R0ElOqcxrkjpxzpehyxbO5g0Y6qR1wmT6Cr4WcFrdrKtmolmH_hyhA2lbHEXRIQpaP4EeqIyo9b94azTEA48BoUEjyeLzJJElOqX4xF5vrQ0gRaClQ",
+                 "types" : [ "establishment" ]
+              },
+              {
+                 "formatted_address" : "3405 Troll Avenue North, Seattle, WA 98103, United States",
+                 "geometry" : {
+                    "location" : {
+                       "lat" : 47.649778,
+                       "lng" : -122.347612
+                    }
+                 },
+                 "icon" : "http://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+                 "id" : "83f20332a0089be0e59bcc1de30c6b50220a7649",
+                 "name" : "Fremont Chamber of Commerce",
+                 "opening_hours" : {
+                    "open_now" : true,
+                    "weekday_text" : []
+                 },
+                 "photos" : [
+                    {
+                       "height" : 206,
+                       "html_attributions" : [],
+                       "photo_reference" : "CnRnAAAA3f6Sk8p71zW1kPmDbmGeg1QOU8yfXtPFYrviULdhdD-OANdXHpogYixosIrmORHTRSjY8rtVgUuE6EFvrHQrvyeizRq7WBM07EotRPJIMZZnqUDCTxCsLzicyPvMByziN_If2WIgCf3O6u2F97IlhhIQ-8ngEigNKCZaa8cGH_-KQhoU9H3k9iFLWBpZvAEZh4iOsDHsE6g",
+                       "width" : 300
+                    }
+                 ],
+                 "place_id" : "ChIJF4LmNwEVkFQRzlWyxMXLEZ4",
+                 "rating" : 4.2,
+                 "reference" : "CoQBfQAAAMMew6Cocc-dn78yofkE8gDqwj3YHVAICk6oxrGmbBbUqLPiVEvQUAvKtccg9j3LCLE4lEntaHcsHBJIE7YHBUl9DCiMG2dvJwJMkDW18G9tsm28dcyJTctREl8YbGjNv3bcy3RrYlpOXIRayleYC2eGkPkiNkH37h6OHyRvt1luEhAajnNtihiLfLs9X1qNQuhgGhRZ5wYEO5cQda1UiWqeRyqbPjFnBg",
+                 "types" : [ "establishment" ]
+              }
+           ],
+           "status" : "OK"
+        }
+    http_version: 
+  recorded_at: Wed, 11 Feb 2015 00:02:16 GMT
+recorded_with: VCR 2.9.3
