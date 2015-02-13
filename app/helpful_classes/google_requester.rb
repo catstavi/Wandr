@@ -37,9 +37,9 @@ class GoogleRequester
     @@client = GooglePlaces::Client.new(ENV["GOOGLE_PLACE_KEY"])
     spot = @@client.spot(location.place_id)
     hours = spot.opening_hours
-    unless spot.reviews == nil
-      description = spot.reviews.first
-      location.update(desc: description)
+    description = spot.reviews.first
+    unless description.nil?
+      location.update(desc: description.text)
     end
 
     unless hours == nil
