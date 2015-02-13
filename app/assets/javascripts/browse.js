@@ -9,6 +9,7 @@ $(document).ready(function(){
       })
       // shows the loading gif
       hideDiv("#landing")
+      console.log("I'm about to show the loading animation")
       showDiv("#loading");
     }
     else {
@@ -34,7 +35,6 @@ function findPosition(position) {
       console.log("meow!")
       // GET PHOTOS ALREADY IN DB
       ajaxToDatabase();
-      ajaxTriggerApiCalls();
     },
     error: function() {
       console.log("IM AN ERROR YOU GUYS!!!!")
@@ -140,6 +140,7 @@ function ajaxToDatabase() {
       fadeOut("#loading")
       quickShow("#photo-slides")
       addPhotoButton()
+      ajaxTriggerApiCalls();
     },
     error: function() {
       console.log("ERRORERRORERROR")
@@ -148,18 +149,15 @@ function ajaxToDatabase() {
 };
 
 function ajaxTriggerApiCalls() {
-  // console.log("meow")
   $.ajax({
     type: 'POST',
     url: "/load_locations",
     success: function(data) {
       //add divs to view
       console.log("SUCCESS!!!!!!!!");
-      console.log(data)
       DeleteUnvisited();
       AppendNew(data, "new");
       addSwipeEvents($('#all').children(".new"))
-      console.log(Object.keys(data));
     }
   })
 }

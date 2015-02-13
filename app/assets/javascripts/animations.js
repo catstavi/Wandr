@@ -42,7 +42,8 @@ $(document).ready(function(){
 
 function showDiv(div_id) {
   $( div_id ).animate({
-    top: "0"
+    top: "0",
+    opacity: "1"
   }, 1000, function() {
     // Animation complete.
     }
