@@ -26,7 +26,7 @@ class LocationsController < ApplicationController
 
   def check_for_new_locations
     #it checks for previously unsaved locations from yelp and updates already saved ones
-    @data = Location.record_new(session[:user_lat], session[:user_long])
+    Location.record_new(session[:user_lat], session[:user_long])
     #it gets photos from database locations again(get_db_photos)
     get_db_photos
 
