@@ -9,6 +9,7 @@ $(document).ready(function(){
       })
       // shows the loading gif
       hideDiv("#landing")
+      console.log("I'm about to show the loading animation")
       showDiv("#loading");
     }
     else {
@@ -34,7 +35,6 @@ function findPosition(position) {
       console.log("meow!")
       // GET PHOTOS ALREADY IN DB
       ajaxToDatabase();
-      ajaxTriggerApiCalls();
     },
     error: function() {
       console.log("IM AN ERROR YOU GUYS!!!!")
@@ -137,9 +137,10 @@ function ajaxToDatabase() {
       addPhoto(first_div);
       addClassVisited(first_div)
       //go to photo container
-      fadeOut("#loading")
-      quickShow("#photo-slides")
+      hideDiv("#loading")
+      showDiv("#photo-slides")
       addPhotoButton()
+      ajaxTriggerApiCalls();
     },
     error: function() {
       console.log("ERRORERRORERROR")
@@ -148,25 +149,23 @@ function ajaxToDatabase() {
 };
 
 function ajaxTriggerApiCalls() {
-  // console.log("meow")
   $.ajax({
     type: 'POST',
     url: "/load_locations",
     success: function(data) {
       //add divs to view
       console.log("SUCCESS!!!!!!!!");
-      console.log(data)
       DeleteUnvisited();
       AppendNew(data, "new");
       addSwipeEvents($('#all').children(".new"))
-      console.log(Object.keys(data));
     }
   })
 }
 
 function firstUnvisitedIndex() {
-  for (i = 0; i < $('#all').children().length; i++ ) {
-    var div = $("#all").children().eq(i)
+  var photos = $('#all').children()
+  for (i = 0; i < photos.length; i++ ) {
+    var div = photos.eq(i)
     if (div.attr("class").indexOf("visited") == -1) {
       return i
     };
@@ -199,8 +198,9 @@ function AppendNew(data, classname) {
 
 function allVisitedUrls() {
   var visited = []
-  for (i = 0; i<$('#all').children().length; i++ ) {
-    var div = $('#all').children().eq(i);
+  var photos = $('#all').children()
+  for (i = 0; i<photos.length; i++ ) {
+    var div = photos.eq(i);
     if (div.attr("class").indexOf("visited") != -1) {
       visited.push(div.attr("id"));
     };
@@ -212,36 +212,3 @@ function addPhotoButton() {
   $("#photo-link").css("display", "inline-block");
   console.log("PHOTO BUTTON HAYYYYY");
 }
-//
-//
-// function findUnvisitedDiv() {
-//   for (i = 0; i<$('#all').children.length; i++ ) {
-//     var div = $("#all").children.eq(i)
-//     if (div.attr("class").indexOf("visited") != -1) {
-//       return div;
-//     };
-//   };
-// };
-//
-// function deleteAllUnv() {
-//   var divs = $("#all").children
-//
-// }
-// function switchPhoto(active_div, n) {
-//   addPhoto(active_div);
-//   console.log("added a photo to div: " + n)
-//   active_div.on("swipeleft", function() {
-//     console.log("You just swiped left!")
-//     active_div.children().remove();
-//     switchPhoto($('#all').children().eq(n+1), n+1);
-  // });
-  // active_div.on("swiperight", function() {
-  //   console.log("You just swiped right!")
-  //   active_div.children().remove();
-  //   addPhoto($('#all').children().eq(n-1));
-  // });
-  // active_div.click( function() {
-  //   active_div.children().remove()
-  //   switchPhoto($('#all').children().eq(n-1), n-1)
-  // });
-// }
