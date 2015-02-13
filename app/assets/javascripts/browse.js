@@ -131,21 +131,14 @@ function ajaxToDatabase() {
       //if a user hits the wander button a second time, without refreshing the page
       // it removes old divs and finds again (your location may have changed)
       $('#all').children().remove()
-      console.log("1")
       AppendNew(data, "old");
-      console.log("2")
       addSwipeEvents($('#all').children());
-      console.log("3")
       var first_div = $('#all').children().eq(0);
-      console.log("4")
       addPhoto(first_div);
-      console.log("5")
       addClassVisited(first_div)
-      console.log("6")
       //go to photo container
-      fadeOut("#loading")
-      console.log("7")
-      quickShow("#photo-slides")
+      hideDiv("#loading")
+      showDiv("#photo-slides")
       addPhotoButton()
       ajaxTriggerApiCalls();
     },
@@ -219,36 +212,3 @@ function addPhotoButton() {
   $("#photo-link").css("display", "inline-block");
   console.log("PHOTO BUTTON HAYYYYY");
 }
-//
-//
-// function findUnvisitedDiv() {
-//   for (i = 0; i<$('#all').children.length; i++ ) {
-//     var div = $("#all").children.eq(i)
-//     if (div.attr("class").indexOf("visited") != -1) {
-//       return div;
-//     };
-//   };
-// };
-//
-// function deleteAllUnv() {
-//   var divs = $("#all").children
-//
-// }
-// function switchPhoto(active_div, n) {
-//   addPhoto(active_div);
-//   console.log("added a photo to div: " + n)
-//   active_div.on("swipeleft", function() {
-//     console.log("You just swiped left!")
-//     active_div.children().remove();
-//     switchPhoto($('#all').children().eq(n+1), n+1);
-  // });
-  // active_div.on("swiperight", function() {
-  //   console.log("You just swiped right!")
-  //   active_div.children().remove();
-  //   addPhoto($('#all').children().eq(n-1));
-  // });
-  // active_div.click( function() {
-  //   active_div.children().remove()
-  //   switchPhoto($('#all').children().eq(n-1), n-1)
-  // });
-// }
