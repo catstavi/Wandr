@@ -45,7 +45,7 @@ function findPosition(position) {
 function addSwipeEvents( objects ) {
   for (i = 0; i< objects.length; i++ ) {
     addSwipesToElem( objects.eq(i) )
-    addClickToElem( objects.eq(i) )
+    // addClickToElem( objects.eq(i) )
   }
 }
 
@@ -66,23 +66,19 @@ function leftArrowHandler() {
   addPhoto(prev_div)
 }
 
-function addClickToElem(elem) {
-  elem.click( function() {
-    $('#details').show();
-    var clicked = $(this)
+function showDetails(current_photo) {
     $.ajax({
       type: 'POST',
       url: 'locations/show',
       data: {
-        id: clicked.attr('class').replace(/\D/g,'')
+        id: current_photo.attr('class').replace(/\D/g,'')
       },
       success: function(data) {
         console.log(data.name)
         $('#details').html("<h3>" + data.name + "</h3> <p>" + data.desc + "</p>")
       }
     })
-  })
-}
+  }
 
 function addSwipesToElem(elem) {
   elem.on("swipeleft", swipeLeftHandler )
@@ -98,14 +94,12 @@ function swipeLeftHandler() {
   }
   addClassVisited(next_div);
   addPhoto( next_div );
-  $('#details').hide();
 }
 
 function swipeRightHandler() {
   console.log("You just swiped right!")
   $(this).children().remove();
   addPhoto( $(this).prev() );
-  $('#details').hide();
 }
 
 function addPhoto(active_div) {
