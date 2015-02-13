@@ -1,17 +1,18 @@
 $(document).ready(function(){
   console.log("The document is ready!")
   $('#click').click(function(){
-    var msg = $('.msg')
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(findPosition, function(errorCode) {
           console.log('WHERE ARE YOU????');
+          // offer address form here
       })
+      // shows the loading gif
       hideDiv("#landing")
       showDiv("#loading");
     }
     else {
-      msg.append("Geolocation is not supported by your browser.")
+      // offer address form here?
       console.log("HEY! Geolocation is not supported by your browser.")
     }
   });
@@ -22,20 +23,16 @@ $(document).ready(function(){
 });
 
 function findPosition(position) {
-  var url = '/sessions'
   $.ajax({
     type: 'POST',
-    url: url,
+    url: '/sessions',
     data: {
       'latitude': position.coords.latitude,
       'longitude': position.coords.longitude,
     },
     success: function (data) {
-      //show loading gif here
       console.log("meow!")
       // GET PHOTOS ALREADY IN DB
-      // hideDiv("#landing")
-      // showDiv("#loading");
       ajaxToDatabase();
       ajaxTriggerApiCalls();
     },
@@ -124,11 +121,12 @@ function ajaxToDatabase() {
     url: '/get_db_photos',
     success: function(data) {
       console.log("I defeated the mighty Ajax!");
-      console.log(data);
+      //if a user hits the wander button a second time, without refreshing the page
+      // it removes old divs and finds again (your location may have changed)
+      $('#all').children().remove()
       AppendNew(data, "old");
       addSwipeEvents($('#all').children());
       var first_div = $('#all').children().eq(0);
-      console.log(first_div)
       addPhoto(first_div);
       addClassVisited(first_div)
       //go to photo container
@@ -162,7 +160,6 @@ function firstUnvisitedIndex() {
   for (i = 0; i < $('#all').children().length; i++ ) {
     var div = $("#all").children().eq(i)
     if (div.attr("class").indexOf("visited") == -1) {
-      // console.log("i found the first unvisited div at index: "+ i);
       return i
     };
   };
@@ -173,7 +170,6 @@ function DeleteUnvisited() {
   var index = firstUnvisitedIndex()
   while ( $('#all').children().length > index ) {
     $('#all').children().eq(index).remove();
-    // console.log("Length after removal is: " + $('#all').children().length )
   };
 };
 
