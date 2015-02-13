@@ -165,9 +165,9 @@ body {
 }
 
 #all {
-  height: 610px;
-  width: 610px;
-  padding: 10px;
+  height: 620px;
+  width: 620px;
+  padding: 15px;
   background-color: white;
 }
 .center-block {
@@ -307,6 +307,25 @@ color:#ec8007
   color: green;
 }
 
+@media (max-width: 1000px) {
+  #all {
+    width: 540px;
+    height: 540px;
+  }
+
+  #all div img {
+    height: 510px;
+    width: 510px;
+    padding: 10px;
+  }
+
+  #left-g, #right-g {
+    margin: 240px 0 260px 0;
+    font-size: 4em;
+  }
+
+}
+
 @media (max-width: 768px) {
   #left, #right {
     display: none;
@@ -339,6 +358,7 @@ color:#ec8007
   #all div img {
     width :100%;
     height: auto;
+    padding: 0;
     margin-top: 10px;
   }
 
