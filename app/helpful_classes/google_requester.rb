@@ -6,7 +6,7 @@ class GoogleRequester
       if location.place_id == nil
         request(location)
       else
-        get_hours(location)
+        get_hours_and_desc(location)
       end
     end
   end
@@ -22,9 +22,9 @@ class GoogleRequester
       # save google place ID
       location.update(place_id: loc_arry[0].place_id, active: true, hours_updated_at: Time.now)
       #save hours in association with location
-      unless loc_arry[0].opening_hours == nil
-        get_hours(location)
-      end
+      # unless loc_arry[0].opening_hours == nil
+        get_hours_and_desc(location)
+      # end
     end
   end
 
@@ -33,9 +33,15 @@ class GoogleRequester
   #   location.top_review = review
   # end
 
-  def self.get_hours(location)
+  def self.get_hours_and_desc(location)
     @@client = GooglePlaces::Client.new(ENV["GOOGLE_PLACE_KEY"])
-    hours = @@client.spot(location.place_id).opening_hours
+    spot = @@client.spot(location.place_id)
+    hours = spot.opening_hours
+    unless spot.reviews == nil
+      description = spot.reviews.first
+      location.update(desc: description)
+    end
+
     unless hours == nil
       # clear out any old windows before building new ones
       location.windows.destroy_all
