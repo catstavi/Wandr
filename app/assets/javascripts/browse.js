@@ -133,9 +133,12 @@ function ajaxToDatabase() {
       console.log("I defeated the mighty Ajax!");
       //if a user hits the wander button a second time, without refreshing the page
       // it removes old divs and finds again (your location may have changed)
-      $('#all').children().remove()
+      $('#all').children().remove();
+      console.log("children removed");
       AppendNew(data, "old");
+      console.log("appended new");
       addSwipeEvents($('#all').children());
+      console.log("swipe events added");
       var first_div = $('#all').children().eq(0);
       addPhoto(first_div);
       addClassVisited(first_div)
@@ -159,8 +162,8 @@ function ajaxTriggerApiCalls() {
       //add divs to view
       console.log("SUCCESS!!!!!!!!");
       DeleteUnvisited();
-      // AppendNew(data, "new");
-      // addSwipeEvents($('#all').children(".new"))
+      AppendNew(data, "new");
+      addSwipeEvents($('#all').children(".new"))
     }
   })
 }
@@ -170,16 +173,16 @@ function DeleteUnvisited() {
 }
 
 function AppendNew(data, classname) {
-  for (i = 0; i<data.length; i++ ) {
+  var visited = allVisitedUrls();
+  for (i = 0; i < data.length; i++ ) {
     var url = Object.keys(data[i]).toString();
     var location_id = data[i][url]
-    var visited = allVisitedUrls();
     if ( visited.indexOf( url ) == -1 ) {
-        var div = document.createElement("div");
-        var class_str = location_id.toString() + " " + classname
-        div.setAttribute("id", url);
-        div.setAttribute("class", class_str);
-        $("#all").append(div);
+      var div = document.createElement("div");
+      var class_str = location_id.toString() + " " + classname
+      div.setAttribute("id", url);
+      div.setAttribute("class", class_str);
+      $("#all").append(div);
     };
   }
 }
