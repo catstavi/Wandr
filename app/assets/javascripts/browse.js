@@ -56,6 +56,7 @@ function rightArrowHandler() {
     next_div = $('#all').children().eq(0)
   }
   $('#all').children().children().remove()
+  addClassVisited(next_div);
   addPhoto(next_div)
   showDetails(next_div)
 }
@@ -64,6 +65,7 @@ function leftArrowHandler() {
   var div_index = $('#all').children().children().parent().index()
   var prev_div = $('#all').children().eq(div_index - 1)
   $('#all').children().children().remove()
+  addClassVisited(prev_div);
   addPhoto(prev_div)
   showDetails(prev_div)
 }
@@ -102,6 +104,7 @@ function swipeLeftHandler() {
 function swipeRightHandler() {
   console.log("You just swiped right!")
   $(this).children().remove();
+  addClassVisited(prev_div);
   addPhoto( $(this).prev() );
   showDetails( $(this).prev() );
 }
@@ -126,19 +129,17 @@ function ajaxToDatabase() {
     url: '/get_db_photos',
     success: function(data) {
       console.log("I defeated the mighty Ajax!");
+      var db_loaded = data.length != 0
       //if a user hits the wander button a second time, without refreshing the page
       // it removes old divs and finds again (your location may have changed)
-      $('#all').children().remove()
-      AppendNew(data, "old");
-      addSwipeEvents($('#all').children());
-      var first_div = $('#all').children().eq(0);
-      addPhoto(first_div);
-      addClassVisited(first_div)
+      if (db_loaded) {
+        $('#all').children().remove();
+        AppendNew(data, "old");
+        addSwipeEvents($('#all').children());
+        handleLoadedPhotos();
+      }
       //go to photo container
-      hideDiv("#loading")
-      showDiv("#photo-slides")
-      addPhotoButton()
-      ajaxTriggerApiCalls();
+      ajaxTriggerApiCalls(db_loaded);
     },
     error: function() {
       console.log("ERRORERRORERROR")
@@ -146,7 +147,16 @@ function ajaxToDatabase() {
   })
 };
 
-function ajaxTriggerApiCalls() {
+function handleLoadedPhotos() {
+  var first_div = $('#all').children().eq(0);
+  addPhoto(first_div);
+  addClassVisited(first_div)
+  hideDiv("#loading")
+  showDiv("#photo-slides")
+  addPhotoButton()
+}
+
+function ajaxTriggerApiCalls(already_loaded) {
   $.ajax({
     type: 'POST',
     url: "/load_locations",
@@ -156,57 +166,42 @@ function ajaxTriggerApiCalls() {
       DeleteUnvisited();
       AppendNew(data, "new");
       addSwipeEvents($('#all').children(".new"))
+      if (!already_loaded) {
+        handleLoadedPhotos();
+      }
     }
   })
 }
 
-function firstUnvisitedIndex() {
-  var photos = $('#all').children()
-  for (i = 0; i < photos.length; i++ ) {
-    var div = photos.eq(i)
-    if (div.attr("class").indexOf("visited") == -1) {
-      return i
-    };
-  };
-
+function DeleteUnvisited() {
+  $("#all").children().not(".visited").remove()
 }
 
-function DeleteUnvisited() {
-  var index = firstUnvisitedIndex()
-  while ( $('#all').children().length > index ) {
-    $('#all').children().eq(index).remove();
-  };
-};
-
 function AppendNew(data, classname) {
-  for (i = 0; i<data.length; i++ ) {
+  var visited = allVisitedUrls();
+  for (i = 0; i < data.length; i++ ) {
     var url = Object.keys(data[i]).toString();
     var location_id = data[i][url]
-    var visited = allVisitedUrls();
     if ( visited.indexOf( url ) == -1 ) {
-        var div = document.createElement("div");
-        div.setAttribute("id", url);
-        $("#all").append(div);
-        div = $("#all").children().last();
-        div.addClass(location_id.toString());
-        div.addClass(classname);
-      };
-    }
+      var div = document.createElement("div");
+      var class_str = location_id.toString() + " " + classname
+      div.setAttribute("id", url);
+      div.setAttribute("class", class_str);
+      $("#all").append(div);
+    };
+  }
 }
 
 function allVisitedUrls() {
   var visited = []
-  var photos = $('#all').children()
+  var photos = $('#all').children(".visited")
   for (i = 0; i<photos.length; i++ ) {
     var div = photos.eq(i);
-    if (div.attr("class").indexOf("visited") != -1) {
-      visited.push(div.attr("id"));
-    };
+    visited.push(div.attr("id"));
   }
   return visited
 }
 
 function addPhotoButton() {
   $("#photo-link").css("display", "inline-block");
-  console.log("PHOTO BUTTON HAYYYYY");
 }
