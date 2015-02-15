@@ -88,7 +88,12 @@ function showDetails(current_photo) {
         go.setAttribute("target", "directions");
         // "https://www.google.com/maps/dir/Current+Location/43.12345,-76.12345"
         $(go).html("go there");
+        var go_mobile = document.createElement("a");
+        go_mobile.setAttribute("href", "geo:"+data.lat+ ","+data.long)
+        $(go_mobile).html("mobile go there")
         $('#details').append(go);
+        $('#details').append(go_mobile);
+
       }
     })
   }
