@@ -66,9 +66,13 @@
 
 <!--ENTER YOUR ADDRESS-->
 <section id= "address">
-  <form id="form_id" action="index.html" method="post">
-
-  </form>
+  <%= form_tag "/address" do %> <!-- form_tag because not working off a model-->
+    <div class="field">             <!-- sessions_path will trigger create action in sessions controller-->
+      <%= label_tag :address %><br />
+      <%= text_field_tag :address, params[:address], placeholder: "meow" %>
+    </div>
+    <div class="actions"><%= submit_tag "submit" %></div>
+  <% end %>
 </section>
 
 <!-- HOW TO USE -->

@@ -5,6 +5,8 @@ $(document).ready(function(){
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(findPosition, function(errorCode) {
           console.log('WHERE ARE YOU????');
+          hideDiv("#loading")
+          showDiv("#address")
           // offer address form here
       })
       // shows the loading gif
@@ -15,6 +17,8 @@ $(document).ready(function(){
     else {
       // offer address form here?
       console.log("HEY! Geolocation is not supported by your browser.")
+      hideDiv("#loading")
+      showDiv("#address")
     }
   });
 
