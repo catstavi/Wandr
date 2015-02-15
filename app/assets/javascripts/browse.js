@@ -82,18 +82,14 @@ function showDetails(current_photo) {
         $('#details').html("<h3>" + data.name + "</h3> <p>" + data.desc + "</p>");
         var go = document.createElement("a");
         go.setAttribute("href", "https://maps.google.com?saddr=" + data.user_lat + "," + data.user_long +"&daddr="+ data.lat+","+data.long+"&dirflg=w");
-
-        // go.setAttribute("href", "https://www.google.com/maps/dir/" + data.user_lat + "," + data.user_long +"/"+ data.lat+","+data.long+"/dirflg=w");
-        // go.setAttribute("href", "https://maps.google.com?saddr=47.5928688,-122.3171234&daddr=47.588442,-122.3202149&dirflg=w");
         go.setAttribute("target", "directions");
-        // "https://www.google.com/maps/dir/Current+Location/43.12345,-76.12345"
         $(go).html("go there");
-        var go_mobile = document.createElement("a");
-        go_mobile.setAttribute("href", "geo:"+data.lat+ ","+data.long)
-        $(go_mobile).html("mobile go there")
         $('#details').append(go);
-        $('#details').append(go_mobile);
-
+        // this mobile link thing doesn't seem to work right
+        // var go_mobile = document.createElement("a");
+        // go_mobile.setAttribute("href", "geo:"+data.lat+ ","+data.long)
+        // $(go_mobile).html("mobile go there")
+        // $('#details').append(go_mobile);
       }
     })
   }
