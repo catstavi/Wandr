@@ -68,10 +68,10 @@
 <section id= "address">
   <%= form_tag "/address", id: "address_submit" do %> <!-- form_tag because not working off a model-->
     <div class="field">             <!-- sessions_path will trigger create action in sessions controller-->
-      <%= label_tag :address %><br />
-      <%= text_field_tag :address, params[:address], placeholder: "meow" %>
+      Enter your Address, or authorize geolocation<br>
+      <%= text_field_tag :address, params[:address], placeholder: "221 B Baker St, London, England" %>
     </div>
-    <div class="actions"><%= submit_tag "submit" %></div>
+    <div class="actions"><%= submit_tag "Submit" %></div>
   <% end %>
 </section>
 
