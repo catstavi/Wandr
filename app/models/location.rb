@@ -21,8 +21,8 @@ class Location < ActiveRecord::Base
   # or create them, and get info from google places API
 
   # it finds some locations that we already have
-  def self.record_new(lat, long)
-    data = YelpRequester.request(lat, long)
+  def self.record_new(lat, long, offset)
+    data = YelpRequester.request(lat, long, offset)
     data.businesses.each do |bus|
       location = Location.find_by(name: bus.name)
       if location.nil?
