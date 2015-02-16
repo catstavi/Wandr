@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   post '/load_locations', to: 'locations#check_for_new_locations'
   post '/locations/show',  to: 'locations#show'
   post '/get_db_photos',    to: 'locations#get_db_photos'
-  post '/address',        to: 'session#address_location'
+  post '/address',        to: 'sessions#address_location'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
