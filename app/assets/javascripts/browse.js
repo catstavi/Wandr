@@ -20,8 +20,8 @@ $(document).ready(function(){
     }
   });
 
-  $('#left-g').click(leftArrowHandler);
-  $('#right-g').click(rightArrowHandler);
+  $('#left-g').click(prevPhoto);
+  $('#right-g').click(nextPhoto);
 
 });
 
@@ -81,7 +81,7 @@ function addSwipeEvents( objects ) {
   }
 }
 
-function rightArrowHandler() {
+function nextPhoto(next_div) {
   var div_index = $('#all').children().children().parent().index()
   var next_div = $('#all').children().eq(div_index + 1)
   if (next_div.length === 0 ) {
@@ -93,7 +93,7 @@ function rightArrowHandler() {
   showDetails(next_div)
 }
 
-function leftArrowHandler() {
+function prevPhoto() {
   var div_index = $('#all').children().children().parent().index()
   var prev_div = $('#all').children().eq(div_index - 1)
   $('#all').children().children().remove()
@@ -101,6 +101,35 @@ function leftArrowHandler() {
   addPhoto(prev_div)
   showDetails(prev_div)
 }
+//
+// function rightArrowHandler() {
+//
+// }
+//
+// function leftArrowHandler() {
+//
+// }
+//
+// function swipeLeftHandler() {
+//   console.log("You just swiped left!")
+//   $(this).children().remove();
+//   next_div = $(this).next()
+//   if (next_div.length === 0 ) {
+//     next_div = $('#all').children().eq(0)
+//   }
+//   addClassVisited(next_div);
+//   addPhoto( next_div );
+//   showDetails(next_div);
+// }
+//
+// function swipeRightHandler() {
+//   console.log("You just swiped right!")
+//   $(this).children().remove();
+//   var prev_div = $(this).prev()
+//   addClassVisited(prev_div);
+//   addPhoto( prev_div );
+//   showDetails( prev_div );
+// }
 
 function showDetails(current_photo) {
     $.ajax({
@@ -128,29 +157,10 @@ function showDetails(current_photo) {
   }
 
 function addSwipesToElem(elem) {
-  elem.on("swipeleft", swipeLeftHandler )
-  elem.on("swiperight", swipeRightHandler )
+  elem.on("swipeleft", nextPhoto )
+  elem.on("swiperight", prevPhoto )
 }
 
-function swipeLeftHandler() {
-  console.log("You just swiped left!")
-  $(this).children().remove();
-  next_div = $(this).next()
-  if (next_div.length === 0 ) {
-    next_div = $('#all').children().eq(0)
-  }
-  addClassVisited(next_div);
-  addPhoto( next_div );
-  showDetails(next_div);
-}
-
-function swipeRightHandler() {
-  console.log("You just swiped right!")
-  $(this).children().remove();
-  addClassVisited(prev_div);
-  addPhoto( $(this).prev() );
-  showDetails( $(this).prev() );
-}
 
 function addPhoto(active_div) {
   console.log("lets try to add a photo to " + active_div)
@@ -232,8 +242,8 @@ function ajaxApiOffset() {
     success: function(data) {
       console.log("offset saving done!!!!")
       DeleteUnvisited();
-      AppendNew(data, "new2");
-      addSwipeEvents($('#all').children(".new2"))
+      AppendNew(data, "newer");
+      addSwipeEvents($('#all').children(".newer"))
 
     }
   })
