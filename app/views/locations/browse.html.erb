@@ -65,14 +65,20 @@
 </section>
 
 <!--ENTER YOUR ADDRESS-->
-<section id= "address">
+<section id= "address-section">
+  <div class = "container">
+    <div class = "center-block"><h4 class = "text-center" id = "enter-ad">Enter your Address, or authorize geolocation</h4>
+</div>
+  <div class = "center-block" id = "add-con">
   <%= form_tag "/address", id: "address_submit" do %> <!-- form_tag because not working off a model-->
+    <br>
     <div class="field">             <!-- sessions_path will trigger create action in sessions controller-->
-      Enter your Address, or authorize geolocation<br>
       <%= text_field_tag :address, params[:address], placeholder: "221 B Baker St, London, England" %>
     </div>
     <div class="actions"><%= submit_tag "Submit" %></div>
   <% end %>
+</div>
+</div>
 </section>
 
 <!-- HOW TO USE -->
