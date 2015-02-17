@@ -27,8 +27,8 @@ $(document).ready(function(){
 
 function prepareAddressForm() {
   console.log('WHERE ARE YOU????');
-  hideDiv("#loading")
-  showDiv("#address")
+  showDiv("#address-section");
+  hideDiv("#loading");
   submitAddress();
 }
 

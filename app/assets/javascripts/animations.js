@@ -12,6 +12,7 @@ $(document).ready(function(){
     hideDiv("#photo-slides");
     hideDiv("#team");
     showDiv("#landing");
+    hideDiv("#address-section");
   });
 
   $("#how-link").click(function() {
@@ -20,6 +21,7 @@ $(document).ready(function(){
     hideDiv("#photo-slides");
     hideDiv("#team");
     showDiv("#howitworks");
+    hideDiv("#address-section");
   });
 
   $("#team-link").click(function() {
@@ -28,6 +30,7 @@ $(document).ready(function(){
     hideDiv("#photo-slides");
     hideDiv("#howitworks");
     showDiv("#team");
+    hideDiv("#address-section");
   });
 
   $("#photo-link").click(function() {
@@ -36,6 +39,7 @@ $(document).ready(function(){
     hideDiv("#landing");
     hideDiv("#team");
     showDiv("#photo-slides");
+    hideDiv("#address-section");
   });
 });
 

@@ -66,9 +66,12 @@
 
 <!--ENTER YOUR ADDRESS-->
 <section id= "address-section">
-  <div class = "container">
-    <div class = "center-block"><h4 class = "text-center" id = "enter-ad">Enter your Address, or authorize geolocation</h4>
-</div>
+  <div class = "container" id = "add-con-1">
+    <div class = "center-block"><h4 class = "text-center" id = "enter-ad">Wandr requires geolocation</h4>
+    <span class="fa fa-bullseye" id = "wtf"></span>
+  </div>
+    <p class = "text-center dk-grey"> Enable geolocation and refresh the page or fill out the address form below.</p>
+  </div>
   <div class = "center-block" id = "add-con">
   <%= form_tag "/address", id: "address_submit" do %> <!-- form_tag because not working off a model-->
     <br>
