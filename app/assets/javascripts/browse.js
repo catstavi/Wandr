@@ -4,17 +4,19 @@ $(document).ready(function(){
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(findPosition, function(errorCode) {
-          console.log('WHERE ARE YOU????');
-          // offer address form here
+        prepareAddressForm()
+        // offer address form here
       })
       // shows the loading gif
       hideDiv("#landing")
       console.log("I'm about to show the loading animation")
       showDiv("#loading");
+
     }
     else {
       // offer address form here?
       console.log("HEY! Geolocation is not supported by your browser.")
+      prepareAddressForm()
     }
   });
 
@@ -22,6 +24,36 @@ $(document).ready(function(){
   $('#right-g').click(rightArrowHandler);
 
 });
+
+function prepareAddressForm() {
+  console.log('WHERE ARE YOU????');
+  hideDiv("#loading")
+  showDiv("#address")
+  submitAddress();
+}
+
+function submitAddress() {
+  $("#address_submit").submit(function(e) {
+    e.preventDefault();
+    var $form = $(this);
+    $.ajax({
+      url: '/address',
+      type: 'POST',
+      data: $form.serialize(),
+      success: function() {
+        console.log("I saved a lat/long from your addresss!! NICE!!")
+        console.log("meow!")
+        // GET PHOTOS ALREADY IN DB
+        ajaxToDatabase();
+        hideDiv("#address");
+        showDiv("#loading");
+      },
+      error: function() {
+        console.log("I didn't save the lat/long from your address. NOT NICE!! :(")
+      }
+    })
+  })
+}
 
 function findPosition(position) {
   $.ajax({
@@ -79,7 +111,17 @@ function showDetails(current_photo) {
       },
       success: function(data) {
         console.log(data.name)
-        $('#details').html("<h3>" + data.name + "</h3> <p>" + data.desc + "</p>")
+        $('#details').html("<h3>" + data.name + "</h3> <p>" + data.desc + "</p>");
+        var go = document.createElement("a");
+        go.setAttribute("href", "https://maps.google.com?saddr=" + data.user_lat + "," + data.user_long +"&daddr="+ data.lat+","+data.long+"&dirflg=w");
+        go.setAttribute("target", "directions");
+        $(go).html("go there");
+        $('#details').append(go);
+        // this mobile link thing doesn't seem to work right
+        // var go_mobile = document.createElement("a");
+        // go_mobile.setAttribute("href", "geo:"+data.lat+ ","+data.long)
+        // $(go_mobile).html("mobile go there")
+        // $('#details').append(go_mobile);
       }
     })
   }

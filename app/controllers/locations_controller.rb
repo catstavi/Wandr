@@ -11,8 +11,8 @@ class LocationsController < ApplicationController
 
   def show
     # this return the data that ajax will need to fill out the show information for that div
-    @location = Location.find(params[:id].to_i)
-    data = { name: @location.name, desc: @location.desc }
+    loc = Location.find(params[:id].to_i)
+    data = { name: loc.name, desc: loc.desc, lat: loc.lat, long: loc.long, user_lat: session[:user_lat], user_long: session[:user_long] }
     render json: data
   end
 
