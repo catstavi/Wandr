@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'locations#browse'
-  post '/sessions',       to: 'sessions#set_location', as: 'set_location'
+  post '/sessions',       to: 'sessions#geolocation', as: 'set_location'
   post '/load_locations', to: 'locations#check_for_new_locations'
   post '/locations/show',  to: 'locations#show'
   post '/get_db_photos',    to: 'locations#get_db_photos'

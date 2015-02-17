@@ -11,10 +11,7 @@ class SessionsController < ApplicationController
     a=Geokit::Geocoders::GoogleGeocoder.geocode address
     session[:user_lat] = a.lat
     session[:user_long] = a.lng
-    respond_to do |format|
-      format.html {render html: "pineapple"}
-      format.js
-    end
+    all_ok
   end
 
   private

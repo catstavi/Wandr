@@ -12,8 +12,8 @@ class GoogleRequester
   end
 
   def self.request(location)
-    @@client = GooglePlaces::Client.new(ENV["GOOGLE_PLACE_KEY"])
-    loc_arry = @@client.spots(location.lat, location.long, :name => location.name)
+    client = GooglePlaces::Client.new(ENV["GOOGLE_PLACE_KEY"])
+    loc_arry = client.spots(location.lat, location.long, :name => location.name)
       # add second search if first returns nothing using spots_by_query and city name
     if loc_arry.empty? then loc_arry = @@client.spots_by_query("#{location.name} in #{location.city}") end
     if loc_arry.empty?
@@ -23,21 +23,29 @@ class GoogleRequester
       location.update(place_id: loc_arry[0].place_id, active: true, hours_updated_at: Time.now)
       #save hours in association with location
       # unless loc_arry[0].opening_hours == nil
-        get_hours_and_desc(location)
+        get_hours_and_desc(location, client)
       # end
     end
   end
 
-
-  def self.get_hours_and_desc(location)
-    @@client = GooglePlaces::Client.new(ENV["GOOGLE_PLACE_KEY"])
-    spot = @@client.spot(location.place_id)
-    hours = spot.opening_hours
-    description = spot.reviews.first
-    unless description.nil?
-      location.update(desc: description.text)
+# maybe check # of calls left today??
+  def self.get_desc(location, loc_data)
+    review_texts = loc_data.reviews.collect { |loc| loc.text }
+    unless review_texts.empty?
+      text = location.desc + review_texts.flatten
+      response = HTTParty.post("https://textanalysis.p.mashape.com/textblob-noun-phrase-extraction",
+          :headers => { 'X-Mashape-Key' => ENV["MASHAPE_KEY"] } ,
+          :body => "text= #{text}")
+      nouns = response.parsed_response["noun_phrases"]
+      location.update(desc: nouns.join(", "))
     end
+  end
 
+
+  def self.get_hours_and_desc(location, client)
+    loc_data = client.spot(location.place_id)
+    hours = spot.opening_hours
+    get_desc(location, loc_data)
     unless hours == nil
       # clear out any old windows before building new ones
       location.windows.destroy_all
