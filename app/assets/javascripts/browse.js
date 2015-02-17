@@ -204,6 +204,9 @@ function ajaxTriggerApiCalls(already_loaded) {
   $.ajax({
     type: 'POST',
     url: "/load_locations",
+    data: {
+      offset: "0"
+    },
     success: function(data) {
       //add divs to view
       console.log("SUCCESS!!!!!!!!");
@@ -213,6 +216,25 @@ function ajaxTriggerApiCalls(already_loaded) {
       if (!already_loaded) {
         handleLoadedPhotos();
       }
+      ajaxApiOffset();
+    }
+  })
+}
+
+function ajaxApiOffset() {
+  console.log("about to do offset query!")
+  $.ajax({
+    type: 'POST',
+    url: "/load_locations",
+    data: {
+      offset: "20"
+    },
+    success: function(data) {
+      console.log("offset saving done!!!!")
+      DeleteUnvisited();
+      AppendNew(data, "new2");
+      addSwipeEvents($('#all').children(".new2"))
+
     }
   })
 }
