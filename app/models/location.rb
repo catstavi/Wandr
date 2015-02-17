@@ -26,9 +26,12 @@ class Location < ActiveRecord::Base
     data.businesses.each do |bus|
       location = Location.find_by(name: bus.name)
       if location.nil?
+        cats = bus.categories.collect {|ar| ar.first}
+        cats << bus.snippet_text
+        cats = cats.join(" ")
         new_locale = Location.create(name: bus.name, long: bus.location.coordinate.longitude,
                                      lat: bus.location.coordinate.latitude,
-                                     active: !bus.is_closed, desc: bus.snippet_text,
+                                     active: !bus.is_closed, desc: cats,
                                      city: bus.location.city)
         GoogleRequester.request(new_locale)
         InstagramRequester.save_photos_by_location(new_locale)
