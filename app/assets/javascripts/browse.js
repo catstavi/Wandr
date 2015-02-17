@@ -189,8 +189,8 @@ function ajaxApiOffset() {
     success: function(data) {
       console.log("offset saving done!!!!")
       DeleteUnvisited();
-      AppendNew(data, "new2");
-      addSwipeEvents($('#all').children(".new2"))
+      AppendNew(data, "newer");
+      addSwipeEvents($('#all').children(".newer"))
 
     }
   })

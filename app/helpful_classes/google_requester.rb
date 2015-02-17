@@ -41,11 +41,14 @@ class GoogleRequester
     unless hours == nil
       # clear out any old windows before building new ones
       location.windows.destroy_all
-      hours["periods"].each do |day_hash|
-        location.windows << Window.create(open_day: day_hash["open"]["day"],
-                                        open_time: day_hash["open"]["time"],
-                                        close_day: day_hash["close"]["day"],
-                                        close_time: day_hash["close"]["time"])
+      unless hours["periods"] == [{"open"=>{"day"=>0, "time"=>"0000"}}]
+        # if this is true, location is open 24 hrs, save no windows
+        hours["periods"].each do |day_hash|
+          location.windows << Window.create(open_day: day_hash["open"]["day"],
+                                          open_time: day_hash["open"]["time"],
+                                          close_day: day_hash["close"]["day"],
+                                          close_time: day_hash["close"]["time"])
+        end
       end
     end
     location.update(hours_updated_at: Time.now)
