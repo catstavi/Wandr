@@ -28,12 +28,11 @@ class GoogleRequester
     end
   end
 
-
 # maybe check # of calls left today??
   def self.get_desc(location, loc_data)
     review_texts = loc_data.reviews.collect { |loc| loc.text }
     unless review_texts.empty?
-      text = location.desc + review_texts.flatten.first
+      text = location.desc + review_texts.flatten
       response = HTTParty.post("https://textanalysis.p.mashape.com/textblob-noun-phrase-extraction",
           :headers => { 'X-Mashape-Key' => ENV["MASHAPE_KEY"] } ,
           :body => "text= #{text}")
