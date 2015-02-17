@@ -80,7 +80,7 @@ function addClickToElem(elem) {
       },
       success: function(data) {
         console.log(data.name)
-        $('#details').html("<h3>" + data.name + "</h3> <p>" + data.desc + "</p>")
+        $('#details').html("<h3 class = 'place-name'>" + data.name + "</h3> <p class = 'place-description'>" + data.desc + "</p>")
       }
     })
   })

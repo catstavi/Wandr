@@ -19,6 +19,31 @@
 body {
   background: #f7f7f7;
 }
+
+#details {
+  margin: 0;
+}
+
+#show-con {
+  margin: 0;
+  padding: 0;
+}
+.place-description {
+  padding: 20px;
+  font-size: 1.4em;
+  margin-top: 0px;
+}
+
+// .name-div {
+//   width: 100vw;
+//   margin: 0;
+//
+// }
+.place-name {
+  font-size: 3.5em;
+  text-align: center;
+  margin-top: -25px;
+}
 .section-heading {
   /*top: 0px;*/
 }
@@ -327,11 +352,22 @@ color:#ec8007
 }
 
 @media (max-width: 768px) {
+
+  .place-name {
+    margin-top: 35px;
+    font-size: 2.25em;
+    // margin-top: -50px;
+  }
+
+  .place-description {
+    margin-top: 30px;
+    text-align: center;
+  }
   #left, #right {
     display: none;
   }
   #all {
-    width: 100vw;
+    width: 90vw;
     padding: 0;
     background: white;
 
