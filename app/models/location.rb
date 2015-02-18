@@ -29,7 +29,7 @@ class Location < ActiveRecord::Base
         new_locale = Location.create(name: bus.name, long: bus.location.coordinate.longitude,
                                      lat: bus.location.coordinate.latitude,
                                      active: !bus.is_closed, desc: bus.snippet_text,
-                                     city: bus.location.city)
+                                     city: bus.location.city, yelp_link: bus.mobile_url)
         GoogleRequester.request(new_locale)
         InstagramRequester.save_photos_by_location(new_locale)
       else

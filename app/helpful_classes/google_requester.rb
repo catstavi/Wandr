@@ -41,10 +41,16 @@ class GoogleRequester
     end
   end
 
+  def self.get_link(location, loc_data)
+    unless loc_data.url == nil
+      Location.update(google_link: loc_data.url)
+    end
+  end
 
   def self.get_hours_and_desc(location, client)
     loc_data = client.spot(location.place_id)
     hours = spot.opening_hours
+    get_link(location, loc_data)
     get_desc(location, loc_data)
     unless hours == nil
       # clear out any old windows before building new ones
