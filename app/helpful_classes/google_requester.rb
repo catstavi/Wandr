@@ -44,7 +44,7 @@ class GoogleRequester
 
   def self.get_link(location, loc_data)
     unless loc_data.url == nil
-      Location.update(google_link: loc_data.url)
+      location.update(google_link: loc_data.url)
     end
   end
 

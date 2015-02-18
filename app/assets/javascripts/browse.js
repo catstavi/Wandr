@@ -119,17 +119,14 @@ function showDetails(current_photo) {
         $('#details').append(go);
         var yelp_link = document.createElement("a")
         yelp_link.setAttribute("href", data.yelp_link)
+        yelp_link.setAttribute("target", "directions");
         $(yelp_link).html("on yelp")
         var google_link = document.createElement("a")
         google_link.setAttribute("href", data.google_link)
-        $(google_places).html("on google places")
+        google_link.setAttribute("target", "directions");
+        $(google_link).html("on google places")
         $('#details').append(yelp_link)
         $('#details').append(google_link)
-        // this mobile link thing doesn't seem to work right
-        // var go_mobile = document.createElement("a");
-        // go_mobile.setAttribute("href", "geo:"+data.lat+ ","+data.long)
-        // $(go_mobile).html("mobile go there")
-        // $('#details').append(go_mobile);
       }
     })
   }
