@@ -21,8 +21,8 @@ class InstagramRequester
 
   def self.find_insta_codes(location)
     if location.insta_codes_updated_at.nil? || location.insta_codes_updated_at < Time.now - 2.weeks
-      Instagram.location_search(location.lat, location.long, "10").each do |result|
-        if result.name.include?(location.name) || ( result.id && location.name.include?(result.name) )
+      Instagram.location_search(location.lat, location.long, "50").each do |result|
+        if result.name.include?(location.name) || location.name.include?(result.name)
           location.insta_codes << InstaCode.create(code: result.id)
         end
       end
@@ -34,9 +34,9 @@ class InstagramRequester
   def self.find_insta_code_by_tag(location)
     tag = location.name.gsub(/(\s|\W)/,'')
     media = Instagram.tag_recent_media(tag)
-    media.each do |thing|
-      if thing.location.present? && location.name == location.name && thing.location.id
-        location.insta_codes << InstaCode.create(code: thing.location.id )
+    media.each do |media_instance|
+      if tag_search_has_data?(media_instance) && tag_search_matches_location(location, media_instance)
+        location.insta_codes << InstaCode.create(code: media_instance.location.id )
       end
     end
   end
@@ -45,6 +45,16 @@ class InstagramRequester
     Instagram.location_recent_media(instacode).collect do |mash|
       mash.images.standard_resolution.url
     end
+  end
+
+private
+
+  def self.tag_search_has_data?(hashie)
+    hashie.location && hashie.location.id && hashie.location.latitude && hashie.location.longitude
+  end
+
+  def self.tag_search_matches_location(location, hashie)
+    location.name == hashie.location.name && hashie.location.latitude - location.lat <  0.005 && hashie.location.longitude - location.long < 0.005
   end
 
 end
