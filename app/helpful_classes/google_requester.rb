@@ -6,7 +6,7 @@ class GoogleRequester
       if location.place_id == nil
         request(location)
       else
-        get_hours_and_desc(location)
+        get_hours_and_desc(location, GooglePlaces::Client.new(ENV["GOOGLE_PLACE_KEY"]) )
       end
     end
   end
@@ -15,7 +15,7 @@ class GoogleRequester
     client = GooglePlaces::Client.new(ENV["GOOGLE_PLACE_KEY"])
     loc_arry = client.spots(location.lat, location.long, :name => location.name)
       # add second search if first returns nothing using spots_by_query and city name
-    if loc_arry.empty? then loc_arry = @@client.spots_by_query("#{location.name} in #{location.city}") end
+    if loc_arry.empty? then loc_arry = client.spots_by_query("#{location.name} in #{location.city}") end
     if loc_arry.empty?
       location.update( active: false, hours_updated_at: Time.now )
     else
@@ -30,13 +30,14 @@ class GoogleRequester
 
 # maybe check # of calls left today??
   def self.get_desc(location, loc_data)
-    review_texts = loc_data.reviews.collect { |loc| loc.text }
-    unless review_texts.empty?
-      text = location.desc + review_texts.flatten
+    unless loc_data.reviews.empty?
+      review_text = loc_data.reviews.collect { |rev| rev.text }
+      text = review_text.join(" ") + location.desc
+      text = text.strip.gsub(/[^A-Za-z0-9\s]/, '')
       response = HTTParty.post("https://textanalysis.p.mashape.com/textblob-noun-phrase-extraction",
           :headers => { 'X-Mashape-Key' => ENV["MASHAPE_KEY"] } ,
           :body => "text= #{text}")
-      nouns = response.parsed_response["noun_phrases"]
+      nouns = response.parsed_response["noun_phrases"].uniq
       location.update(desc: nouns.join(", "))
     end
   end
@@ -49,7 +50,7 @@ class GoogleRequester
 
   def self.get_hours_and_desc(location, client)
     loc_data = client.spot(location.place_id)
-    hours = spot.opening_hours
+    hours = loc_data.opening_hours
     get_link(location, loc_data)
     get_desc(location, loc_data)
     unless hours == nil
