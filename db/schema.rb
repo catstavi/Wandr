@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150213222149) do
+ActiveRecord::Schema.define(version: 20150218000542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20150213222149) do
     t.datetime "insta_codes_updated_at"
     t.datetime "photos_updated_at"
     t.datetime "hours_updated_at"
+    t.string   "yelp_link"
+    t.string   "google_link"
   end
 
   add_index "locations", ["name"], name: "index_locations_on_name", using: :btree
