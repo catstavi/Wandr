@@ -21,15 +21,18 @@ class Location < ActiveRecord::Base
   # or create them, and get info from google places API
 
   # it finds some locations that we already have
-  def self.record_new(lat, long)
-    data = YelpRequester.request(lat, long)
+  def self.record_new(lat, long, offset)
+    data = YelpRequester.request(lat, long, offset)
     data.businesses.each do |bus|
       location = Location.find_by(name: bus.name)
       if location.nil?
+        cats = bus.categories.collect {|ar| ar.first}
+        cats << bus.snippet_text
+        cats = cats.join(" ")
         new_locale = Location.create(name: bus.name, long: bus.location.coordinate.longitude,
                                      lat: bus.location.coordinate.latitude,
-                                     active: !bus.is_closed, desc: bus.snippet_text,
-                                     city: bus.location.city)
+                                     active: !bus.is_closed, desc: cats,
+                                     city: bus.location.city, yelp_link: bus.mobile_url)
         GoogleRequester.request(new_locale)
         InstagramRequester.save_photos_by_location(new_locale)
       else
