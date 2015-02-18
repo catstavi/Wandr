@@ -21,12 +21,23 @@ class InstagramRequester
 
   def self.find_insta_codes(location)
     if location.insta_codes_updated_at.nil? || location.insta_codes_updated_at < Time.now - 2.weeks
-      Instagram.location_search(location.lat, location.long, "500").each do |result|
-        if result.name.include?(location.name) || location.name.include?(result.name)
-          location.insta_codes << InstaCode.create(code: result.id )
+      Instagram.location_search(location.lat, location.long, "10").each do |result|
+        if result.name.include?(location.name) || ( result.id && location.name.include?(result.name) )
+          location.insta_codes << InstaCode.create(code: result.id)
         end
       end
+      find_insta_code_by_tag(location)
       location.update(active: location.insta_codes.present?, insta_codes_updated_at: Time.now)
+    end
+  end
+
+  def self.find_insta_code_by_tag(location)
+    tag = location.name.gsub(/(\s|\W)/,'')
+    media = Instagram.tag_recent_media(tag)
+    media.each do |thing|
+      if thing.location.present? && location.name == location.name && thing.location.id
+        location.insta_codes << InstaCode.create(code: thing.location.id )
+      end
     end
   end
 
