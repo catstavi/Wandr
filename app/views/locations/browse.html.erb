@@ -65,14 +65,23 @@
 </section>
 
 <!--ENTER YOUR ADDRESS-->
-<section id= "address">
+<section id= "address-section">
+  <div class = "container" id = "add-con-1">
+    <div class = "center-block"><h4 class = "text-center" id = "enter-ad">Wandr requires geolocation</h4>
+    <span class="fa fa-bullseye" id = "wtf"></span>
+  </div>
+    <p class = "text-center dk-grey"> Enable geolocation and refresh the page or fill out the address form below.</p>
+  </div>
+  <div class = "center-block" id = "add-con">
   <%= form_tag "/address", id: "address_submit" do %> <!-- form_tag because not working off a model-->
+    <br>
     <div class="field">             <!-- sessions_path will trigger create action in sessions controller-->
-      Enter your Address, or authorize geolocation<br>
       <%= text_field_tag :address, params[:address], placeholder: "221 B Baker St, London, England" %>
     </div>
     <div class="actions"><%= submit_tag "Submit" %></div>
   <% end %>
+</div>
+</div>
 </section>
 
 <!-- HOW TO USE -->
@@ -136,11 +145,11 @@
                     <h4>Lily Pace</h4>
                     <p class="text-muted">Design / Front-end Development</p>
                     <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                        <li><a href="https://twitter.com/lilyfromseattle"><i class="fa fa-twitter"></i></a>
                         </li>
-                        <li><a href="#"><i class="fa fa-github"></i></a>
+                        <li><a href="https://github.com/lilyfromseattle"><i class="fa fa-github"></i></a>
                         </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        <li><a href="https://www.linkedin.com/pub/lily-pace/40/331/b14"><i class="fa fa-linkedin"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -151,11 +160,11 @@
                     <h4>Cate Uselton</h4>
                     <p class="text-muted">Back-end Development</p>
                     <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                        <li><a href="https://twitter.com/catusel"><i class="fa fa-twitter"></i></a>
                         </li>
-                        <li><a href="#"><i class="fa fa-github"></i></a>
+                        <li><a href="https://github.com/catstavi"><i class="fa fa-github"></i></a>
                         </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        <li><a href="https://www.linkedin.com/pub/cate-uselton/61/5bb/62a"><i class="fa fa-linkedin"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -187,10 +196,11 @@
   </div>
   </div>
 </div>
-<section id = "show">
-  <div class = "container">
-    <div id = "details"></div>
+<!-- <section id = "show"> -->
+  <div class = "container" id = "show-con">
+    <div id = "details">
+    </div>
   </div>
-</section>
+<!-- </section> -->
 </section>
 <!-- SHOW PAGES -->
