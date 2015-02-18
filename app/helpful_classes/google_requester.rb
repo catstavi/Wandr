@@ -38,7 +38,9 @@ class GoogleRequester
           :headers => { 'X-Mashape-Key' => ENV["MASHAPE_KEY"] } ,
           :body => "text= #{text}")
       nouns = response.parsed_response["noun_phrases"].uniq
-      location.update(desc: nouns.join(", "))
+      banned_words = %w[as at below for from of off onto over past per minus onto down not theres there is be was have has am are were been all on but and though tho in by under above onto into ive im hes shes wouldve couldnt sure went stay ]
+      nouns.collect {|noun| noun unless banned_words.include? noun }
+      location.update(desc: nouns.compact.join(", "))
     end
   end
 
