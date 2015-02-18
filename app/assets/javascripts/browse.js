@@ -44,9 +44,9 @@ function submitAddress() {
         console.log("I saved a lat/long from your addresss!! NICE!!")
         console.log("meow!")
         // GET PHOTOS ALREADY IN DB
-        ajaxToDatabase();
         hideDiv("#address");
         showDiv("#loading");
+        ajaxToDatabase();
       },
       error: function() {
         console.log("I didn't save the lat/long from your address. NOT NICE!! :(")

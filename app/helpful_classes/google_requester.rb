@@ -17,7 +17,7 @@ class GoogleRequester
       # add second search if first returns nothing using spots_by_query and city name
     if loc_arry.empty? then loc_arry = client.spots_by_query("#{location.name} in #{location.city}") end
     if loc_arry.empty?
-      location.update( active: false, hours_updated_at: Time.now )
+      location.update( hours_updated_at: Time.now )
     else
       # save google place ID
       location.update(place_id: loc_arry[0].place_id, active: true, hours_updated_at: Time.now)
