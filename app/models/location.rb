@@ -49,11 +49,19 @@ class Location < ActiveRecord::Base
   # scope :no_hours, -> { where('locations.id NOT IN (SELECT DISTINCT(location_id) FROM windows)') }
 
   def self.filtered(lat, long)
-    Location.active.near(lat,long).open_now_or_no_hours(lat, long)
+    data = []
+    if Location.near(lat,long, 20).count > 5
+      i = 2
+      while data.count < 5 && i < 30
+        data = Location.active.near(lat,long, i).open_now_or_no_hours(lat, long)
+        i += 2
+      end
+    end
+    data
   end
 
-  def self.near(lat, long)
-    Location.within(2, origin: [lat, long])
+  def self.near(lat, long, distance)
+    Location.within(distance, origin: [lat, long])
   end
 
   def self.open_now_or_no_hours(lat, long)

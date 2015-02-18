@@ -44,9 +44,9 @@ function submitAddress() {
         console.log("I saved a lat/long from your addresss!! NICE!!")
         console.log("meow!")
         // GET PHOTOS ALREADY IN DB
-        ajaxToDatabase();
         hideDiv("#address");
         showDiv("#loading");
+        ajaxToDatabase();
       },
       error: function() {
         console.log("I didn't save the lat/long from your address. NOT NICE!! :(")
@@ -171,6 +171,7 @@ function addPhoto(active_div) {
   console.log("lets try to add a photo to " + active_div)
   var photo = document.createElement("img");
   photo.setAttribute("src", active_div.attr('id'));
+  photo.setAttribute("class", "link-cursor");
   active_div.append(photo);
 }
 
@@ -197,6 +198,7 @@ function ajaxToDatabase() {
         handleLoadedPhotos();
       }
       //go to photo container
+      console.time("APItimer")
       ajaxTriggerApiCalls(db_loaded);
     },
     error: function() {
@@ -231,6 +233,7 @@ function ajaxTriggerApiCalls(already_loaded) {
       if (!already_loaded) {
         handleLoadedPhotos();
       }
+      console.timeEnd("APItimer")
       ajaxApiOffset();
     }
   })
