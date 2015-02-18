@@ -18,10 +18,11 @@ class InstagramRequester
 
   # queries instagram to find new location codes if the given location has never been checked before
   # or if it hasn't been updated for 2 weeks
+
   def self.find_insta_codes(location)
     if location.insta_codes_updated_at.nil? || location.insta_codes_updated_at < Time.now - 2.weeks
       Instagram.location_search(location.lat, location.long, "500").each do |result|
-        if result.name.include?(location.name)
+        if result.name.include?(location.name) || location.name.include?(result.name)
           location.insta_codes << InstaCode.create(code: result.id )
         end
       end
