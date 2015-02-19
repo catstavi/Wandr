@@ -74,6 +74,12 @@ function findPosition(position) {
   });
 };
 
+
+function addSwipesToElem(elem) {
+  elem.on("swipeleft", nextPhoto )
+  elem.on("swiperight", prevPhoto )
+}
+
 function addSwipeEvents( objects ) {
   for (i = 0; i< objects.length; i++ ) {
     addSwipesToElem( objects.eq(i) )
@@ -105,70 +111,7 @@ function prevPhoto() {
   addPhoto(prev_div)
   showDetails(prev_div)
 }
-//
-// function rightArrowHandler() {
-//
-// }
-//
-// function leftArrowHandler() {
-//
-// }
-//
-// function swipeLeftHandler() {
-//   console.log("You just swiped left!")
-//   $(this).children().remove();
-//   next_div = $(this).next()
-//   if (next_div.length === 0 ) {
-//     next_div = $('#all').children().eq(0)
-//   }
-//   addClassVisited(next_div);
-//   addPhoto( next_div );
-//   showDetails(next_div);
-// }
-//
-// function swipeRightHandler() {
-//   console.log("You just swiped right!")
-//   $(this).children().remove();
-//   var prev_div = $(this).prev()
-//   addClassVisited(prev_div);
-//   addPhoto( prev_div );
-//   showDetails( prev_div );
-// }
 
-// function showDetails(current_photo) {
-//     $.ajax({
-//       type: 'POST',
-//       url: 'locations/show',
-//       data: {
-//         id: current_photo.attr('class').replace(/\D/g,'')
-//       },
-//       success: function(data) {
-//         console.log(data.name)
-//         $('#details').html("<h3 class = 'place-name'>" + data.name + "</h3> <p class = 'place-description'>" + data.desc + "</p>")
-//         var go = document.createElement("a");
-//         go.setAttribute("href", "https://maps.google.com?saddr=" + data.user_lat + "," + data.user_long +"&daddr="+ data.lat+","+data.long+"&dirflg=w");
-//         go.setAttribute("target", "directions");
-//         $(go).html("go there");
-//         $('#details').append(go);
-//         var yelp_link = document.createElement("a")
-//         yelp_link.setAttribute("href", data.yelp_link)
-//         yelp_link.setAttribute("target", "directions");
-//         $(yelp_link).html("on yelp")
-//         var google_link = document.createElement("a")
-//         google_link.setAttribute("href", data.google_link)
-//         google_link.setAttribute("target", "directions");
-//         $(google_link).html("on google places")
-//         $('#details').append(yelp_link)
-//         $('#details').append(google_link)
-//
-//       }
-//     })
-//   }
-
-function addSwipesToElem(elem) {
-  elem.on("swipeleft", nextPhoto )
-  elem.on("swiperight", prevPhoto )
-}
 
 
 function addPhoto(active_div) {
@@ -209,6 +152,7 @@ function ajaxToDatabase() {
       // it removes old divs and finds again (your location may have changed)
       if (db_loaded) {
         $('#all').children().remove();
+        $('#details').children().remove();
         AppendNew(data, "old");
         addSwipeEvents($('#all').children());
         handleLoadedPhotos();
@@ -293,21 +237,17 @@ function AppendNew(data, classname) {
   }
 }
 
+function calculate_flag(dist) {
+  if (dist < 1.5 ) {
+    return "&dirflg=w";
+  } else {
+    return "";
+  }
+}
 function makeShowDivs(data) {
-  var name = data.name
-  var desc = data.desc
-  var id = data.id
   if ($('#details').children('.' + data.id).length == 0) {
     var newdiv = document.createElement("div");
-    newdiv.innerHTML = "<div class = 'name-div'><hr class = 'hr-thing'><h1 class = 'place-name'>"+ name + "</h1></div><hr>" + "<p class = 'place-desc'>" + desc + "</p>"
-    // var go = document.createElement("a");
-    // go.setAttribute("href", "https://maps.google.com?saddr=" + data.user_lat + "," + data.user_long +"&daddr="+ data.lat+","+data.long+"&dirflg=w");
-    // go.setAttribute("target", "directions");
-    // go.setAttribute("class", "fa fa-map-marker show-icon");
-    // go.setAttribute("id", "go-link");
-    // newdiv.setAttribute("class", data.id);
-    // go.innerHTML = "<span class = 'go-text'> go there</span>";
-    // newdiv.appendChild(go);
+    newdiv.innerHTML = "<div class = 'name-div'><hr class = 'hr-thing'><h1 class = 'place-name'>"+ name + "</h1></div><hr>" +"<h3 class= 'place-dist'> Within " + data.distance + " miles of you! </h3>" + "<p class = 'place-desc'>" + desc + "</p>"
     var yelp_link = document.createElement("a")
     yelp_link.setAttribute("href", data.yelp_link)
     yelp_link.setAttribute("target", "directions");
@@ -324,7 +264,8 @@ function makeShowDivs(data) {
     newdiv.appendChild(google_link)
     newdiv.appendChild(hr)
     var go = document.createElement("a");
-    go.setAttribute("href", "https://maps.google.com?saddr=" + data.user_lat + "," + data.user_long +"&daddr="+ data.lat+","+data.long+"&dirflg=w");
+    var dir_flag = calculate_flag(data.distance)
+    go.setAttribute("href", "https://maps.google.com?saddr=" + data.user_lat + "," + data.user_long +"&daddr="+ data.lat+","+data.long+dir_flag);
     go.setAttribute("target", "directions");
     go.setAttribute("class", "fa fa-map-marker show-icon");
     go.setAttribute("id", "go-link");
@@ -332,10 +273,7 @@ function makeShowDivs(data) {
     go.innerHTML = "<span class = 'go-text'> go there!</span>";
     newdiv.appendChild(go);
     $('#details').append(newdiv)
-
   }
-
-
 }
 
 function allVisitedUrls() {
