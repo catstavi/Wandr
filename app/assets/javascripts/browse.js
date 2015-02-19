@@ -247,7 +247,7 @@ function calculate_flag(dist) {
 function makeShowDivs(data) {
   if ($('#details').children('.' + data.id).length == 0) {
     var newdiv = document.createElement("div");
-    newdiv.innerHTML = "<div class = 'name-div'><hr class = 'hr-thing'><h1 class = 'place-name'>"+ name + "</h1></div><hr>" +"<h3 class= 'place-dist'> Within " + data.distance + " miles of you! </h3>" + "<p class = 'place-desc'>" + desc + "</p>"
+    newdiv.innerHTML = "<div class = 'name-div'><hr class = 'hr-thing'><h1 class = 'place-name'>"+ data.name + "</h1></div><hr>" +"<h3 class= 'text-center place-dist'> Within " + data.distance + " miles of you! </h3>" + "<p class = 'place-desc'>" + data.desc + "</p>"
     var yelp_link = document.createElement("a")
     yelp_link.setAttribute("href", data.yelp_link)
     yelp_link.setAttribute("target", "directions");
