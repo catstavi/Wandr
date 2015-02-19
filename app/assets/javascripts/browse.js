@@ -247,26 +247,31 @@ function calculate_flag(dist) {
 function makeShowDivs(data) {
   if ($('#details').children('.' + data.id).length == 0) {
     var newdiv = document.createElement("div");
-    newdiv.innerHTML = "<h1 class = 'place-name'>"+ data.name + "</h1>" +
-    "<h3 class= 'place-dist'> Within " + data.distance + " miles of you! </h3>" +
-    "<p class = 'place-desc'>" + data.desc + "</p>"
+    newdiv.innerHTML = "<div class = 'name-div'><hr class = 'hr-thing'><h1 class = 'place-name'>"+ data.name + "</h1></div><hr>" +"<h3 class= 'text-center place-dist'> Within " + data.distance + " miles of you! </h3>" + "<p class = 'place-desc'>" + data.desc + "</p>"
+    var yelp_link = document.createElement("a")
+    yelp_link.setAttribute("href", data.yelp_link)
+    yelp_link.setAttribute("target", "directions");
+    yelp_link.setAttribute("class", "fa fa-yelp show-icon yg");
+    $(yelp_link).html(" on yelp")
+    yelp_link.innerHTML = "<span class = 'link-text'> yelp</span>";
+    var google_link = document.createElement("a")
+    google_link.setAttribute("href", data.google_link)
+    google_link.setAttribute("target", "directions");
+    google_link.setAttribute("class", "fa fa-google show-icon yg");
+    google_link.innerHTML = "<span class = 'link-text'> places</span>";
+    var hr = document.createElement("hr");
+    newdiv.appendChild(yelp_link)
+    newdiv.appendChild(google_link)
+    newdiv.appendChild(hr)
     var go = document.createElement("a");
     var dir_flag = calculate_flag(data.distance)
     go.setAttribute("href", "https://maps.google.com?saddr=" + data.user_lat + "," + data.user_long +"&daddr="+ data.lat+","+data.long+dir_flag);
     go.setAttribute("target", "directions");
+    go.setAttribute("class", "fa fa-map-marker show-icon");
+    go.setAttribute("id", "go-link");
     newdiv.setAttribute("class", data.id);
-    $(go).html("go there");
+    go.innerHTML = "<span class = 'go-text'> go there!</span>";
     newdiv.appendChild(go);
-    var yelp_link = document.createElement("a")
-    yelp_link.setAttribute("href", data.yelp_link)
-    yelp_link.setAttribute("target", "directions");
-    $(yelp_link).html("on yelp")
-    var google_link = document.createElement("a")
-    google_link.setAttribute("href", data.google_link)
-    google_link.setAttribute("target", "directions");
-    $(google_link).html("on google places")
-    newdiv.appendChild(yelp_link)
-    newdiv.appendChild(google_link)
     $('#details').append(newdiv)
   }
 }

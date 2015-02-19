@@ -18,10 +18,22 @@
 
 body {
   background: #f7f7f7;
+  padding: 0;
+}
+
+.hr-thing {
+  margin: 0;
+  padding: 0;
+  // margin-top: -75px;
+  margin-top :-55px;
 }
 
 #details div {
   display: none;
+}
+
+.name-div {
+  display: block !important;
 }
 
 .link-cursor {
@@ -104,11 +116,71 @@ body {
   margin: 0;
   padding: 0;
 }
-.place-description {
-  padding: 20px;
-  font-size: 1.2em;
-  margin-top: 0px;
+.place-desc {
+  padding: 30px;
+  font-size: 1.5em;
+  margin-top: 20px;
   text-align: center;
+  color: dimgrey;
+}
+
+#details a {
+  color: #CFD11A;
+  // font-family: 'Paytone One';
+  font-size: 1.8em;
+  text-align: center;
+  // width: 48%;
+}
+
+.yg {
+  width: 48%;
+  margin-bottom: 20px;
+}
+
+#details div {
+  padding: 0;
+}
+
+#go-link {
+  background: dimgrey;
+  display: block;
+  color: white;
+  width: 180px;
+  text-align: center;
+  border-radius: 25px;
+  padding: 8px;
+  padding-bottom: 10px;
+  margin: 0 auto;
+  margin-top: 70px;
+  margin-bottom: 30px;
+}
+
+#go-link:hover {
+  background: lightgrey;
+}
+.link-text {
+  font-family: 'Paytone One';
+  color: dimgrey;
+}
+
+.link-text:hover {
+  font-family: 'Paytone One';
+  color: lightgrey;
+}
+
+.go-text {
+  font-family: 'Paytone One';
+  color: white;
+}
+.show-icon {
+  color: black;
+  font-size: 1.6em;
+  // margin: 15px;
+}
+
+.show-icon:hover {
+  color: #CFD11A;
+  text-decoration: none;
 }
 
 // .name-div {
@@ -119,7 +191,7 @@ body {
 .place-name {
   font-size: 3em;
   text-align: center;
-  margin-top: -25px;
+  // margin-top: -50px;
 }
 .section-heading {
   /*top: 0px;*/
@@ -203,6 +275,8 @@ body {
 #my-nav {
   padding: 2px;
   font-family: 'Cantarell';
+  position: fixed;
+  margin: 0;
   // box-shadow: 2px 3px 8px lightgrey;
   // box-shadow: none;
 }
@@ -217,15 +291,19 @@ section {
 
 }
 #landing {
-  background: white;
-  /*top: -100%;*/
   position: absolute;
   width: 100%;
   height: 100vh;
-  overflow: auto;
+  overflow: hidden;
   top: 0;
+  margin-top: 0;
   // margin-top: -20px;
   padding-top: 0;
+  padding: 0;
+  background: image-url('sky2.jpg');
+  // background-size: 110%;
+  height: 100vh;
+  /*z-index: -40;*/
 }
 #howitworks {
   background: #f7f7f7;
@@ -259,13 +337,14 @@ section {
 #photo-con {
   /*height :100vh;
   overflow: hidden;*/
-  margin-top: -25px;
+  margin-top: -42px;
 }
 body {
   font-family: 'Cantarell', sans-serif;
 }
 
 #logo {
+  margin-top: 100px;
   font-size: 7em;
 }
 
@@ -273,14 +352,14 @@ body {
 #all div img {
   /*width: 70%;
   height: 90%;*/
-  width: 590px;
-  height: 590px;
+  width: 570px;
+  height: 570px;
 }
 
 #all {
-  height: 620px;
-  width: 620px;
-  padding: 15px;
+  height: 570px;
+  width: 570px;
+  // padding: 15px;
   background-color: white;
 }
 .center-block {
@@ -302,7 +381,7 @@ color:#ec8007
 
 
 #left-g, #right-g {
-  margin: 290px 0 295px 0;
+  margin: 280px 0 300px 0;
   font-size: 4em;
 }
 
@@ -364,19 +443,13 @@ color:#ec8007
   color: #CFD11A;
 }
 
-#landing {
-  padding: 0;
-  background: image-url('sky2.jpg');
-  // background-size: 110%;
-  height: 100vh;
-  /*z-index: -40;*/
-}
 #landing-con {
   /*z-index :-5;*/
   /*margin-top :-50px;*/
   // padding-top: 90px;
   margin: 0;
   height: 100vh;
+  height: 100%;
   width: 70vw;
   background: rgba(255, 255, 255, .8);
 }
@@ -428,9 +501,9 @@ color:#ec8007
   }
 
   #all div img {
-    height: 510px;
-    width: 510px;
-    padding: 10px;
+    height: 540px;
+    width: 540px;
+    // padding: 10px;
   }
 
   #left-g, #right-g {
@@ -443,8 +516,8 @@ color:#ec8007
 @media (max-width: 768px) {
 
   .place-name {
-    margin-top: 35px;
-    font-size: 2.25em;
+    // margin-top: 35px;
+    font-size: 2em;
     // margin-top: -50px;
   }
 
@@ -464,7 +537,7 @@ color:#ec8007
   #landing {
     padding: 0;
     background: image-url('sky3.jpg');
-    background-size: 100vh;
+    background-size: 80vh;
   }
 
   #middle {
@@ -500,4 +573,39 @@ color:#ec8007
     // height: 120%;
   }
 
+  hr {
+    // margin-top: -10px;
+    display: none;
+  }
+
+  .place-name {
+    // margin-top: 30px;
+  }
+
+  #logo {
+    margin-top: 40px;
+  }
+
+  .place-desc {
+    // margin-top: 100px;
+  }
+
+  .name-div {
+    display: block;
+    height: 180px;
+    // background: pink;
+  }
+
+  .rediscover {
+    font-size: 1.3em;
+    margin: 0;
+  }
+
+  #click {
+    margin: 0;
+  }
+
+  #learn {
+    margin: 0;
+  }
 }
