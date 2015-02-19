@@ -82,24 +82,28 @@ function addSwipeEvents( objects ) {
 }
 
 function nextPhoto(next_div) {
-  var div_index = $('#all').children().children().parent().index()
+  var current_div = $('#all').children().children().parent()
+  var div_index = current_div.index()
   var next_div = $('#all').children().eq(div_index + 1)
   if (next_div.length === 0 ) {
     next_div = $('#all').children().eq(0)
   }
-  $('#all').children().children().remove()
+  current_div.children().remove()
+  hideDetails(current_div)
   addClassVisited(next_div);
   addPhoto(next_div)
-  // showDetails(next_div)
+  showDetails(next_div)
 }
 
 function prevPhoto() {
-  var div_index = $('#all').children().children().parent().index()
+  var current_div = $('#all').children().children().parent()
+  var div_index = current_div.index()
   var prev_div = $('#all').children().eq(div_index - 1)
-  $('#all').children().children().remove()
+  current_div.children().remove()
+  hideDetails(current_div)
   addClassVisited(prev_div);
   addPhoto(prev_div)
-  // showDetails(prev_div)
+  showDetails(prev_div)
 }
 //
 // function rightArrowHandler() {
@@ -174,6 +178,18 @@ function addPhoto(active_div) {
   active_div.append(photo);
 }
 
+function showDetails(active_div) {
+  var loc_id = active_div.attr('class').replace(/\D/g,'');
+  var info_div = $("."+ loc_id);
+  info_div.css("display", "block");
+};
+
+function hideDetails(active_div) {
+  var loc_id = active_div.attr('class').replace(/\D/g,'');
+  var info_div = $("."+ loc_id);
+  info_div.css("display", "none");
+};
+
 function addClassVisited(div) {
   if (div.attr("class").indexOf("visited") == -1) {
     div.addClass("visited");
@@ -208,7 +224,7 @@ function ajaxToDatabase() {
 function handleLoadedPhotos() {
   var first_div = $('#all').children().eq(0);
   addPhoto(first_div);
-  // showDetails(first_div)
+  showDetails(first_div)
   addClassVisited(first_div)
   hideDiv("#loading")
   showDiv("#photo-slides")
@@ -280,7 +296,7 @@ function makeShowDivs(data) {
   var id = data.id
   if ($('#details').children('.' + data.id).length == 0) {
     var newdiv = document.createElement("div");
-    newdiv.innerHTML = "<h1>"+ name + "</h1>" + "<p>" + desc + "</p>"
+    newdiv.innerHTML = "<h1 class = 'place-name'>"+ name + "</h1>" + "<p class = 'place-desc'>" + desc + "</p>"
     var go = document.createElement("a");
     go.setAttribute("href", "https://maps.google.com?saddr=" + data.user_lat + "," + data.user_long +"&daddr="+ data.lat+","+data.long+"&dirflg=w");
     go.setAttribute("target", "directions");
