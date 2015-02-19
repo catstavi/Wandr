@@ -86,7 +86,7 @@ class Location < ActiveRecord::Base
     locs = filtered(lat,long)
     dist_hash = distance_hash(locs, lat, long)
     arry = locs.collect do |loc|
-      loc.photos.collect do |photo|
+      loc.photos.last(10).collect do |photo|
         { url: photo.url, id: loc.id, name: loc.name, desc: loc.desc, google_link: loc.google_link, yelp_link: loc.yelp_link, lat: loc.lat, long: loc.long, user_lat: lat, user_long: long, distance: dist_hash[loc.id] }
       end
     end
