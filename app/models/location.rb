@@ -66,10 +66,11 @@ class Location < ActiveRecord::Base
     # Location.where("name IS NOT NULL")
   end
 
-  def self.url_and_id_arry(lat, long)
+  def self.filtered_location_details(lat, long)
     arry = filtered(lat, long).collect do |loc|
       loc.photos.collect do |photo|
-        { photo.url => loc.id }
+        # { photo.url => loc.id, loc.name => loc.desc }
+        { url: photo.url, id: loc.id, name: loc.name, desc: loc.desc, google_link: loc.google_link, yelp_link: loc.yelp_link, lat: loc.lat, long: loc.long, user_lat: lat, user_long: long }
       end
     end
     arry.flatten.shuffle

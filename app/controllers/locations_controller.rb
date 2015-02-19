@@ -15,7 +15,7 @@ class LocationsController < ApplicationController
   end
 
   def get_db_photos
-    render json: Location.url_and_id_arry( session[:user_lat], session[:user_long] )
+    render json: Location.filtered_location_details( session[:user_lat], session[:user_long] )
   end
 
   def check_for_new_locations

@@ -90,7 +90,7 @@ function nextPhoto(next_div) {
   $('#all').children().children().remove()
   addClassVisited(next_div);
   addPhoto(next_div)
-  showDetails(next_div)
+  // showDetails(next_div)
 }
 
 function prevPhoto() {
@@ -99,7 +99,7 @@ function prevPhoto() {
   $('#all').children().children().remove()
   addClassVisited(prev_div);
   addPhoto(prev_div)
-  showDetails(prev_div)
+  // showDetails(prev_div)
 }
 //
 // function rightArrowHandler() {
@@ -131,35 +131,35 @@ function prevPhoto() {
 //   showDetails( prev_div );
 // }
 
-function showDetails(current_photo) {
-    $.ajax({
-      type: 'POST',
-      url: 'locations/show',
-      data: {
-        id: current_photo.attr('class').replace(/\D/g,'')
-      },
-      success: function(data) {
-        console.log(data.name)
-        $('#details').html("<h3 class = 'place-name'>" + data.name + "</h3> <p class = 'place-description'>" + data.desc + "</p>")
-        var go = document.createElement("a");
-        go.setAttribute("href", "https://maps.google.com?saddr=" + data.user_lat + "," + data.user_long +"&daddr="+ data.lat+","+data.long+"&dirflg=w");
-        go.setAttribute("target", "directions");
-        $(go).html("go there");
-        $('#details').append(go);
-        var yelp_link = document.createElement("a")
-        yelp_link.setAttribute("href", data.yelp_link)
-        yelp_link.setAttribute("target", "directions");
-        $(yelp_link).html("on yelp")
-        var google_link = document.createElement("a")
-        google_link.setAttribute("href", data.google_link)
-        google_link.setAttribute("target", "directions");
-        $(google_link).html("on google places")
-        $('#details').append(yelp_link)
-        $('#details').append(google_link)
-
-      }
-    })
-  }
+// function showDetails(current_photo) {
+//     $.ajax({
+//       type: 'POST',
+//       url: 'locations/show',
+//       data: {
+//         id: current_photo.attr('class').replace(/\D/g,'')
+//       },
+//       success: function(data) {
+//         console.log(data.name)
+//         $('#details').html("<h3 class = 'place-name'>" + data.name + "</h3> <p class = 'place-description'>" + data.desc + "</p>")
+//         var go = document.createElement("a");
+//         go.setAttribute("href", "https://maps.google.com?saddr=" + data.user_lat + "," + data.user_long +"&daddr="+ data.lat+","+data.long+"&dirflg=w");
+//         go.setAttribute("target", "directions");
+//         $(go).html("go there");
+//         $('#details').append(go);
+//         var yelp_link = document.createElement("a")
+//         yelp_link.setAttribute("href", data.yelp_link)
+//         yelp_link.setAttribute("target", "directions");
+//         $(yelp_link).html("on yelp")
+//         var google_link = document.createElement("a")
+//         google_link.setAttribute("href", data.google_link)
+//         google_link.setAttribute("target", "directions");
+//         $(google_link).html("on google places")
+//         $('#details').append(yelp_link)
+//         $('#details').append(google_link)
+//
+//       }
+//     })
+//   }
 
 function addSwipesToElem(elem) {
   elem.on("swipeleft", nextPhoto )
@@ -208,7 +208,7 @@ function ajaxToDatabase() {
 function handleLoadedPhotos() {
   var first_div = $('#all').children().eq(0);
   addPhoto(first_div);
-  showDetails(first_div)
+  // showDetails(first_div)
   addClassVisited(first_div)
   hideDiv("#loading")
   showDiv("#photo-slides")
@@ -261,16 +261,47 @@ function DeleteUnvisited() {
 function AppendNew(data, classname) {
   var visited = allVisitedUrls();
   for (i = 0; i < data.length; i++ ) {
-    var url = Object.keys(data[i]).toString();
-    var location_id = data[i][url]
+    makeShowDivs(data[i])
+    var url = data[i].url
+    var id = data[i].id
     if ( visited.indexOf( url ) == -1 ) {
       var div = document.createElement("div");
-      var class_str = location_id.toString() + " " + classname
+      var class_str = id.toString() + " " + classname
       div.setAttribute("id", url);
       div.setAttribute("class", class_str);
       $("#all").append(div);
     };
   }
+}
+
+function makeShowDivs(data) {
+  var name = data.name
+  var desc = data.desc
+  var id = data.id
+  if ($('#details').children('.' + data.id).length == 0) {
+    var newdiv = document.createElement("div");
+    newdiv.innerHTML = "<h1>"+ name + "</h1>" + "<p>" + desc + "</p>"
+    var go = document.createElement("a");
+    go.setAttribute("href", "https://maps.google.com?saddr=" + data.user_lat + "," + data.user_long +"&daddr="+ data.lat+","+data.long+"&dirflg=w");
+    go.setAttribute("target", "directions");
+    newdiv.setAttribute("class", data.id);
+    $(go).html("go there");
+    newdiv.appendChild(go);
+    var yelp_link = document.createElement("a")
+    yelp_link.setAttribute("href", data.yelp_link)
+    yelp_link.setAttribute("target", "directions");
+    $(yelp_link).html("on yelp")
+    var google_link = document.createElement("a")
+    google_link.setAttribute("href", data.google_link)
+    google_link.setAttribute("target", "directions");
+    $(google_link).html("on google places")
+    newdiv.appendChild(yelp_link)
+    newdiv.appendChild(google_link)
+    $('#details').append(newdiv)
+
+  }
+
+
 }
 
 function allVisitedUrls() {
