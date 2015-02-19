@@ -70,15 +70,24 @@ class Location < ActiveRecord::Base
     time_now_int =  time_now.hour*100 + time_now.min
     day_int = time_now.strftime("%w").to_i
     Location.includes(:windows).where("(locations.id NOT IN (SELECT DISTINCT(location_id) FROM windows)) OR ( open_day = ? AND ( (open_day = close_day AND open_time < ? AND close_time > ?) OR (open_day != close_day AND open_time < ?) ) OR ( close_day = ? AND open_day != close_day AND close_time > ? ))", day_int, time_now_int, time_now_int, time_now_int, day_int, time_now_int).references(:windows)
-    # Location.includes(:windows).where("(locations.id NOT IN (SELECT DISTINCT(location_id) FROM windows)) OR (open_day = ? AND open_time <= ? OR close_day = ? AND close_time > ?)", day_int, time_now_int, day_int, time_now_int).references(:windows)
-    # Location.where("name IS NOT NULL")
+  end
+
+  def self.distance_hash(locs, lat, long)
+    # builds a hash of location id to its distance from you
+    user_loc = Geokit::LatLng.new(lat, long)
+    dist_hash = {}
+    locs.each do |loc|
+      dist_hash[loc.id] = loc.distance_to(user_loc).round(2)
+    end
+    dist_hash
   end
 
   def self.filtered_location_details(lat, long)
-    arry = filtered(lat, long).collect do |loc|
+    locs = filtered(lat,long)
+    dist_hash = distance_hash(locs, lat, long)
+    arry = locs.collect do |loc|
       loc.photos.collect do |photo|
-        # { photo.url => loc.id, loc.name => loc.desc }
-        { url: photo.url, id: loc.id, name: loc.name, desc: loc.desc, google_link: loc.google_link, yelp_link: loc.yelp_link, lat: loc.lat, long: loc.long, user_lat: lat, user_long: long }
+        { url: photo.url, id: loc.id, name: loc.name, desc: loc.desc, google_link: loc.google_link, yelp_link: loc.yelp_link, lat: loc.lat, long: loc.long, user_lat: lat, user_long: long, distance: dist_hash[loc.id] }
       end
     end
     arry.flatten.shuffle

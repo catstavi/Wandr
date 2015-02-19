@@ -1,7 +1,7 @@
 class InstagramRequester
 
   def self.check_for_updates(location)
-    if location.photos_updated_at < Time.now - 1.day
+    if location.photos_updated_at == nil || location.photos_updated_at < Time.now - 1.day
       save_photos_by_location(location)
     end
   end
