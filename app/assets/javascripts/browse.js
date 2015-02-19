@@ -237,6 +237,13 @@ function AppendNew(data, classname) {
   }
 }
 
+function calculate_flag(dist) {
+  if (dist < 1.5 ) {
+    return "&dirflg=w";
+  } else {
+    return "";
+  }
+}
 function makeShowDivs(data) {
   if ($('#details').children('.' + data.id).length == 0) {
     var newdiv = document.createElement("div");
@@ -244,7 +251,8 @@ function makeShowDivs(data) {
     "<h3 class= 'place-dist'> Within " + data.distance + " miles of you! </h3>" +
     "<p class = 'place-desc'>" + data.desc + "</p>"
     var go = document.createElement("a");
-    go.setAttribute("href", "https://maps.google.com?saddr=" + data.user_lat + "," + data.user_long +"&daddr="+ data.lat+","+data.long+"&dirflg=w");
+    var dir_flag = calculate_flag(data.distance)
+    go.setAttribute("href", "https://maps.google.com?saddr=" + data.user_lat + "," + data.user_long +"&daddr="+ data.lat+","+data.long+dir_flag);
     go.setAttribute("target", "directions");
     newdiv.setAttribute("class", data.id);
     $(go).html("go there");
