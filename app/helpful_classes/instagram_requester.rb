@@ -1,7 +1,7 @@
 class InstagramRequester
 
   def self.check_for_updates(location)
-    if location.photos_updated_at < Time.now - 1.day
+    if location.photos_updated_at == nil || location.photos_updated_at < Time.now - 1.day
       save_photos_by_location(location)
     end
   end
@@ -21,13 +21,17 @@ class InstagramRequester
 
   def self.find_insta_codes(location)
     if location.insta_codes_updated_at.nil? || location.insta_codes_updated_at < Time.now - 2.weeks
-      Instagram.location_search(location.lat, location.long, "50").each do |result|
-        if result.name.include?(location.name) || location.name.include?(result.name)
-          location.insta_codes << InstaCode.create(code: result.id)
-        end
-      end
-      find_insta_code_by_tag(location)
+      find_insta_code_by_lat_long(location)
+      unless location.insta_codes.present? then find_insta_code_by_tag(location) end
       location.update(active: location.insta_codes.present?, insta_codes_updated_at: Time.now)
+    end
+  end
+
+  def self.find_insta_code_by_lat_long(location)
+    Instagram.location_search(location.lat, location.long, "50").each do |result|
+      if result.name.include?(location.name) || location.name.include?(result.name)
+        location.insta_codes << InstaCode.create(code: result.id)
+      end
     end
   end
 
