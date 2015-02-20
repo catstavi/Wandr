@@ -70,6 +70,7 @@
     <div class = "center-block" id = "wtf"><span class="fa fa-map-marker"></span></div>
     <div class = "center-block"><h4 class = "text-center" id = "enter-ad">Wandr requires geolocation</h4></div>
     <p class = "text-center dk-grey"> Enable geolocation and refresh the page or fill out the address form below.</p>
+    <span id= "error-msg"></span>
   </div>
   <div class = "center-block" id = "add-con">
   <%= form_tag "/address", id: "address_submit" do %> <!-- form_tag because not working off a model-->
@@ -202,4 +203,7 @@
   </div>
 <!-- </section> -->
 </section>
-<!-- SHOW PAGES -->
+<!-- SORRY BRO -->
+<section id="sorry">
+  <p> Sorry dude, we couldn't find anywhere cool. </p>
+<section>
