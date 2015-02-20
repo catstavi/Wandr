@@ -75,7 +75,6 @@ function findPosition(position) {
   });
 };
 
-
 function addSwipesToElem(elem) {
   elem.on("swipeleft", nextPhoto )
   elem.on("swiperight", prevPhoto )
@@ -112,8 +111,6 @@ function prevPhoto() {
   addPhoto(prev_div)
   showDetails(prev_div)
 }
-
-
 
 function addPhoto(active_div) {
   console.log("lets try to add a photo to " + active_div)
@@ -244,38 +241,67 @@ function AppendNew(data, classname) {
   }
 }
 
-function calculate_flag(dist) {
+function calculateFlag(dist) {
   if (dist < 1.5 ) {
     return "&dirflg=w";
   } else {
     return "";
   }
 }
+
+function flagPhotos() {
+  console.log("let's flag it!")
+  photo_element = $("#all").children().children()
+  photo_url = photo_element.attr("src")
+  flagged_div = photo_element.parent();
+  nextPhoto();
+  flagged_div.remove();
+  $.ajax({
+    type: 'POST',
+    url: "/flag_photo",
+    data: {
+      photo_url: photo_url
+    },
+    success: function(data) {
+      console.log(data)
+      console.log("photo got flagged!")
+    }
+  })
+}
+
+function flagButton() {
+  var flag = document.createElement("span")
+  flag.setAttribute("class", "link-cursor")
+  flag.setAttribute("id", "flag-photo:")
+  flag.innerHTML = "flag this photo"
+  $(flag).click(flagPhotos)
+  return flag
+}
+
 function makeShowDivs(data) {
   if ($('#details').children('.' + data.id).length == 0) {
+
+    // make stuff for go there link
+    var dir_flag = calculateFlag(data.distance)
+    go_there_link = "https://maps.google.com?saddr=" + data.user_lat + "," + data.user_long +"&daddr="+ data.lat+","+data.long+dir_flag
+    var go_button = "<a href='" + go_there_link + "' target='directions' class='fa fa-map-marker show-icon' id='go-link'> <span class = 'go-text'> go there!</span> </a>"
+
+    // make div all the stuff goes in
     var newdiv = document.createElement("div");
-    var go = document.createElement("a");
-    var dir_flag = calculate_flag(data.distance)
-    go.setAttribute("href", "https://maps.google.com?saddr=" + data.user_lat + "," + data.user_long +"&daddr="+ data.lat+","+data.long+dir_flag);
-    // go.setAttribute("target", "directions");
-    go.setAttribute("class", "fa fa-map-marker show-icon");
-    go.setAttribute("id", "go-link");
-    newdiv.setAttribute("class", data.id);
-    go.innerHTML = "<span class = 'go-text'> go there!</span>";
-    go = "<a class = 'fa fa-map-marker show-icon' id = 'go-link'><span class = 'go-text'> go there!</span></a>"
-
-    // newdiv.appendChild(go);
-    // $('#details').append(newdiv)
-    newdiv.innerHTML = "<div class = 'name-div'><hr class = 'hr-thing'><h1 class = 'place-name'>"+ data.name + "</h1></div><hr>" + "<div>"+ go + "</div>" + "<h3 class= 'text-center place-dist'> Within " + data.distance + " miles of you! </h3>" + "<p class = 'place-desc'>" + data.desc + "</p>"
-
-
+    newdiv.innerHTML = "<div class = 'name-div'><hr class = 'hr-thing'><h1 class = 'place-name'>"+ data.name + "</h1></div><hr>" +"<h3 class= 'text-center place-dist'> Within " + data.distance + " miles of you! </h3>" + go_button + "<p class = 'place-desc'>" + data.desc + "</p>"
     var yelp_link = makeLink(data.yelp_link, "fa fa-yelp show-icon yg", " yelp")
     var google_link = makeLink(data.google_link, "fa fa-google show-icon yg", " places")
     var hr = document.createElement("hr");
 
     newdiv.appendChild(yelp_link)
-    if (google_link) { newdiv.appendChild(google_link) }
+    if (data.google_link) { newdiv.appendChild(google_link) }
     newdiv.appendChild(hr)
+
+
+    newdiv.setAttribute("class", data.id);
+
+    newdiv.appendChild(flagButton())
+
     $('#details').append(newdiv)
 
 

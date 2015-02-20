@@ -161,7 +161,13 @@ body {
 
 #go-link:hover {
   background: lightgrey;
+  text-decoration: none;
 }
+
+#go-link:visited:active {
+  text-decoration: none !important;
+}
+
 .link-text {
   font-family: 'Paytone One';
   color: dimgrey;

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post '/locations/show',  to: 'locations#show'
   post '/get_db_photos',    to: 'locations#get_db_photos'
   post '/address',        to: 'sessions#address_location'
+  post '/flag_photo',     to: 'photos#flag'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
