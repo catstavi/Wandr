@@ -254,11 +254,13 @@ function makeShowDivs(data) {
     yelp_link.setAttribute("class", "fa fa-yelp show-icon yg");
     $(yelp_link).html(" on yelp")
     yelp_link.innerHTML = "<span class = 'link-text'> yelp</span>";
-    var google_link = document.createElement("a")
+
+    var google_link = makeLink(data.google_link, "fa fa-google show-icon yg", " places")
     google_link.setAttribute("href", data.google_link)
     google_link.setAttribute("target", "directions");
     google_link.setAttribute("class", "fa fa-google show-icon yg");
     google_link.innerHTML = "<span class = 'link-text'> places</span>";
+
     var hr = document.createElement("hr");
     newdiv.appendChild(yelp_link)
     newdiv.appendChild(google_link)
@@ -274,6 +276,15 @@ function makeShowDivs(data) {
     newdiv.appendChild(go);
     $('#details').append(newdiv)
   }
+}
+
+function makeLink(href, class, text) {
+  var link = document.createELement("a")
+  google_link.setAttribute("href", href)
+  link.setAttribute("target", "directions");
+  link.setAttribute("class", class);
+  link.innerHTML = "<span class = 'link-text'>"+ text+ "</span>";
+
 }
 
 function allVisitedUrls() {
