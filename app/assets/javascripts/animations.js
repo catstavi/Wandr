@@ -7,6 +7,7 @@ $(document).ready(function(){
   });
 
   $("#land-link").click(function() {
+    hideDiv("#sorry");
     hideDiv("#howitworks");
     hideDiv("#loading");
     hideDiv("#photo-slides");
@@ -16,6 +17,7 @@ $(document).ready(function(){
   });
 
   $("#how-link").click(function() {
+    hideDiv("#sorry");
     hideDiv("#landing");
     hideDiv("#loading");
     hideDiv("#photo-slides");
@@ -25,6 +27,7 @@ $(document).ready(function(){
   });
 
   $("#team-link").click(function() {
+    hideDiv("#sorry");
     hideDiv("#landing");
     hideDiv("#loading");
     hideDiv("#photo-slides");
@@ -34,6 +37,7 @@ $(document).ready(function(){
   });
 
   $("#photo-link").click(function() {
+    hideDiv("#sorry");
     hideDiv("#howitworks");
     hideDiv("#loading");
     hideDiv("#landing");

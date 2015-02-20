@@ -28,7 +28,7 @@ class Location < ActiveRecord::Base
         location = Location.find_by(name: bus.name)
         if location.nil?
           cats = bus.categories.collect {|ar| ar.first}
-          if bus.snippet_text then cats << bus.snippet_text end
+          if bus.try(:snippet_text) then cats << bus.snippet_text end
           cats = cats.join(" ")
           new_locale = Location.create(name: bus.name, long: bus.location.coordinate.longitude,
                                        lat: bus.location.coordinate.latitude,
@@ -94,7 +94,7 @@ class Location < ActiveRecord::Base
     locs = filtered(lat,long)
     dist_hash = distance_hash(locs, lat, long)
     arry = locs.collect do |loc|
-      loc.photos.last(10).collect do |photo|
+      loc.photos.not_flagged.last(10).collect do |photo|
         { url: photo.url, id: loc.id, name: loc.name, desc: loc.desc, google_link: loc.google_link, yelp_link: loc.yelp_link, lat: loc.lat, long: loc.long, user_lat: lat, user_long: long, distance: dist_hash[loc.id] }
       end
     end
