@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
       session[:user_long] = a.lng
       all_ok
     else
-      render json: :nono {error: "Unable to interpret address.", status: 404 }, status: 404
+      render json: {error: "Unable to interpret address.", status: 404 }, status: 404
     end
   end
 
