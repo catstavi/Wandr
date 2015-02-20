@@ -280,9 +280,15 @@ function flagButton() {
 
 function makeShowDivs(data) {
   if ($('#details').children('.' + data.id).length == 0) {
-    var newdiv = document.createElement("div");
-    newdiv.innerHTML = "<div class = 'name-div'><hr class = 'hr-thing'><h1 class = 'place-name'>"+ data.name + "</h1></div><hr>" +"<h3 class= 'text-center place-dist'> Within " + data.distance + " miles of you! </h3>" + "<p class = 'place-desc'>" + data.desc + "</p>"
 
+    // make stuff for go there link
+    var dir_flag = calculateFlag(data.distance)
+    go_there_link = "https://maps.google.com?saddr=" + data.user_lat + "," + data.user_long +"&daddr="+ data.lat+","+data.long+dir_flag
+    var go_button = "<a href='" + go_there_link + "' target='directions' class='fa fa-map-marker show-icon' id='go-link'> <span class = 'go-text'> go there!</span> </a>"
+
+    // make div all the stuff goes in
+    var newdiv = document.createElement("div");
+    newdiv.innerHTML = "<div class = 'name-div'><hr class = 'hr-thing'><h1 class = 'place-name'>"+ data.name + "</h1></div><hr>" +"<h3 class= 'text-center place-dist'> Within " + data.distance + " miles of you! </h3>" + go_button + "<p class = 'place-desc'>" + data.desc + "</p>"
     var yelp_link = makeLink(data.yelp_link, "fa fa-yelp show-icon yg", " yelp")
     var google_link = makeLink(data.google_link, "fa fa-google show-icon yg", " places")
     var hr = document.createElement("hr");
@@ -291,15 +297,8 @@ function makeShowDivs(data) {
     if (data.google_link) { newdiv.appendChild(google_link) }
     newdiv.appendChild(hr)
 
-    var go = document.createElement("a");
-    var dir_flag = calculateFlag(data.distance)
-    go.setAttribute("href", "https://maps.google.com?saddr=" + data.user_lat + "," + data.user_long +"&daddr="+ data.lat+","+data.long+dir_flag);
-    go.setAttribute("target", "directions");
-    go.setAttribute("class", "fa fa-map-marker show-icon");
-    go.setAttribute("id", "go-link");
     newdiv.setAttribute("class", data.id);
-    go.innerHTML = "<span class = 'go-text'> go there!</span>";
-    newdiv.appendChild(go);
+
     newdiv.appendChild(flagButton())
     $('#details').append(newdiv)
   }
