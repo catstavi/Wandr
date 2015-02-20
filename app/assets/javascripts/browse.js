@@ -251,24 +251,28 @@ function calculateFlag(dist) {
 
 function flagPhotos() {
   console.log("let's flag it!")
-  // $.ajax({
-  //   type: 'POST',
-  //   url: "/flag_photo",
-  //   data: {
-  //     url: url
-  //   },
-  //   success: function(data) {
-  //     console.log("photo got flagged!")
-  //     // then remove photo and div
-  //
-  //   }
-  // })
+  photo_element = $("#all").children().children()
+  photo_url = photo_element.attr("src")
+  flagged_div = photo_element.parent();
+  nextPhoto();
+  flagged_div.remove();
+  $.ajax({
+    type: 'POST',
+    url: "/flag_photo",
+    data: {
+      photo_url: photo_url
+    },
+    success: function(data) {
+      console.log(data)
+      console.log("photo got flagged!")
+    }
+  })
 }
 
 function flagButton() {
   var flag = document.createElement("span")
   flag.setAttribute("class", "link-cursor")
-  flag.setAttribute("id", "flag-photo")
+  flag.setAttribute("id", "flag-photo:")
   flag.innerHTML = "flag this photo"
   $(flag).click(flagPhotos)
   return flag
