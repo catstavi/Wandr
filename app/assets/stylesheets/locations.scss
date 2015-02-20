@@ -29,7 +29,7 @@
   height:100px;
   font-size: 1.5em;
   opacity:0;
-  font-family: 'Cantarell';
+  font-family: 'Paytone One';
   color: #CFD11A;
   animation:move 2s linear infinite;
   -o-animation:move 2s linear infinite;
@@ -39,6 +39,7 @@
   -o-transform:rotate(180deg);
   -moz-transform:rotate(180deg);
   -webkit-transform:rotate(180deg);
+  text-transform: uppercase;
 }
 
 #load div:nth-child(2) {
