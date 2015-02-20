@@ -2,7 +2,7 @@ class GoogleRequester
 
   def self.check_for_updates(location)
 
-    if location.hours_updated_at == nil || location.hours_updated_at < Time.now - 2.weeks 
+    if location.hours_updated_at == nil || location.hours_updated_at < Time.now - 2.weeks
       if location.place_id == nil
         request(location)
       else
@@ -17,29 +17,24 @@ class GoogleRequester
       # add second search if first returns nothing using spots_by_query and city name
     if loc_arry.empty? then loc_arry = client.spots_by_query("#{location.name} in #{location.city}") end
     if loc_arry.empty?
-      location.update( hours_updated_at: Time.now )
+      nouns = KeyPhrases.extract_phrases(text)
+      location.update( hours_updated_at: Time.now, desc: nouns )
     else
       # save google place ID
       location.update(place_id: loc_arry[0].place_id, active: true, hours_updated_at: Time.now)
       #save hours in association with location
       # unless loc_arry[0].opening_hours == nil
-        get_hours_and_desc(location, client)
+      get_hours_and_desc(location, client)
       # end
     end
   end
+
 
 # maybe check # of calls left today??
   def self.get_desc(location, loc_data)
     review_text = loc_data.reviews.collect { |rev| rev.text }
     text = review_text.join(" ") + location.desc
-    text = text.strip.gsub(/[^A-Za-z0-9\s]/, '')
-    response = HTTParty.post("https://textanalysis.p.mashape.com/textblob-noun-phrase-extraction",
-        :headers => { 'X-Mashape-Key' => ENV["MASHAPE_KEY"] } ,
-        :body => "text= #{text}")
-    nouns = response.parsed_response["noun_phrases"].uniq
-    banned_words = %w[anyway thanks please this as at below for from of off onto over past per minus onto down not theres there thats is be was have has am are were been all on but and though tho in by under above onto into ive im ill hes shes wont cant hadnt havent wouldve couldnt shouldnt sure went stay lots]
-    nouns = nouns.collect {|noun| noun unless banned_words.include? noun }
-    location.update(desc: nouns.compact.join(", "))
+    location.update(desc: KeyPhrases.extract_phrases(text) )
   end
 
   def self.get_link(location, loc_data)
