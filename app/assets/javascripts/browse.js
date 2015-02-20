@@ -44,12 +44,13 @@ function submitAddress() {
         console.log("I saved a lat/long from your addresss!! NICE!!")
         console.log("meow!")
         // GET PHOTOS ALREADY IN DB
-        hideDiv("#address");
+        hideDiv("#address-section");
         showDiv("#loading");
         ajaxToDatabase();
       },
       error: function() {
         console.log("I didn't save the lat/long from your address. NOT NICE!! :(")
+        $("#error-msg").html("Could not interpret that address, please try again.")
       }
     })
   })
@@ -251,21 +252,15 @@ function makeShowDivs(data) {
   if ($('#details').children('.' + data.id).length == 0) {
     var newdiv = document.createElement("div");
     newdiv.innerHTML = "<div class = 'name-div'><hr class = 'hr-thing'><h1 class = 'place-name'>"+ data.name + "</h1></div><hr>" +"<h3 class= 'text-center place-dist'> Within " + data.distance + " miles of you! </h3>" + "<p class = 'place-desc'>" + data.desc + "</p>"
-    var yelp_link = document.createElement("a")
-    yelp_link.setAttribute("href", data.yelp_link)
-    yelp_link.setAttribute("target", "directions");
-    yelp_link.setAttribute("class", "fa fa-yelp show-icon yg");
-    $(yelp_link).html(" on yelp")
-    yelp_link.innerHTML = "<span class = 'link-text'> yelp</span>";
-    var google_link = document.createElement("a")
-    google_link.setAttribute("href", data.google_link)
-    google_link.setAttribute("target", "directions");
-    google_link.setAttribute("class", "fa fa-google show-icon yg");
-    google_link.innerHTML = "<span class = 'link-text'> places</span>";
+
+    var yelp_link = makeLink(data.yelp_link, "fa fa-yelp show-icon yg", " yelp")
+    var google_link = makeLink(data.google_link, "fa fa-google show-icon yg", " places")
     var hr = document.createElement("hr");
+
     newdiv.appendChild(yelp_link)
-    newdiv.appendChild(google_link)
+    if (google_link) { newdiv.appendChild(google_link) }
     newdiv.appendChild(hr)
+
     var go = document.createElement("a");
     var dir_flag = calculate_flag(data.distance)
     go.setAttribute("href", "https://maps.google.com?saddr=" + data.user_lat + "," + data.user_long +"&daddr="+ data.lat+","+data.long+dir_flag);
@@ -277,6 +272,15 @@ function makeShowDivs(data) {
     newdiv.appendChild(go);
     $('#details').append(newdiv)
   }
+}
+
+function makeLink(href_text, class_text, text) {
+    var link = document.createElement("a")
+    link.setAttribute("href", href_text)
+    link.setAttribute("target", "directions");
+    link.setAttribute("class", class_text);
+    link.innerHTML = "<span class = 'link-text'>"+ text+ "</span>";
+    return link
 }
 
 function allVisitedUrls() {
