@@ -33,7 +33,7 @@ class Location < ActiveRecord::Base
                                      lat: bus.location.coordinate.latitude,
                                      active: !bus.is_closed, desc: cats,
                                      city: bus.location.city, yelp_link: bus.mobile_url)
-        if location.active
+        if new_locale.active
           GoogleRequester.request(new_locale)
           InstagramRequester.save_photos_by_location(new_locale)
         end

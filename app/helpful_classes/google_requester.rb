@@ -2,7 +2,7 @@ class GoogleRequester
 
   def self.check_for_updates(location)
 
-    if location.hours_updated_at == nil || location.hours_updated_at < Time.now - 2.weeks 
+    if location.hours_updated_at == nil || location.hours_updated_at < Time.now - 2.weeks
       if location.place_id == nil
         request(location)
       else
@@ -23,7 +23,7 @@ class GoogleRequester
       location.update(place_id: loc_arry[0].place_id, active: true, hours_updated_at: Time.now)
       #save hours in association with location
       # unless loc_arry[0].opening_hours == nil
-        get_hours_and_desc(location, client)
+      get_hours_and_desc(location, client)
       # end
     end
   end
