@@ -7,6 +7,10 @@ class SessionsController < ApplicationController
   end
 
   def address_location
+    # use this fake place to test the sorry div
+    # session[:user_lat] = 42.191954
+    # session[:user_long] = -108.450101
+    # all_ok
     a = Geokit::Geocoders::GoogleGeocoder.geocode params[:address]
     if a.success
       session[:user_lat] = a.lat

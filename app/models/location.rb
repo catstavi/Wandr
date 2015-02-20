@@ -45,6 +45,7 @@ class Location < ActiveRecord::Base
           InstagramRequester.check_for_updates(location)
 
         end
+      end
       # check (rescue) for rate limit and stop API requests for set time period
     rescue Exception => exc
       logger.error("Message for the log file #{exc.message}")
