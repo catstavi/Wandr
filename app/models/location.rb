@@ -27,7 +27,7 @@ class Location < ActiveRecord::Base
       location = Location.find_by(name: bus.name)
       if location.nil?
         cats = bus.categories.collect {|ar| ar.first}
-        cats << bus.snippet_text
+        if bus.snippet_text then cats << bus.snippet_text end
         cats = cats.join(" ")
         new_locale = Location.create(name: bus.name, long: bus.location.coordinate.longitude,
                                      lat: bus.location.coordinate.latitude,
