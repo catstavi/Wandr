@@ -75,7 +75,6 @@ function findPosition(position) {
   });
 };
 
-
 function addSwipesToElem(elem) {
   elem.on("swipeleft", nextPhoto )
   elem.on("swiperight", prevPhoto )
@@ -112,8 +111,6 @@ function prevPhoto() {
   addPhoto(prev_div)
   showDetails(prev_div)
 }
-
-
 
 function addPhoto(active_div) {
   console.log("lets try to add a photo to " + active_div)
@@ -244,13 +241,39 @@ function AppendNew(data, classname) {
   }
 }
 
-function calculate_flag(dist) {
+function calculateFlag(dist) {
   if (dist < 1.5 ) {
     return "&dirflg=w";
   } else {
     return "";
   }
 }
+
+function flagPhotos() {
+  console.log("let's flag it!")
+  // $.ajax({
+  //   type: 'POST',
+  //   url: "/flag_photo",
+  //   data: {
+  //     url: url
+  //   },
+  //   success: function(data) {
+  //     console.log("photo got flagged!")
+  //     // then remove photo and div
+  //
+  //   }
+  // })
+}
+
+function flagButton() {
+  var flag = document.createElement("span")
+  flag.setAttribute("class", "link-cursor")
+  flag.setAttribute("id", "flag-photo")
+  flag.innerHTML = "flag this photo"
+  $(flag).click(flagPhotos)
+  return flag
+}
+
 function makeShowDivs(data) {
   if ($('#details').children('.' + data.id).length == 0) {
     var newdiv = document.createElement("div");
@@ -265,7 +288,7 @@ function makeShowDivs(data) {
     newdiv.appendChild(hr)
 
     var go = document.createElement("a");
-    var dir_flag = calculate_flag(data.distance)
+    var dir_flag = calculateFlag(data.distance)
     go.setAttribute("href", "https://maps.google.com?saddr=" + data.user_lat + "," + data.user_long +"&daddr="+ data.lat+","+data.long+dir_flag);
     go.setAttribute("target", "directions");
     go.setAttribute("class", "fa fa-map-marker show-icon");
@@ -273,6 +296,7 @@ function makeShowDivs(data) {
     newdiv.setAttribute("class", data.id);
     go.innerHTML = "<span class = 'go-text'> go there!</span>";
     newdiv.appendChild(go);
+    newdiv.appendChild(flagButton())
     $('#details').append(newdiv)
   }
 }
