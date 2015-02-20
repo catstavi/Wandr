@@ -288,7 +288,7 @@ function makeShowDivs(data) {
     var hr = document.createElement("hr");
 
     newdiv.appendChild(yelp_link)
-    if (google_link) { newdiv.appendChild(google_link) }
+    if (data.google_link) { newdiv.appendChild(google_link) }
     newdiv.appendChild(hr)
 
     var go = document.createElement("a");
