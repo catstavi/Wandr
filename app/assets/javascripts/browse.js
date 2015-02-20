@@ -187,6 +187,9 @@ function ajaxTriggerApiCalls(already_loaded) {
     success: function(data) {
       //add divs to view
       console.log("SUCCESS!!!!!!!!");
+      if (data.length == 0) {
+        showDiv("#sorry")
+      }
       DeleteUnvisited();
       AppendNew(data, "new");
       addSwipeEvents($('#all').children(".new"))
