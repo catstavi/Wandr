@@ -297,10 +297,14 @@ function makeShowDivs(data) {
     if (data.google_link) { newdiv.appendChild(google_link) }
     newdiv.appendChild(hr)
 
+
     newdiv.setAttribute("class", data.id);
 
     newdiv.appendChild(flagButton())
+
     $('#details').append(newdiv)
+
+
   }
 }
 

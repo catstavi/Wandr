@@ -22,6 +22,9 @@ body {
   padding: 0;
 }
 
+#add-con-mob {
+  display: none;
+}
 .hr-thing {
   margin: 0;
   padding: 0;
@@ -44,7 +47,7 @@ body {
 #wtf {
   font-size: 7em;
   color: #CFD11A;
-  width: 100px;
+  width: 70px;
 }
 #address-section {
   top: -100%;
@@ -104,6 +107,7 @@ body {
   border-bottom-left-radius: 25px;
   font-family: 'Cantarell';
   background: white;
+  color: black;
 }
 
 #add-con {
@@ -521,7 +525,49 @@ color:#ec8007
 }
 
 @media (max-width: 768px) {
+  #wtf {
+    margin-top: -60px;
+  }
+  #add-con {
+    display: none;
+  }
 
+  #add-con-mob {
+    display: block;
+  }
+
+
+  #add-con-mob #address {
+    border-radius: 25px;
+    // width: 200px;
+    display: block;
+    // margin: 10px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+
+  #add-con-mob .actions {
+    display: block;
+    // width: 200px;
+    margin: 0 auto;
+  }
+
+
+
+  #add-con-mob .actions input {
+    border: none;
+    display: block;
+    margin: 0 auto;
+    padding: 11px;
+    border-radius: 25px;
+    font-family: 'Paytone One';
+    font-size: 1.05em;
+    background: #CFD11A;
+    color: dimgrey;
+    // font-size: 1.1em;
+    // font-family: 'Paytone One';
+    // font-size: .9em;
+  }
   .place-name {
     // margin-top: 35px;
     font-size: 2em;
@@ -614,5 +660,10 @@ color:#ec8007
 
   #learn {
     margin: 0;
+  }
+
+  .phot {
+    width: 250px;
+    height: 250px;
   }
 }
