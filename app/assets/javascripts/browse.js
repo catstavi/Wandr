@@ -37,6 +37,13 @@ function submitAddress() {
     e.preventDefault();
     if ($("#address").val() === "actually, I'm just hungry" ) {
       console.log("going to Rachelle's!")
+      var hangry_link = document.createElement("a")
+      hangry_link.setAttribute("href", "http://hangrynoms.com")
+      var noms_pic = document.createElement("img")
+      noms_pic.setAttribute("src", "http://cdn.scratch.mit.edu/static/site/users/avatars/454/7673.png")
+      noms_pic.setAttribute("class", "hangry-link")
+      hangry_link.appendChild(noms_pic)
+      $("#address-section").append(hangry_link)
     }
     else {
       var $form = $(this);
