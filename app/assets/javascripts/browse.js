@@ -22,6 +22,10 @@ $(document).ready(function(){
 
   $('#left-g').click(prevPhoto);
   $('#right-g').click(nextPhoto);
+  $("#address_submit").submit(function(e) {
+    e.preventDefault();
+    submitAddress()
+  })
 
 });
 
@@ -29,13 +33,11 @@ function prepareAddressForm() {
   console.log('WHERE ARE YOU????');
   showDiv("#address-section");
   hideDiv("#loading");
-  submitAddress();
 }
 
 function submitAddress() {
-  $("#address_submit").submit(function(e) {
-    e.preventDefault();
-    if ($("#address").val() === "actually, I'm just hungry" ) {
+    var addr = $("#address").val()
+    if ( addr === "actually, I'm just hungry" ) {
       console.log("going to Rachelle's!")
       var hangry_link = document.createElement("a")
       hangry_link.setAttribute("href", "http://hangrynoms.com")
@@ -46,11 +48,12 @@ function submitAddress() {
       $("#address-section").append(hangry_link)
     }
     else {
-      var $form = $(this);
       $.ajax({
         url: '/address',
         type: 'POST',
-        data: $form.serialize(),
+        data: {
+          address: addr
+        },
         success: function() {
           console.log("I saved a lat/long from your addresss!! NICE!!")
           console.log("meow!")
@@ -65,7 +68,6 @@ function submitAddress() {
         }
       })
     }
-  })
 }
 
 function findPosition(position) {
@@ -151,6 +153,9 @@ function addClassVisited(div) {
 };
 
 function ajaxToDatabase() {
+  $('#all').children().remove();
+  $('#details').children().remove();
+  $('#photo-link').css("display", "none");
   console.log("hey girl")
   $.ajax({
     type: 'POST',
@@ -161,8 +166,6 @@ function ajaxToDatabase() {
       //if a user hits the wander button a second time, without refreshing the page
       // it removes old divs and finds again (your location may have changed)
       if (db_loaded) {
-        $('#all').children().remove();
-        $('#details').children().remove();
         AppendNew(data, "old");
         addSwipeEvents($('#all').children());
         handleLoadedPhotos();
@@ -179,6 +182,7 @@ function ajaxToDatabase() {
 
 function handleLoadedPhotos() {
   var first_div = $('#all').children().eq(0);
+  console.log("adding photo to first div")
   addPhoto(first_div);
   showDetails(first_div)
   addClassVisited(first_div)
