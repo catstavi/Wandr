@@ -83,7 +83,7 @@
   </div>
 
   <div class = "" id = "add-con-mob">
-    <%= form_tag "/address", id: "address_submit" do %> <!-- form_tag because not working off a model-->
+    <%= form_tag "/address", id: "address_submit_mob" do %> <!-- form_tag because not working off a model-->
       <br>
       <div class="field col-md-12">             <!-- sessions_path will trigger create action in sessions controller-->
         <%= text_field_tag :address, params[:address], placeholder: "221 B Baker St, London, England" %>

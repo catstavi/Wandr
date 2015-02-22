@@ -24,7 +24,11 @@ $(document).ready(function(){
   $('#right-g').click(nextPhoto);
   $("#address_submit").submit(function(e) {
     e.preventDefault();
-    submitAddress()
+    submitAddress($(this))
+  })
+  $("#address_submit_mob").submit(function(e) {
+    e.preventDefault();
+    submitAddress($(this))
   })
 
 });
@@ -35,8 +39,8 @@ function prepareAddressForm() {
   hideDiv("#loading");
 }
 
-function submitAddress() {
-    var addr = $("#address").val()
+function submitAddress($form) {
+    var addr = $form.children().children("#address").val()
     if ( addr === "actually, I'm just hungry" ) {
       console.log("going to Rachelle's!")
       var hangry_link = document.createElement("a")
@@ -131,7 +135,10 @@ function addPhoto(active_div) {
   var photo = document.createElement("img");
   photo.setAttribute("src", active_div.attr('id'));
   photo.setAttribute("class", "link-cursor");
-  active_div.append(photo);
+  var scroller =  document.createElement("a");
+  scroller.setAttribute("href", "#show-con");
+  scroller.appendChild(photo)
+  active_div.append(scroller);
 }
 
 function showDetails(active_div) {
