@@ -35,24 +35,29 @@ function prepareAddressForm() {
 function submitAddress() {
   $("#address_submit").submit(function(e) {
     e.preventDefault();
-    var $form = $(this);
-    $.ajax({
-      url: '/address',
-      type: 'POST',
-      data: $form.serialize(),
-      success: function() {
-        console.log("I saved a lat/long from your addresss!! NICE!!")
-        console.log("meow!")
-        // GET PHOTOS ALREADY IN DB
-        hideDiv("#address-section");
-        showDiv("#loading");
-        ajaxToDatabase();
-      },
-      error: function() {
-        console.log("I didn't save the lat/long from your address. NOT NICE!! :(")
-        $("#error-msg").html("Could not interpret that address, please try again.")
-      }
-    })
+    if ($("#address").val() === "actually, I'm just hungry" ) {
+      console.log("going to Rachelle's!")
+    }
+    else {
+      var $form = $(this);
+      $.ajax({
+        url: '/address',
+        type: 'POST',
+        data: $form.serialize(),
+        success: function() {
+          console.log("I saved a lat/long from your addresss!! NICE!!")
+          console.log("meow!")
+          // GET PHOTOS ALREADY IN DB
+          hideDiv("#address-section");
+          showDiv("#loading");
+          ajaxToDatabase();
+        },
+        error: function() {
+          console.log("I didn't save the lat/long from your address. NOT NICE!! D:" )
+          $("#error-msg").html("Could not interpret that address, please try again.")
+        }
+      })
+    }
   })
 }
 
