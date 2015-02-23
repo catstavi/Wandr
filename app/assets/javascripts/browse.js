@@ -134,7 +134,7 @@ function addPhoto(active_div) {
   console.log("lets try to add a photo to " + active_div)
   var photo = document.createElement("img");
   photo.setAttribute("src", active_div.attr('id'));
-  photo.setAttribute("class", "link-cursor");
+  // photo.setAttribute("class", "link-cursor");
   // var scroller =  document.createElement("a");
   // scroller.setAttribute("href", "#show-con");
   // scroller.appendChild(photo)
