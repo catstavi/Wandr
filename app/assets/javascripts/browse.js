@@ -23,6 +23,14 @@ $(document).ready(function(){
 
   $('#left-g').click(prevPhoto);
   $('#right-g').click(nextPhoto);
+  $("#address_submit").submit(function(e) {
+    e.preventDefault();
+    submitAddress($(this))
+  })
+  $("#address_submit_mob").submit(function(e) {
+    e.preventDefault();
+    submitAddress($(this))
+  })
 
 });
 
@@ -30,32 +38,42 @@ function prepareAddressForm() {
   console.log('WHERE ARE YOU????');
   showDiv("#address-section");
   hideDiv("#loading");
-  submitAddress();
 }
 
-function submitAddress() {
-  $("#address_submit").submit(function(e) {
-    e.preventDefault();
-    var $form = $(this);
-    $.ajax({
-      url: '/address',
-      type: 'POST',
-      data: $form.serialize(),
-      success: function() {
-        console.log("I saved a lat/long from your addresss!! NICE!!")
-        console.log("meow!")
-        // GET PHOTOS ALREADY IN DB
-        hideDiv("#address-section");
-        showDiv("#loading");
-        ajaxToDatabase();
-      },
-      error: function() {
-        console.log("I didn't save the lat/long from your address. NOT NICE!! :(")
-        message = "<p>Could not interpret that address, please try again.</p>"
-        $("#error-msg").append(message);
-      }
-    })
-  })
+function submitAddress($form) {
+    var addr = $form.children().children("#address").val()
+    if ( addr === "actually, I'm just hungry" ) {
+      console.log("going to Rachelle's!")
+      var hangry_link = document.createElement("a")
+      hangry_link.setAttribute("href", "http://hangrynoms.com")
+      var noms_pic = document.createElement("img")
+      noms_pic.setAttribute("src", "http://cdn.scratch.mit.edu/static/site/users/avatars/454/7673.png")
+      noms_pic.setAttribute("class", "hangry-link")
+      hangry_link.appendChild(noms_pic)
+      $("#address-section").append(hangry_link)
+    }
+    else {
+      $.ajax({
+        url: '/address',
+        type: 'POST',
+        data: {
+          address: addr
+        },
+        success: function() {
+          console.log("I saved a lat/long from your addresss!! NICE!!")
+          console.log("meow!")
+          // GET PHOTOS ALREADY IN DB
+          hideDiv("#address-section");
+          showDiv("#loading");
+          ajaxToDatabase();
+        },
+        error: function() {
+          console.log("I didn't save the lat/long from your address. NOT NICE!! :(")
+          message = "<p>Could not interpret that address, please try again.</p>"
+          $("#error-msg").append(message);
+        }
+      })
+    }
 }
 
 function findPosition(position) {
@@ -118,7 +136,10 @@ function addPhoto(active_div) {
   console.log("lets try to add a photo to " + active_div)
   var photo = document.createElement("img");
   photo.setAttribute("src", active_div.attr('id'));
-  photo.setAttribute("class", "link-cursor");
+  // photo.setAttribute("class", "link-cursor");
+  // var scroller =  document.createElement("a");
+  // scroller.setAttribute("href", "#show-con");
+  // scroller.appendChild(photo)
   active_div.append(photo);
 }
 
@@ -141,6 +162,9 @@ function addClassVisited(div) {
 };
 
 function ajaxToDatabase() {
+  $('#all').children().remove();
+  $('#details').children().remove();
+  $('#photo-link').css("display", "none");
   console.log("hey girl")
   $.ajax({
     type: 'POST',
@@ -151,8 +175,6 @@ function ajaxToDatabase() {
       //if a user hits the wander button a second time, without refreshing the page
       // it removes old divs and finds again (your location may have changed)
       if (db_loaded) {
-        $('#all').children().remove();
-        $('#details').children().remove();
         AppendNew(data, "old");
         addSwipeEvents($('#all').children());
         handleLoadedPhotos();
@@ -169,6 +191,7 @@ function ajaxToDatabase() {
 
 function handleLoadedPhotos() {
   var first_div = $('#all').children().eq(0);
+  console.log("adding photo to first div")
   addPhoto(first_div);
   showDetails(first_div)
   addClassVisited(first_div)
