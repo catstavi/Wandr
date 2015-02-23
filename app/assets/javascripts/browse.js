@@ -44,14 +44,16 @@ function prepareAddressForm() {
 function submitAddress($form) {
     var addr = $form.children().children("#address").val()
     if ( addr === "actually, I'm just hungry" ) {
-      console.log("going to Rachelle's!")
+      console.log("Thanks to www.pusheen.com for the image!")
       var hangry_link = document.createElement("a")
       hangry_link.setAttribute("href", "http://hangrynoms.com")
+      hangry_link.setAttribute("class", "center-block")
       hangry_link.setAttribute("id", "hangry-link" )
       var noms_pic = document.createElement("img")
       noms_pic.setAttribute("src", "http://cdn.scratch.mit.edu/static/site/users/avatars/454/7673.png")
       noms_pic.setAttribute("class", "hangry-pic center-block")
       hangry_link.appendChild(noms_pic)
+      hangry_link.innerHTML = hangry_link.innerHTML + "<h4 id= 'hangry-text'> Maybe you should visit HangryNoms.com </h4>";
       $("#address-section").append(hangry_link)
     }
     else {

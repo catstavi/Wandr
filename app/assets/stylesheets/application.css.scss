@@ -57,7 +57,26 @@ body {
   border: 5px solid rgba(0, 0, 0, 0.35);
   border-radius: 100%;
   margin-top: 20px;
+}
 
+.hangry-pic:hover {
+  border: 5px solid rgba(0, 0, 0, 0.73);
+}
+
+#hangry-link {
+  color: #777;
+  text-decoration: none;
+}
+
+#hangry-text {
+  // font-family: 'Canterell';
+  text-align: center;
+  text-size: 2em;
+}
+
+#hangry-link:hover {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.73);
 }
 
 #details div {
