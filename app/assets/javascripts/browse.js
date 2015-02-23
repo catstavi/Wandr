@@ -135,10 +135,10 @@ function addPhoto(active_div) {
   var photo = document.createElement("img");
   photo.setAttribute("src", active_div.attr('id'));
   photo.setAttribute("class", "link-cursor");
-  var scroller =  document.createElement("a");
-  scroller.setAttribute("href", "#show-con");
-  scroller.appendChild(photo)
-  active_div.append(scroller);
+  // var scroller =  document.createElement("a");
+  // scroller.setAttribute("href", "#show-con");
+  // scroller.appendChild(photo)
+  active_div.append(photo);
 }
 
 function showDetails(active_div) {
