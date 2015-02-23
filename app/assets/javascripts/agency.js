@@ -13,9 +13,12 @@ $(function() {
         }, 1500, 'easeInOutExpo');
         event.preventDefault();
     });
+
+  $('.navbar-collapse ul li a').click(function() {
+      $('.navbar-toggle:visible').click();
+      console.log("hide nav!!")
+  });
+  
 });
 
 // Closes the Responsive Menu on Menu Item Click
-$('.navbar-collapse ul li a').click(function() {
-    $('.navbar-toggle:visible').click();
-});
