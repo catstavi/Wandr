@@ -1,5 +1,6 @@
 $(document).ready(function(){
   console.log("The document is ready!")
+  $("body").css("display", "block")
   $('#click').click(function(){
 
     if (navigator.geolocation) {
@@ -67,8 +68,9 @@ function submitAddress($form) {
           ajaxToDatabase();
         },
         error: function() {
-          console.log("I didn't save the lat/long from your address. NOT NICE!! D:" )
-          $("#error-msg").html("Could not interpret that address, please try again.")
+          console.log("I didn't save the lat/long from your address. NOT NICE!! :(")
+          message = "<p>Could not interpret that address, please try again.</p>"
+          $("#error-msg").append(message);
         }
       })
     }
@@ -296,7 +298,8 @@ function flagButton() {
   var flag = document.createElement("span")
   flag.setAttribute("class", "link-cursor")
   flag.setAttribute("id", "flag-photo:")
-  flag.innerHTML = "flag this photo"
+  var flagmessage = "<i class = 'fa fa-flag-o flagi'></i><span id = 'flagme'>  Flag this photo</span>"
+  $(flag).append(flagmessage)
   $(flag).click(flagPhotos)
   return flag
 }

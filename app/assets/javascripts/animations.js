@@ -58,7 +58,7 @@ function showDiv(div_id) {
   )}
 
 function quickHide(div_id) {
-  $( div_id ).css("top", "-100%")
+  $( div_id ).css("top", "-110%")
 }
 
 function quickShow(div_id) {
@@ -83,7 +83,7 @@ function fadeIn(div_id) {
 
 function hideDiv(div_id) {
   $( div_id ).animate({
-    top: "-100%"
+    top: "-110%"
   }, 1000, function() {
     // Animation complete.
   });
