@@ -296,6 +296,7 @@ function makeShowDivs(data) {
     var google_link = makeLink(data.google_link, "fa fa-google show-icon yg", " places")
     var hr = document.createElement("hr");
 
+    newdiv.appendChild(flagButton())
     newdiv.appendChild(yelp_link)
     if (data.google_link) { newdiv.appendChild(google_link) }
     // newdiv.appendChild(hr)
@@ -303,7 +304,6 @@ function makeShowDivs(data) {
 
     newdiv.setAttribute("class", data.id);
 
-    newdiv.appendChild(flagButton())
 
     $('#details').append(newdiv)
 
