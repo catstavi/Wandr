@@ -1,4 +1,7 @@
 == README
+
+See this project in action at http://wandrwith.us !
+
 This is the capstone project of @catstavi and @lilyfromseattle. The Ada Capstone project represents one month of work to build a full project from scratch.
 
 This is a single page rails app that relies on AJAX to create a smooth user experience.
